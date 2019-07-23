@@ -1,6 +1,7 @@
 package com.roku.cloudgo.service;
 
-import com.roku.cloudgo.mapper.ExampleMapper;
+import com.roku.cloudgo.mapper.ExamplePojoMapper;
+import com.roku.cloudgo.pojo.ExamplePojoExample;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -8,10 +9,12 @@ import javax.annotation.Resource;
 @Service
 public class ExampleService {
     @Resource
-    private ExampleMapper exampleMapper;
+    private ExamplePojoMapper examplePojoMapper;
 
-    public int getAge(String name)
+    public int getAgeByName(String name)
     {
-        return exampleMapper.getPojo(name).getAge();
+        ExamplePojoExample example = new ExamplePojoExample();
+        example.createCriteria().andNameEqualTo(name);
+        return examplePojoMapper.selectByExample(example).get(0).getAge();
     }
 }

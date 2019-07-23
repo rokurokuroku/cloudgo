@@ -25,6 +25,6 @@ public class ExampleController {
     @ResponseBody
     public String getAge(@RequestParam("name") String name)
     {
-        return String.valueOf(exampleService.getAge(name));
+        return String.valueOf(exampleService.getAgeByName(name));
     }
 }
