@@ -16,9 +16,9 @@
         <!-- mysql8连接 -->
         <!-- Warning -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/project?useSSL=false&amp;serverTimezone=UTC"
-                        userId="root"
-                        password="wyl92645">
+                        connectionURL="jdbc:mysql://localhost:3306/roku?useSSL=false&amp;serverTimezone=UTC"
+                        userId="roku"
+                        password="roku">
         </jdbcConnection>
         <!-- mysql5连接 -->
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -30,20 +30,20 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.roku.cloudgo.pojo" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- 生成的映射文件包名和位置 -->
-        <sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO（mapper）的包名和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.roku.cloudgo.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 要生成那些表 tableName：数据库中预先建立好的表名 domainObjectName：要生产的实体类名称-->
-        <table tableName="dogs" domainObjectName="Dog" enableCountByExample="false"
+        <table tableName="" domainObjectName="" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />
     </context>
