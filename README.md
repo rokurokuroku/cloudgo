@@ -1,3 +1,9 @@
-##JavaWeb实训项目  
+# JavaWeb实训项目  
   
-0.0.1
+ver0.0.1  
+
+# mysql初始化
+create user "roku"@"localhost" identified by "roku";
+use mysql
+update user set authentication_string='roku' where user='roku';
+create database roku;
