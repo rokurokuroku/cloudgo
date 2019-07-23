@@ -60,7 +60,7 @@ auto_increment = 10000;
 /*==============================================================*/
 create table products
 (
-   product_id           integer(30) not null auto_increment,
+   product_id           integer(30) not null,
    seller_id            integer(12) not null,
    product_price        float(15) not null default 0.0,
    product_remaining    integer(10) not null default 0,
@@ -69,8 +69,7 @@ create table products
    product_image        integer(20) not null default 0,
    product_mark         float(3) not null default 0,
    primary key (product_id)
-)
-auto_increment = 10000;
+);
 
 /*==============================================================*/
 /* Table: sellers                                               */
