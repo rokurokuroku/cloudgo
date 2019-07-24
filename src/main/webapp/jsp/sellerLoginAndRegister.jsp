@@ -61,7 +61,7 @@
     <!-- 登录 -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active " id="login" style="position: center">
-            <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%);">
+            <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%);" action="toLogin">
 
                 <h1 class="mb-4 font-weight-normal">店家登录</h1>
 
@@ -87,7 +87,7 @@
 
         <!--注册--->
         <div role="tabpanel" class="tab-pane" id="register">
-            <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);">
+            <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toRegister">
                 <h1 class="mb-4 font-weight-normal">店家注册</h1>
 
                 <label for="inputUsername" class="sr-only">商店名</label>
