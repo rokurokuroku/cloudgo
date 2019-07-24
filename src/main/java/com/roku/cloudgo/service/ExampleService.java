@@ -1,6 +1,7 @@
 package com.roku.cloudgo.service;
 
-import com.roku.cloudgo.mapper.ExamplePojoMapper;
+
+import com.roku.cloudgo.DAO.mapper.ExamplePojoMapper;
 import com.roku.cloudgo.pojo.ExamplePojoExample;
 import org.springframework.stereotype.Service;
 
