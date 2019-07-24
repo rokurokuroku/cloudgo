@@ -142,52 +142,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdEqualTo(Integer value) {
+        public Criteria andOrderIdEqualTo(Long value) {
             addCriterion("order_id =", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotEqualTo(Integer value) {
+        public Criteria andOrderIdNotEqualTo(Long value) {
             addCriterion("order_id <>", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdGreaterThan(Integer value) {
+        public Criteria andOrderIdGreaterThan(Long value) {
             addCriterion("order_id >", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOrderIdGreaterThanOrEqualTo(Long value) {
             addCriterion("order_id >=", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdLessThan(Integer value) {
+        public Criteria andOrderIdLessThan(Long value) {
             addCriterion("order_id <", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdLessThanOrEqualTo(Integer value) {
+        public Criteria andOrderIdLessThanOrEqualTo(Long value) {
             addCriterion("order_id <=", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIn(List<Integer> values) {
+        public Criteria andOrderIdIn(List<Long> values) {
             addCriterion("order_id in", values, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotIn(List<Integer> values) {
+        public Criteria andOrderIdNotIn(List<Long> values) {
             addCriterion("order_id not in", values, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdBetween(Integer value1, Integer value2) {
+        public Criteria andOrderIdBetween(Long value1, Long value2) {
             addCriterion("order_id between", value1, value2, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andOrderIdNotBetween(Long value1, Long value2) {
             addCriterion("order_id not between", value1, value2, "orderId");
             return (Criteria) this;
         }
@@ -202,52 +202,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdEqualTo(Integer value) {
+        public Criteria andBuyerIdEqualTo(Long value) {
             addCriterion("buyer_id =", value, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdNotEqualTo(Integer value) {
+        public Criteria andBuyerIdNotEqualTo(Long value) {
             addCriterion("buyer_id <>", value, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdGreaterThan(Integer value) {
+        public Criteria andBuyerIdGreaterThan(Long value) {
             addCriterion("buyer_id >", value, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andBuyerIdGreaterThanOrEqualTo(Long value) {
             addCriterion("buyer_id >=", value, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdLessThan(Integer value) {
+        public Criteria andBuyerIdLessThan(Long value) {
             addCriterion("buyer_id <", value, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdLessThanOrEqualTo(Integer value) {
+        public Criteria andBuyerIdLessThanOrEqualTo(Long value) {
             addCriterion("buyer_id <=", value, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdIn(List<Integer> values) {
+        public Criteria andBuyerIdIn(List<Long> values) {
             addCriterion("buyer_id in", values, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdNotIn(List<Integer> values) {
+        public Criteria andBuyerIdNotIn(List<Long> values) {
             addCriterion("buyer_id not in", values, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdBetween(Integer value1, Integer value2) {
+        public Criteria andBuyerIdBetween(Long value1, Long value2) {
             addCriterion("buyer_id between", value1, value2, "buyerId");
             return (Criteria) this;
         }
 
-        public Criteria andBuyerIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andBuyerIdNotBetween(Long value1, Long value2) {
             addCriterion("buyer_id not between", value1, value2, "buyerId");
             return (Criteria) this;
         }
@@ -262,52 +262,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdEqualTo(Integer value) {
+        public Criteria andSellerIdEqualTo(Long value) {
             addCriterion("seller_id =", value, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdNotEqualTo(Integer value) {
+        public Criteria andSellerIdNotEqualTo(Long value) {
             addCriterion("seller_id <>", value, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdGreaterThan(Integer value) {
+        public Criteria andSellerIdGreaterThan(Long value) {
             addCriterion("seller_id >", value, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSellerIdGreaterThanOrEqualTo(Long value) {
             addCriterion("seller_id >=", value, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdLessThan(Integer value) {
+        public Criteria andSellerIdLessThan(Long value) {
             addCriterion("seller_id <", value, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSellerIdLessThanOrEqualTo(Long value) {
             addCriterion("seller_id <=", value, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdIn(List<Integer> values) {
+        public Criteria andSellerIdIn(List<Long> values) {
             addCriterion("seller_id in", values, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdNotIn(List<Integer> values) {
+        public Criteria andSellerIdNotIn(List<Long> values) {
             addCriterion("seller_id not in", values, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdBetween(Integer value1, Integer value2) {
+        public Criteria andSellerIdBetween(Long value1, Long value2) {
             addCriterion("seller_id between", value1, value2, "sellerId");
             return (Criteria) this;
         }
 
-        public Criteria andSellerIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSellerIdNotBetween(Long value1, Long value2) {
             addCriterion("seller_id not between", value1, value2, "sellerId");
             return (Criteria) this;
         }
@@ -322,52 +322,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andProductIdEqualTo(Integer value) {
+        public Criteria andProductIdEqualTo(Long value) {
             addCriterion("product_id =", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdNotEqualTo(Integer value) {
+        public Criteria andProductIdNotEqualTo(Long value) {
             addCriterion("product_id <>", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdGreaterThan(Integer value) {
+        public Criteria andProductIdGreaterThan(Long value) {
             addCriterion("product_id >", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andProductIdGreaterThanOrEqualTo(Long value) {
             addCriterion("product_id >=", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdLessThan(Integer value) {
+        public Criteria andProductIdLessThan(Long value) {
             addCriterion("product_id <", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdLessThanOrEqualTo(Integer value) {
+        public Criteria andProductIdLessThanOrEqualTo(Long value) {
             addCriterion("product_id <=", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdIn(List<Integer> values) {
+        public Criteria andProductIdIn(List<Long> values) {
             addCriterion("product_id in", values, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdNotIn(List<Integer> values) {
+        public Criteria andProductIdNotIn(List<Long> values) {
             addCriterion("product_id not in", values, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdBetween(Integer value1, Integer value2) {
+        public Criteria andProductIdBetween(Long value1, Long value2) {
             addCriterion("product_id between", value1, value2, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andProductIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andProductIdNotBetween(Long value1, Long value2) {
             addCriterion("product_id not between", value1, value2, "productId");
             return (Criteria) this;
         }

@@ -14,6 +14,8 @@ drop table if exists products;
 
 drop table if exists sellers;
 
+drop table if exists example;
+
 /*==============================================================*/
 /* Table: BankRole                                              */
 /*==============================================================*/
@@ -94,3 +96,13 @@ create table sellers
    primary key (seller_id, seller_name)
 )
 auto_increment = 10000;
+
+/*==============================================================*/
+/* Table: example                                               */
+/*==============================================================*/
+create table example
+(
+   name varchar(20) not null,
+   age integer not null
+);
+

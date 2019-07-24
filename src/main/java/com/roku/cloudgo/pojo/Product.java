@@ -1,36 +1,46 @@
 package com.roku.cloudgo.pojo;
 
 public class Product {
-    private Integer productId;
+    private Long productId;
 
-    private Integer sellerId;
+    private Long sellerId;
+
+    private String productName;
 
     private Float productPrice;
 
-    private Integer productRemaining;
+    private Long productRemaining;
 
-    private Integer productSales;
+    private Long productSales;
 
     private String productDescription;
 
-    private Integer productImage;
+    private Long productImage;
 
     private Float productMark;
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
-    public Integer getSellerId() {
+    public Long getSellerId() {
         return sellerId;
     }
 
-    public void setSellerId(Integer sellerId) {
+    public void setSellerId(Long sellerId) {
         this.sellerId = sellerId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName == null ? null : productName.trim();
     }
 
     public Float getProductPrice() {
@@ -41,19 +51,19 @@ public class Product {
         this.productPrice = productPrice;
     }
 
-    public Integer getProductRemaining() {
+    public Long getProductRemaining() {
         return productRemaining;
     }
 
-    public void setProductRemaining(Integer productRemaining) {
+    public void setProductRemaining(Long productRemaining) {
         this.productRemaining = productRemaining;
     }
 
-    public Integer getProductSales() {
+    public Long getProductSales() {
         return productSales;
     }
 
-    public void setProductSales(Integer productSales) {
+    public void setProductSales(Long productSales) {
         this.productSales = productSales;
     }
 
@@ -65,11 +75,11 @@ public class Product {
         this.productDescription = productDescription == null ? null : productDescription.trim();
     }
 
-    public Integer getProductImage() {
+    public Long getProductImage() {
         return productImage;
     }
 
-    public void setProductImage(Integer productImage) {
+    public void setProductImage(Long productImage) {
         this.productImage = productImage;
     }
 

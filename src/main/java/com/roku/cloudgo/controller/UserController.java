@@ -16,7 +16,7 @@ public interface UserController {
     确认两次输入的密码相同*/
 
     @RequestMapping("/toChange")
-    String processChange(long userID, String userEmail, long userTelephone, char userGender, String address, String descriptions);
+    String processChange(long userID, String userEmail, long userTelephone, String userGender, String address, String descriptions);
     /*修改用户信息
      成功返回"user.jsp"，失败返回"user.jsp"*/
 }

@@ -1,13 +1,13 @@
 package com.roku.cloudgo.pojo;
 
 public class Seller {
-    private Integer sellerId;
+    private Long sellerId;
 
     private String sellerName;
 
     private String sellerPassword;
 
-    private Integer sellerTelephone;
+    private Long sellerTelephone;
 
     private String sellerEmail;
 
@@ -17,11 +17,11 @@ public class Seller {
 
     private String sellerDescription;
 
-    public Integer getSellerId() {
+    public Long getSellerId() {
         return sellerId;
     }
 
-    public void setSellerId(Integer sellerId) {
+    public void setSellerId(Long sellerId) {
         this.sellerId = sellerId;
     }
 
@@ -41,11 +41,11 @@ public class Seller {
         this.sellerPassword = sellerPassword == null ? null : sellerPassword.trim();
     }
 
-    public Integer getSellerTelephone() {
+    public Long getSellerTelephone() {
         return sellerTelephone;
     }
 
-    public void setSellerTelephone(Integer sellerTelephone) {
+    public void setSellerTelephone(Long sellerTelephone) {
         this.sellerTelephone = sellerTelephone;
     }
 

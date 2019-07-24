@@ -3,13 +3,13 @@ package com.roku.cloudgo.pojo;
 import java.util.Date;
 
 public class Order {
-    private Integer orderId;
+    private Long orderId;
 
-    private Integer buyerId;
+    private Long buyerId;
 
-    private Integer sellerId;
+    private Long sellerId;
 
-    private Integer productId;
+    private Long productId;
 
     private Integer productNumbers;
 
@@ -19,35 +19,35 @@ public class Order {
 
     private Float transactionAmount;
 
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    public Integer getBuyerId() {
+    public Long getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(Integer buyerId) {
+    public void setBuyerId(Long buyerId) {
         this.buyerId = buyerId;
     }
 
-    public Integer getSellerId() {
+    public Long getSellerId() {
         return sellerId;
     }
 
-    public void setSellerId(Integer sellerId) {
+    public void setSellerId(Long sellerId) {
         this.sellerId = sellerId;
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 

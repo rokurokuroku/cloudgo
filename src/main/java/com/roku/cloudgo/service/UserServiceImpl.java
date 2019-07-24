@@ -5,9 +5,11 @@ import com.roku.cloudgo.DAO.mapper.UserMapper;
 import com.roku.cloudgo.pojo.BankRecord;
 import com.roku.cloudgo.pojo.User;
 import com.roku.cloudgo.pojo.UserExample;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+@Service
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;

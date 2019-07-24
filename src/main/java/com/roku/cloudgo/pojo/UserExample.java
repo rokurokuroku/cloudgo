@@ -114,52 +114,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -314,52 +314,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneEqualTo(Integer value) {
+        public Criteria andUserTelephoneEqualTo(Long value) {
             addCriterion("user_telephone =", value, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneNotEqualTo(Integer value) {
+        public Criteria andUserTelephoneNotEqualTo(Long value) {
             addCriterion("user_telephone <>", value, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneGreaterThan(Integer value) {
+        public Criteria andUserTelephoneGreaterThan(Long value) {
             addCriterion("user_telephone >", value, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserTelephoneGreaterThanOrEqualTo(Long value) {
             addCriterion("user_telephone >=", value, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneLessThan(Integer value) {
+        public Criteria andUserTelephoneLessThan(Long value) {
             addCriterion("user_telephone <", value, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneLessThanOrEqualTo(Integer value) {
+        public Criteria andUserTelephoneLessThanOrEqualTo(Long value) {
             addCriterion("user_telephone <=", value, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneIn(List<Integer> values) {
+        public Criteria andUserTelephoneIn(List<Long> values) {
             addCriterion("user_telephone in", values, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneNotIn(List<Integer> values) {
+        public Criteria andUserTelephoneNotIn(List<Long> values) {
             addCriterion("user_telephone not in", values, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneBetween(Integer value1, Integer value2) {
+        public Criteria andUserTelephoneBetween(Long value1, Long value2) {
             addCriterion("user_telephone between", value1, value2, "userTelephone");
             return (Criteria) this;
         }
 
-        public Criteria andUserTelephoneNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserTelephoneNotBetween(Long value1, Long value2) {
             addCriterion("user_telephone not between", value1, value2, "userTelephone");
             return (Criteria) this;
         }

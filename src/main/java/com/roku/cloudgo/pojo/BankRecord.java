@@ -1,19 +1,19 @@
 package com.roku.cloudgo.pojo;
 
 public class BankRecord {
-    private Integer userId;
+    private Long userId;
 
     private Float userBalance;
 
-    private Integer userScore;
+    private Long userScore;
 
     private Integer paymentCode;
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -25,11 +25,11 @@ public class BankRecord {
         this.userBalance = userBalance;
     }
 
-    public Integer getUserScore() {
+    public Long getUserScore() {
         return userScore;
     }
 
-    public void setUserScore(Integer userScore) {
+    public void setUserScore(Long userScore) {
         this.userScore = userScore;
     }
 
