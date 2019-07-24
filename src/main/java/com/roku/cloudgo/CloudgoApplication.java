@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.roku.cloudgo.mapper")
+@MapperScan("com.roku.cloudgo.DAO.mapper")
 public class CloudgoApplication {
 
     public static void main(String[] args) {
