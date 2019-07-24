@@ -10,6 +10,93 @@
 </head>
 <body>
 <div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="position: fixed;top: 0px">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">CloudGo</a>
+            </div>
+            <div id="menu" class="collapse navbar-collapse">
+                <ul class="nav  nav-pills navbar-left">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="glyphicon glyphicon-question-sign"></span>帮助</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="glyphicon glyphicon-hand-up"></span>建议</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"><span class="glyphicon glyphicon-cloud"></span>关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"><span class="glyphicon glyphicon-cloud"></span>个人中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+    </div>
 
 </div>
 </body>
