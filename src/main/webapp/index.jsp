@@ -9,6 +9,6 @@
     <link rel="stylesheet"  href="css/bootstrap.min.css">
 </head>
 <body>
-<a class="text-center" href="jsp/userLoginAndRegister.jsp">跳转至登陆注册界面</a>
+<a class="btn btn-outline-success btn-sm" href="jsp/userLoginAndRegister.jsp">跳转至登陆注册界面</a>
 </body>
 </html>

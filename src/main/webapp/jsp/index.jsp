@@ -9,7 +9,7 @@
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
 </head>
 <body>
-<div>
+<div id="addDiv">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container" style="position: fixed;top: 0px">
             <div class="navbar-header">
@@ -42,62 +42,29 @@
 
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <img id="addImg" class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
             <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="140x140" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
+            <p id="addP">地区和大气</p>
         </div>
     </div>
 
+    <a id="add" class="btn btn-outline-success btn-sm" href="#">添加</a>
 </div>
+
+<script>
+$(document).ready(function () {
+    $("#add").click(function () {
+        var t="<div class=\"row\">\n" +
+            "        <div id=\"addDiv\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
+            "            <img id=\"addImg\" class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/jhk-1563632055566.jpg\" data-holder-rendered=\"true\">\n" +
+            "            <h3><a href=\"#\">该说点啥呢</a></h3>\n" +
+            "            <p id=\"addP\">地区和大气</p>\n" +
+            "        </div>\n" +
+            "    </div>";
+        $("#addDiv").append(t);
+    });
+});
+</script>
+
 </body>
 </html>
