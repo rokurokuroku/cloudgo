@@ -10,6 +10,6 @@
 </head>
 <body>
 Hello World!
-<img src="/images/example.jpg" alt="未找到图片">
+<img src="../images/example.jpg" alt="未找到图片">
 </body>
 </html>
