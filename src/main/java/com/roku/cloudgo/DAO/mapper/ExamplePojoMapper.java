@@ -1,4 +1,4 @@
-package com.roku.cloudgo.mapper;
+package com.roku.cloudgo.DAO.mapper;
 
 import com.roku.cloudgo.pojo.ExamplePojo;
 import com.roku.cloudgo.pojo.ExamplePojoExample;

@@ -39,7 +39,7 @@
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO（mapper）的包名和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.roku.cloudgo.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.roku.cloudgo.DAO.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 要生成那些表 tableName：数据库中预先建立好的表名 domainObjectName：要生产的实体类名称-->
