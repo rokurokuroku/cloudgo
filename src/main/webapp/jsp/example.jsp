@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,5 +10,6 @@
 </head>
 <body>
 Hello World!
+<img src="/images/example.jpg" alt="未找到图片">
 </body>
 </html>
