@@ -43,8 +43,16 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 要生成那些表 tableName：数据库中预先建立好的表名 domainObjectName：要生产的实体类名称-->
+        <table tableName="Users" domainObjectName="User" />
+        <table tableName="sellers" domainObjectName="Seller" />
+        <table tableName="products" domainObjectName="Product" />
+        <table tableName="Orders" domainObjectName="Order" />
+        <table tableName="BankRole" domainObjectName="BankRecord" />
+        <table tableName="example" domainObjectName="ExamplePojo" />
+        <!-- 不生成example类的写法
         <table tableName="" domainObjectName="" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />
+               -->
     </context>
 </generatorConfiguration>
