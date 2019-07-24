@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- naspace为mapper类的包名 -->
+<mapper namespace="com.roku.cloudgo.mapper">
+    <!-- 由于application.properties中设置了别名，此处type内可以不用完整名称 -->
+    <resultMap id="BaseResultMap" type="">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="account" jdbcType="VARCHAR" property="singerName" />
+        <result column="passwd" jdbcType="VARCHAR" property="musicSize" />
+        <result column="sign_up_date" jdbcType="VARCHAR" property="musicName" />
+    </resultMap>
+
+    <select id="getAll" resultType="User" >
+        SELECT * FROM accounts
+    </select>
+
+    <select id="getDate" parameterType="String" resultType="String" >
+        SELECT sign_up_date FROM accounts WHERE account=#{account}
+    </select>
+</mapper>
