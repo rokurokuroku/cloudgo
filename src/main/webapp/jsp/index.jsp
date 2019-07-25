@@ -64,7 +64,7 @@
 <script>
 function loadAjax() {
     $.ajax({
-        url:'productData.json',
+        url:'../json/productData.json',
         type:'get',
         dataType:'json',
         success:function (productData) {
