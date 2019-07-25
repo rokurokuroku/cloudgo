@@ -22,7 +22,7 @@ public interface ProductController {
     商品详情界面
     返回商品的信息：图片、名字、价格、卖家姓名、商品详情、商品剩余量、销量、评分
      */
-    
+
     @RequestMapping("/toChangeProduct")
     String progressChange(Float productPrice, Long productRemaining, String productDescription, Long productImage);
    /*
