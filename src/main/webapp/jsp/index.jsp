@@ -8,9 +8,6 @@
     <script type="text/javascript" src="../bootstrapvalidator-master/vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
-<%--    <% if(session.getAttribute("userName")==null||session.getAttribute("userName")==""){--%>
-<%--      response.sendRedirect("toLogin");--%>
-<%--    }%>--%>
 </head>
 <body>
 <section>
@@ -46,25 +43,32 @@
     </nav>
 </div>
 </section>
-
 <p>为啥会重叠！！！</p>
 <p>为啥会重叠！！！</p>
 <p>为啥会重叠！！！</p>
 <p>为啥会重叠！！！</p>
-
 <section>
 <div id="addDiv" class="row">
 </div>
-
 <div class="container">
-    <a id="add" class="btn btn-outline-success btn-sm">添加</a>
+    <a id="add" class="btn btn-outline-success btn-sm">刷新</a>
 </div>
 </section>
 
+
+<section>
+    <div class="container">
+        <form action="">
+            姓名：
+        </form>
+    </div>
+</section>
+
+<%--首页商品的刷新--%>
 <script>
-function loadAjax() {
+function loadProject() {
     $.ajax({
-        url:'../json/productData.json',
+        url:'findProductData',
         type:'get',
         dataType:'json',
         success:function (productData) {
@@ -88,10 +92,37 @@ function loadAjax() {
         }
     })
 }
+
     $("#add").click(function () {
-        loadAjax();
+        loadProject();
+    })
+
+    $(document).ready(function () {
+        loadProject();
     })
 </script>
+
+<%--用户数据的更改--%>
+<script>
+
+</script>
+
+<%--用户订单的显示--%>
+<script>
+
+</script>
+
+<%--商家添加商品--%>
+<script>
+
+</script>
+
+<%--判断是否是商家，是则把购买功能删除--%>
+<script>
+
+</script>
+
+<%--注销请求toLogout--%>
 
 </body>
 </html>
