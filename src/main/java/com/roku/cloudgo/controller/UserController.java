@@ -7,7 +7,7 @@ public interface UserController {
 
 
     @RequestMapping("/toLogin")
-    String processLogin(String userName,String userPassword);
+    String processLogin(String userName, String userPassword);
     //登录成功返回"index.jsp"，失败返回"/login"
 
     @RequestMapping("/toRegister")

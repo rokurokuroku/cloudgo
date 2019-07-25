@@ -1,3 +1,4 @@
+<%@ page import="com.roku.cloudgo.controller.UserControllerImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,6 +15,8 @@
     <link rel="stylesheet"  href="../css/signin.css">
     <link rel="stylesheet" href="../bootstrapvalidator-master/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet"href="../bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <%
+    %>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -142,7 +145,6 @@
             </form>
         </div>
     </div>
-
 </div>
 
 </body>

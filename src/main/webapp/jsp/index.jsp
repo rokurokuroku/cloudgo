@@ -1,3 +1,4 @@
+<%@ page import="com.roku.cloudgo.service.UserServiceImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,9 +8,12 @@
     <script type="text/javascript" src="../bootstrapvalidator-master/vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
+<%--    <% if(session.getAttribute("userName")==null||session.getAttribute("userName")==""){--%>
+<%--      response.sendRedirect("toLogin");--%>
+<%--    }%>--%>
 </head>
 <body>
-<div id="addDiv">
+<div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container" style="position: fixed;top: 0px">
             <div class="navbar-header">
@@ -47,18 +51,49 @@
             <p id="addP">地区和大气</p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
+            <h3><a href="#">该说点啥呢</a></h3>
+            <p>地区和大气</p>
+        </div>
+    </div>
 
-    <a id="add" class="btn btn-outline-success btn-sm" href="#">添加</a>
+</div>
+<div>
+    <
 </div>
 
+<a id="add" class="btn btn-outline-success btn-sm" href="#">添加</a>
 <script>
 $(document).ready(function () {
     $("#add").click(function () {
         var t="<div class=\"row\">\n" +
             "        <div id=\"addDiv\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
             "            <img id=\"addImg\" class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/jhk-1563632055566.jpg\" data-holder-rendered=\"true\">\n" +
-            "            <h3><a href=\"#\">该说点啥呢</a></h3>\n" +
-            "            <p id=\"addP\">地区和大气</p>\n" +
+            "            <h3><a href=\"#\">商品名称：${p.productName}</a></h3>\n" +
+            "            <p id=\"addP\">商品价格：${p.productPrice}</p>\n" +
             "        </div>\n" +
             "    </div>";
         $("#addDiv").append(t);
@@ -66,7 +101,7 @@ $(document).ready(function () {
 });
 </script>
 <script>
-    
+
 </script>
 </body>
 </html>
