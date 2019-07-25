@@ -53,13 +53,24 @@
 <div class="container">
     <a id="add" class="btn btn-outline-success btn-sm">刷新</a>
 </div>
+<div class="container">
+    <a id="logout" class="btn btn-outline-success btn-sm">注销</a>
+</div>
 </section>
 
 
 <section>
     <div class="container">
-        <form action="">
-            姓名：
+        <form action="saveUserInformation">
+            <li>用户名：${u.userName}</li>
+            <li>等级：${u.userLevel}</li>
+            <li>邮箱：<input type="text" name="userName">${u.userName}</li>
+            <li>电话：<input type="text" name="userTelephone">${u.userTelephone}</li>
+            <li>性别：<input type="radio" name="userGender" value="male">男<input type="radio" name="userGender" value="female">女</li>
+            <li>地址：<input type="text" name="address"></li>
+            <li>描述：<textarea rows="5" name="userDescription">${u.userDescription}(请更改你的描述)</textarea></li>
+
+            <button type="submit">保存信息</button>
         </form>
     </div>
 </section>
@@ -70,6 +81,7 @@ function loadProject() {
     $.ajax({
         url:'findProductData',
         type:'get',
+        data:30,
         dataType:'json',
         success:function (productData) {
             var contentToRemove = document.querySelectorAll("#addElement");
@@ -102,9 +114,23 @@ function loadProject() {
     })
 </script>
 
+<%--注销--%>
+<script>
+    function userLogout(){
+        $.post("toLogout",function (data) {
+            alert("成功退出！");
+        })
+    }
+    $("#logout").click(function () {
+        userLogout();
+    })
+</script>
+
 <%--用户数据的更改--%>
 <script>
+    $(document).ready(function () {
 
+    })
 </script>
 
 <%--用户订单的显示--%>
@@ -121,8 +147,6 @@ function loadProject() {
 <script>
 
 </script>
-
-<%--注销请求toLogout--%>
 
 </body>
 </html>
