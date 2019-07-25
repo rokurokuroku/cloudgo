@@ -3,6 +3,7 @@ package com.roku.cloudgo.controller;
 import com.roku.cloudgo.pojo.User;
 import com.roku.cloudgo.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 
@@ -11,7 +12,22 @@ public class UserControllerImpl implements UserController {
     @Resource
     private UserServiceImpl userService;
 
+    @RequestMapping("/index")
+    public String index()
+    {
+        // do something
+        return "index";
+    }
+
+    @RequestMapping({"/login", "/"})
+    public String login()
+    {
+        // do something
+        return "userLoginAndRegister";
+    }
+
     @Override
+    @RequestMapping("/toLogin")
     public String processLogin(String userName, String userPassword) {
         boolean flag = false;
 
@@ -27,15 +43,16 @@ public class UserControllerImpl implements UserController {
 
         if(flag)
         {
-            return "index";
+            return "redirect:/index";
         }
         else
         {
-            return "redirect:/toLogin";
+            return "redirect:/login";
         }
     }
 
     @Override
+    @RequestMapping("/toRegister")
     public String processRegister(String userName, String userEmail, long userTelephone, String userPassword, String reUserPassword, int paymentCode, int rePaymentCode) {
         boolean flag = false;
 
@@ -65,15 +82,16 @@ public class UserControllerImpl implements UserController {
 
         if(flag)
         {
-            return "redirect:/toLogin";
+            return "redirect:/login";
         }
         else
         {
-            return "redirect:/toRegister";
+            return "redirect:/login";
         }
     }
 
     @Override
+    @RequestMapping("/toChange")
     public String processChange(long userID, String userEmail, long userTelephone, String userGender, String address, String descriptions) {
         boolean flag = false;
 

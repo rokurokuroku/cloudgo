@@ -4,15 +4,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public interface UserController {
 
+    @RequestMapping("/index")
+    String index();
+
+    @RequestMapping({"/login", "/"})
+    String login();
+
     @RequestMapping("/toLogin")
     String processLogin(String userName,String userPassword);
-    //登录成功返回"index.jsp"，失败返回"toLogin"
+    //登录成功返回"index.jsp"，失败返回"/login"
 
     @RequestMapping("/toRegister")
     String processRegister(String userName, String userEmail, long userTelephone, String userPassword, String reUserPassword, int paymentCode, int rePaymentCode);
     /*数据库Users表生成一个新的对象
     自动生成user_id、user_level
-    注册成功返回"toLogin"，失败返回"toRegister"
+    之后返回注册登录页面
     确认两次输入的密码相同*/
 
     @RequestMapping("/toChange")
