@@ -11,14 +11,14 @@ public interface ProductController {
     */
 
     @RequestMapping("/toShowProduct")
-    String showProduct(Long productId);
+    JSONObject showProduct(Long productId);
     /*
     商品首页/搜索结果页面，显示商品的简略信息
     返回商品的信息：图片、名字、价格
      */
 
     @RequestMapping("/toShowProductInfo")
-    String showProductInfo(Long productId);
+    JSONObject showProductInfo(Long productId);
     /*
     商品详情界面
     返回商品的信息：图片、名字、价格、卖家姓名、商品详情、商品剩余量、销量、评分
