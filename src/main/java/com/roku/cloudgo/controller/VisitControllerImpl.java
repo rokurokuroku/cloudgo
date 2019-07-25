@@ -12,4 +12,12 @@ public class VisitControllerImpl implements VisitController {
         // do something
         return "index";
     }
+
+    @Override
+    @RequestMapping({"/login", "/"})
+    public String login()
+    {
+        // do something
+        return "userLoginAndRegister";
+    }
 }

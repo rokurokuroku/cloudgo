@@ -12,13 +12,7 @@ public class UserControllerImpl implements UserController {
     @Resource
     private UserServiceImpl userService;
 
-    @Override
-    @RequestMapping({"/login", "/"})
-    public String login()
-    {
-        // do something
-        return "userLoginAndRegister";
-    }
+
 
     @Override
     @RequestMapping("/toLogin")
