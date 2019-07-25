@@ -1,23 +1,27 @@
 package com.roku.cloudgo.controller;
 
 import com.roku.cloudgo.pojo.User;
+import com.roku.cloudgo.service.SessionService;
 import com.roku.cloudgo.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class UserControllerImpl implements UserController {
-    @Resource
+    @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private SessionService sessionService;
 
 
     @Override
     @RequestMapping("/toLogin")
-    public String processLogin(String userName, String userPassword) {
+    public String processLogin(HttpServletRequest request, String userName, String userPassword) {
         boolean flag = false;
 
         // 判断是否为空
@@ -32,6 +36,7 @@ public class UserControllerImpl implements UserController {
 
         if(flag)
         {
+            sessionService.setLoginUser(request.getSession(), userName);
             return "redirect:/index";
         }
         else
@@ -102,5 +107,17 @@ public class UserControllerImpl implements UserController {
         {
             return "user";
         }
+    }
+
+    @ResponseBody
+    public boolean checkName(String name) {
+        return userService.checkName(name);
+    }
+
+    @Override
+    @RequestMapping("/toLogout")
+    public String processLogout(HttpServletRequest request) {
+        sessionService.logout(request.getSession());
+        return "redirect:/login";
     }
 }

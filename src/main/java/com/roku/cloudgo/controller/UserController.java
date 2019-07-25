@@ -2,12 +2,14 @@ package com.roku.cloudgo.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface UserController {
 
 
 
     @RequestMapping("/toLogin")
-    String processLogin(String userName, String userPassword);
+    String processLogin(HttpServletRequest request, String userName, String userPassword);
     //登录成功返回"index.jsp"，失败返回"/login"
 
     @RequestMapping("/toRegister")
@@ -21,4 +23,7 @@ public interface UserController {
     String processChange(Long userID, String userEmail, Long userTelephone, String userGender, String address, String descriptions);
     /*修改用户信息
      成功返回"user.jsp"，失败返回"user.jsp"*/
+
+    @RequestMapping("/toLogout")
+    String processLogout(HttpServletRequest request);
 }
