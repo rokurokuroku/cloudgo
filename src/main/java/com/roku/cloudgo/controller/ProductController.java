@@ -1,5 +1,6 @@
 package com.roku.cloudgo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 public interface ProductController {
@@ -29,4 +30,6 @@ public interface ProductController {
    修改商品的信息
    */
 
+    @RequestMapping("/findProductData")
+    JSONObject getProducts(Integer data);
 }
