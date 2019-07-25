@@ -13,4 +13,6 @@
 ### mysql建表  
   详见databaseDir  
   
-### 运行
+### 运行  
+  
+### 打开浏览器输入 `localhost:8080` 回车访问
