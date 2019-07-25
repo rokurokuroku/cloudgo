@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userRegister(User user, int paymentCode) {
+    public boolean userRegister(User user, Integer paymentCode) {
         boolean flag = false;
         int countUser = userMapper.insertSelective(user);
         if(countUser==0)
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         {
             UserExample example = new UserExample();
             example.createCriteria().andUserNameEqualTo(user.getUserName());
-            long userId = userMapper.selectByExample(example).get(0).getUserId();
+            Long userId = userMapper.selectByExample(example).get(0).getUserId();
 
             BankRecord bankRecord = new BankRecord();
             bankRecord.setUserId(userId);

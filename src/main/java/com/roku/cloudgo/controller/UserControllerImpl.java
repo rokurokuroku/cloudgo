@@ -41,7 +41,7 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @RequestMapping("/toRegister")
-    public String processRegister(String userName, String userEmail, long userTelephone, String userPassword, String reUserPassword, int paymentCode, int rePaymentCode) {
+    public String processRegister(String userName, String userEmail, Long userTelephone, String userPassword, String reUserPassword, Integer paymentCode, Integer rePaymentCode) {
         boolean flag = false;
 
         // 检查两次输入密码是否匹配
@@ -80,7 +80,7 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @RequestMapping("/toChange")
-    public String processChange(long userID, String userEmail, long userTelephone, String userGender, String address, String descriptions) {
+    public String processChange(Long userID, String userEmail, Long userTelephone, String userGender, String address, String descriptions) {
         boolean flag = false;
 
         User user = new User();
