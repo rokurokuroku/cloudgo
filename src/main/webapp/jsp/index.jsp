@@ -13,7 +13,8 @@
 <%--    }%>--%>
 </head>
 <body>
-<div>
+<section>
+<div class="container">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container" style="position: fixed;top: 0px">
             <div class="navbar-header">
@@ -43,65 +44,54 @@
             </div>
         </div>
     </nav>
-
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img id="addImg" class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p id="addP">地区和大气</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-            <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="../images/jhk-1563632055566.jpg" data-holder-rendered="true">
-            <h3><a href="#">该说点啥呢</a></h3>
-            <p>地区和大气</p>
-        </div>
-    </div>
-
 </div>
-<div>
-    <
+</section>
+
+<p>为啥会重叠！！！</p>
+<p>为啥会重叠！！！</p>
+<p>为啥会重叠！！！</p>
+<p>为啥会重叠！！！</p>
+
+<section>
+<div id="addDiv" class="row">
 </div>
 
-<a id="add" class="btn btn-outline-success btn-sm" href="#">添加</a>
+<div class="container">
+    <a id="add" class="btn btn-outline-success btn-sm">添加</a>
+</div>
+</section>
+
 <script>
-$(document).ready(function () {
+function loadAjax() {
+    $.ajax({
+        url:'productData.json',
+        type:'get',
+        dataType:'json',
+        success:function (productData) {
+            var contentToRemove = document.querySelectorAll("#addElement");
+            $(contentToRemove).remove();
+            for(i in productData.data){
+                var image=productData.data[i].productImage;
+                var name=productData.data[i].productName;
+                var price=productData.data[i].productPrice;
+                var t= "        <div id=\"addElement\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
+                    "            <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/"+image+".jpg\" data-holder-rendered=\"true\">\n" +
+                    "            <h4><a href=\"#\">商品名称："+name+"</a></h4>\n" +
+                    "            <p>商品价格："+price+"</p>\n" +
+                    "            <button href=\"toBuy\">购买</button>"+
+                    "        </div>\n";
+                $("#addDiv").append(t);
+            }
+        },
+        error:function () {
+            alert("读取商品信息失败！");
+        }
+    })
+}
     $("#add").click(function () {
-        var t="<div class=\"row\">\n" +
-            "        <div id=\"addDiv\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
-            "            <img id=\"addImg\" class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/jhk-1563632055566.jpg\" data-holder-rendered=\"true\">\n" +
-            "            <h3><a href=\"#\">商品名称：${p.productName}</a></h3>\n" +
-            "            <p id=\"addP\">商品价格：${p.productPrice}</p>\n" +
-            "        </div>\n" +
-            "    </div>";
-        $("#addDiv").append(t);
-    });
-});
+        loadAjax();
+    })
 </script>
-<script>
 
-</script>
 </body>
 </html>
