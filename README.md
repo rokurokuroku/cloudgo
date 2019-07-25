@@ -1,6 +1,6 @@
 # JavaWeb实训项目  
   
-ver0.0.1  
+    ver0.0.1  
 
 ## mysql初始化
 create user "roku"@"localhost" identified by "roku";
