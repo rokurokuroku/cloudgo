@@ -12,13 +12,7 @@ public class UserControllerImpl implements UserController {
     @Resource
     private UserServiceImpl userService;
 
-    @RequestMapping("/index")
-    public String index()
-    {
-        // do something
-        return "index";
-    }
-
+    @Override
     @RequestMapping({"/login", "/"})
     public String login()
     {
