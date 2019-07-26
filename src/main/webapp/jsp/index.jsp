@@ -10,43 +10,43 @@
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
 </head>
 <body>
-<section>
-<div class="container">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container" style="position: fixed;top: 0px">
-            <div class="navbar-header">
-                <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand">CloudGo</a>
-            </div>
-            <div id="menu" class="collapse navbar-collapse">
-                <ul class="nav  nav-pills navbar-left">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="glyphicon glyphicon-question-sign"></span>帮助</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="glyphicon glyphicon-hand-up"></span>建议</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#"><span class="glyphicon glyphicon-cloud"></span>关于我们</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#"><span class="glyphicon glyphicon-cloud"></span>个人中心</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-</section>
-<p>为啥会重叠！！！</p>
-<p>为啥会重叠！！！</p>
-<p>为啥会重叠！！！</p>
-<p>为啥会重叠！！！</p>
+<%--<section>--%>
+<%--<div class="container">--%>
+<%--    <nav class="navbar navbar-inverse navbar-fixed-top">--%>
+<%--        <div class="container" style="position: fixed;top: 0px">--%>
+<%--            <div class="navbar-header">--%>
+<%--                <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">--%>
+<%--                    <span class="sr-only"></span>--%>
+<%--                    <span class="icon-bar"></span>--%>
+<%--                    <span class="icon-bar"></span>--%>
+<%--                    <span class="icon-bar"></span>--%>
+<%--                </button>--%>
+<%--                <a href="#" class="navbar-brand">CloudGo</a>--%>
+<%--            </div>--%>
+<%--            <div id="menu" class="collapse navbar-collapse">--%>
+<%--                <ul class="nav  nav-pills navbar-left">--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link" href="#"><span class="glyphicon glyphicon-question-sign"></span>帮助</a>--%>
+<%--                    </li>--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link" href="#"><span class="glyphicon glyphicon-hand-up"></span>建议</a>--%>
+<%--                    </li>--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link disabled" href="#"><span class="glyphicon glyphicon-cloud"></span>关于我们</a>--%>
+<%--                    </li>--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link disabled" href="#"><span class="glyphicon glyphicon-cloud"></span>个人中心</a>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </nav>--%>
+<%--</div>--%>
+<%--</section>--%>
+<%--<p>为啥会重叠！！！</p>--%>
+<%--<p>为啥会重叠！！！</p>--%>
+<%--<p>为啥会重叠！！！</p>--%>
+<%--<p>为啥会重叠！！！</p>--%>
 <section>
 <div id="addDiv" class="row">
 </div>
@@ -56,7 +56,60 @@
 <div class="container">
     <a id="logout" class="btn btn-outline-success btn-sm">注销</a>
 </div>
+<%--注销--%>
+<script>
+    function userLogout(){
+        $.post("toLogout",function (data) {
+            alert("成功退出！");
+        })
+    }
+    $("#logout").click(function () {
+        userLogout();
+    })
+</script>
+
 </section>
+<%--首页商品的刷新--%>
+<script>
+    function loadProject() {
+        $.ajax({
+            url:'findProductData',
+            type:'get',
+            data:30,
+            dataType:'json',
+            success:function (productData) {
+                var contentToRemove = document.querySelectorAll("#addElement");
+                $(contentToRemove).remove();
+                for(i in productData.data){
+                    var image=productData.data[i].productImage;
+                    var name=productData.data[i].productName;
+                    var price=productData.data[i].productPrice;
+                    var sellername=productData.data[i].sellerName;
+                    var description=productData.data[i].productDescription;
+                    var remaining=productData.data[i].productRemaining;
+                    var sales=productData.data[i].productSales;
+                    var t= "        <div id=\"addElement\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
+                        "            <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/"+image+".jpg\" data-holder-rendered=\"true\">\n" +
+                        "            <h4><a id=\"detailProduct\">商品名称："+name+"</a></h4>\n" +
+                        "            <p>商品价格："+price+"</p>\n" +
+                        "            <button href=\"toBuy\">购买</button>"+
+                        "        </div>\n";
+                    $("#addDiv").append(t);
+                }
+            },
+            error:function () {
+                alert("读取商品信息失败！");
+            }
+        })
+    }
+    $("#add").click(function () {
+        loadProject();
+    })
+
+    $(document).ready(function () {
+        loadProject();
+    })
+</script>
 
 
 <section>
@@ -76,17 +129,43 @@
     </div>
 </section>
 
+
+
 <section>
     <div id="finOrder" class="row">
 
     </div>
 
 </section>
+<%--用户订单的显示--%>
+<script>
+    function loadOrder(){
+        $.ajax({
+            url:'../json/orderData.json',
+            type:'get',
+            data:30,
+            dataType:'json',
+            success:function (orderData) {
+                var contentToRemove = document.querySelectorAll("#addOrderElement");
+                $(contentToRemove).remove();
+                for(i in orderData.data){
+
+                }
+            }
+        })
+    }
+
+    $("#addOrder").click(function () {
+        loadOrder();
+    })
+
+    $(document).ready(function () {
+        loadOrder();
+    })
+</script>
 
 <%--<h2>创建模态框（Modal）</h2>--%>
-<%--<!-- 按钮触发模态框 -->--%>
 <%--<button id="addOrder" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>--%>
-<%--<!-- 模态框（Modal） -->--%>
 <%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--%>
 <%--    <div class="modal-dialog">--%>
 <%--        <div class="modal-content">--%>
@@ -114,131 +193,12 @@
 <%--</div>--%>
 
 
-<%--首页商品的刷新--%>
-<script>
-function loadProject() {
-    $.ajax({
-        url:'findProductData',
-        type:'get',
-        data:30,
-        dataType:'json',
-        success:function (productData) {
-            var contentToRemove = document.querySelectorAll("#addElement");
-            $(contentToRemove).remove();
-            for(i in productData.data){
-                var image=productData.data[i].productImage;
-                var name=productData.data[i].productName;
-                var price=productData.data[i].productPrice;
-                var sellername=productData.data[i].sellerName;
-                var description=productData.data[i].productDescription;
-                var remaining=productData.data[i].productRemaining;
-                var sales=productData.data[i].productSales;
-                var t= "        <div id=\"addElement\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
-                    "            <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/"+image+".jpg\" data-holder-rendered=\"true\">\n" +
-                    "            <h4><a id=\"detailProduct\">商品名称："+name+"</a></h4>\n" +
-                    "            <p>商品价格："+price+"</p>\n" +
-                    "            <button href=\"toBuy\">购买</button>"+
-                    "        </div>\n";
-                var td="<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
-                    "    <div class=\"modal-dialog\">\n" +
-                    "        <div class=\"modal-content\">\n" +
-                    "            <div class=\"modal-header\">\n" +
-                    "                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-                    "                <h4 class=\"modal-title\" id=\"myModalLabel\">商品信息</h4>\n" +
-                    "            </div>\n" +
-                    "\n" +
-                    "            <div class=\"modal-body\">\n" +
-                    "                <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"'../images/'+${productData.data[i].productImage}+'.jpg'\" data-holder-rendered=\"true\">\n" +
-                    "                商品名称："+image+"\n"+
-                    "                商品价格："+price+"\n"+
-                    "                卖方："+sellername+"\n"+
-                    "                商品描述："+description+"\n"+
-                    "                商品存货："+remaining+"\n"+
-                    "                已售数量："+sales+"\n"+
-                    "            </div>\n" +
-                    "\n" +
-                    "            <div class=\"modal-footer\">\n" +
-                    "                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button>\n" +
-                    "                <button href=\"toBuy\" type=\"button\" class=\"btn btn-primary\" href=\"toBuy\">购买</button>\n" +
-                    "            </div>\n" +
-                    "        </div>\n" +
-                    "    </div>\n" +
-                    "</div>";
-                $("#addDiv").append(t);
-            }
-        },
-        error:function () {
-            alert("读取商品信息失败！");
-        }
-    })
-}
-
-function showDetailProduct(){
-    $.ajax({
-        success:function (productData) {
-
-        },
-        error:function () {
-            alert("读取商品信息失败！");
-        }
-    })
-}
-
-    $("#detailProduct").click(function () {
-        showDetailProduct();
-    })
-
-    $("#add").click(function () {
-        loadProject();
-    })
-
-    $(document).ready(function () {
-        loadProject();
-    })
-</script>
-
-<%--注销--%>
-<script>
-    function userLogout(){
-        $.post("toLogout",function (data) {
-            alert("成功退出！");
-        })
-    }
-    $("#logout").click(function () {
-        userLogout();
-    })
-</script>
 
 <%--用户数据的更改--%>
 <script>
 </script>
 
-<%--用户订单的显示--%>
-<script>
-    function loadOrder(){
-        $.ajax({
-            url:'findOrderData',
-            type:'get',
-            data:30,
-            dataType:'json',
-            success:function (orderData) {
-                var contentToRemove = document.querySelectorAll("#addOrderElement");
-                $(contentToRemove).remove();
-                for(i in orderData.data){
 
-                }
-            }
-        })
-    }
-
-    $("#addOrder").click(function () {
-        loadOrder();
-    })
-
-    $(document).ready(function () {
-        loadOrder();
-    })
-</script>
 
 <%--商家添加商品--%>
 <script>
