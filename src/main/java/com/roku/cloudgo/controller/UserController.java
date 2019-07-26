@@ -21,14 +21,17 @@ public interface UserController {
     确认两次输入的密码相同*/
 
     @RequestMapping("/toChange")
-    String processChange(Long userID, String userEmail, Long userTelephone, String userGender, String address, String descriptions);
+    String processChange(HttpServletRequest request, String userEmail, Long userTelephone, String userGender, String address, String descriptions);
     /*修改用户信息
      成功返回"user.jsp"，失败返回"user.jsp"*/
 
     @RequestMapping("/toShowUserInfo")
-    JSONObject showUserInfo(Long userID);
+    JSONObject showUserInfo(HttpServletRequest request);
     /*返回用户信息：用户名、等级、余额、积分、电话、邮箱、性别、地址、个人描述*/
 
     @RequestMapping("/toLogout")
     String processLogout(HttpServletRequest request);
+
+    @RequestMapping("/checkUserName")
+    boolean checkUserName(String userName);
 }

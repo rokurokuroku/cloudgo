@@ -1,6 +1,7 @@
 package com.roku.cloudgo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
 import com.roku.cloudgo.pojo.User;
 import com.roku.cloudgo.service.SessionService;
 import com.roku.cloudgo.service.UserServiceImpl;
@@ -87,44 +88,60 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @RequestMapping("/toChange")
-    public String processChange(Long userID, String userEmail, Long userTelephone, String userGender, String address, String descriptions) {
+    public String processChange(HttpServletRequest request, String userEmail, Long userTelephone, String userGender, String address, String descriptions) {
         boolean flag = false;
+        if(sessionService.checkUserLogin(request.getSession())) {
+            User user = new User();
+            user.setUserName((String)sessionService.getAttr(request.getSession(), "userName"));
+            user.setUserEmail(userEmail);
+            user.setUserTelephone(userTelephone);
+            user.setUserGender(userGender);
+            user.setShippingAddress(address);
+            user.setUserDescription(descriptions);
 
-        User user = new User();
-        user.setUserId(userID);
-        user.setUserEmail(userEmail);
-        user.setUserTelephone(userTelephone);
-        user.setUserGender(userGender);
-        user.setShippingAddress(address);
-        user.setUserDescription(descriptions);
-
-        flag = userService.editUser(user);
-
-        if(flag)
-        {
-            return "user";
+            flag = userService.editUser(user);
         }
         else
         {
-            return "user";
+            flag = false;
+        }
+
+        if(flag)
+        {
+            return "redirect:/user";
+        }
+        else
+        {
+            return "redirect:/user";
         }
     }
 
+    @RequestMapping("/checkUserName")
     @ResponseBody
-    public boolean checkName(String name) {
-        return userService.checkName(name);
+    public boolean checkUserName(String userName) {
+        return userService.checkUserName(userName);
     }
 
 
     @Override
     @RequestMapping("/toLogout")
     public String processLogout(HttpServletRequest request) {
-        sessionService.logout(request.getSession());
+        sessionService.userLogout(request.getSession());
         return "redirect:/login";
     }
 
     @Override
-    public JSONObject showUserInfo(Long userID) {
-        return null;
+    @RequestMapping("/toShowUserInfo")
+    @ResponseJSONP
+    public JSONObject showUserInfo(HttpServletRequest request) {
+        if(sessionService.checkUserLogin(request.getSession()))
+        {
+            User user = userService.getUser((String)sessionService.getAttr(request.getSession(), "userName"));
+            return (JSONObject) JSONObject.toJSON(user);
+        }
+        else
+        {
+            return null;
+        }
     }
 }

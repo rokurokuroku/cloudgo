@@ -10,4 +10,7 @@ public interface VisitController {
 
     @RequestMapping({"/login", "/"})
     String login(HttpServletRequest request);
+
+    @RequestMapping("/user")
+    String user(HttpServletRequest request);
 }

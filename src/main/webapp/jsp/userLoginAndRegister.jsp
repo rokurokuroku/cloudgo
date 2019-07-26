@@ -97,7 +97,7 @@
                 <label for="inputUsername" class="sr-only">Username</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
-                    <input name="userName" type="text" id="inputUsername"  class=" form-control" placeholder="请输入用户名" maxlength="20" required autofocus onkeyup="checkName(this.value)" />
+                    <input name="userName" type="text" id="inputUsername"  class=" form-control" placeholder="请输入用户名" maxlength="20" required autofocus onkeyup="checkUserName(this.value)" />
                 </div>
 
                 <label for="inputEmail" class="sr-only">Emailaddress</label>
@@ -148,9 +148,9 @@
     </div>
 </div>
 <script>
-    function checkName(name) {
+    function checkUserName(userName) {
         $.post(
-            "/checkName?name=" + name,
+            "/checkUserName?userName=" + userName,
             function (data, status) {
                 if(data==false)
                 {

@@ -8,6 +8,7 @@ import com.roku.cloudgo.pojo.UserExample;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -58,14 +59,29 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean editUser(User user) {
         UserExample example = new UserExample();
-        example.createCriteria().andUserIdEqualTo(user.getUserId());
+        example.createCriteria().andUserNameEqualTo(user.getUserName());
         return userMapper.updateByExampleSelective(user, example)!=0;
     }
 
     @Override
-    public boolean checkName(String name) {
+    public boolean checkUserName(String userName) {
+        UserExample example = new UserExample();
+        example.createCriteria().andUserNameEqualTo(userName);
+        return userMapper.selectByExample(example).isEmpty();
+    }
+
+    @Override
+    public User getUser(String name) {
         UserExample example = new UserExample();
         example.createCriteria().andUserNameEqualTo(name);
-        return userMapper.selectByExample(example).isEmpty();
+        List<User> userList = userMapper.selectByExample(example);
+        if(userList.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return userList.get(0);
+        }
     }
 }

@@ -72,28 +72,33 @@ public class ProductServiceImpl implements ProductService {
         JSONArray jsonArray = new JSONArray();
         for(int i=0; i<subList.size(); ++i)
         {
-            jsonArray.add(subList.get(i));
+            jsonArray.add(product2JsonObject(subList.get(i)));
         }
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", jsonArray);
-        String jsonString = jsonObject.toJSONString();
-        JSONObject addonJsonObject = JSONObject.parseObject(jsonString);
-        JSONArray addonJsonArrary = addonJsonObject.getJSONArray("data");
-        for(int i=0; i<addonJsonArrary.size(); ++i)
-        {
-            SellerExample sellerExample = new SellerExample();
-            productExample.createCriteria().andSellerIdEqualTo(addonJsonArrary.getJSONObject(i).getLong("sellerId"));
-            List<Seller> sellerList = sellerMapper.selectByExample(sellerExample);
-            if(sellerList.size()!=0)
-            {
-                addonJsonArrary.getJSONObject(i).put("sellerName", sellerList.get(0).getSellerName());
-            }
-        }
-        return addonJsonObject;
+//        String jsonString = jsonObject.toJSONString();
+//        JSONObject addonJsonObject = JSONObject.parseObject(jsonString);
+//        JSONArray addonJsonArrary = addonJsonObject.getJSONArray("data");
+//        for(int i=0; i<addonJsonArrary.size(); ++i)
+//        {
+//            SellerExample sellerExample = new SellerExample();
+//            sellerExample.createCriteria().andSellerIdEqualTo(addonJsonArrary.getJSONObject(i).getLong("sellerId"));
+//            List<Seller> sellerList = sellerMapper.selectByExample(sellerExample);
+//            if(sellerList.size()!=0)
+//            {
+//                addonJsonArrary.getJSONObject(i).put("sellerName", sellerList.get(0).getSellerName());
+//            }
+//        }
+        return jsonObject;
     }
 
-    private Product jsonObject2Product(JSONObject jsonObject)
+    @Override
+    public Product jsonObject2Product(JSONObject jsonObject)
     {
+        if(jsonObject==null)
+        {
+            return null;
+        }
         Product product = new Product();
         product.setProductId(jsonObject.getLong("productId"));
         product.setProductName(jsonObject.getString("productName"));
@@ -104,6 +109,35 @@ public class ProductServiceImpl implements ProductService {
         product.setProductDescription(jsonObject.getString("productDescription"));
         product.setProductMark(jsonObject.getFloat("productMark"));
         product.setSellerId(jsonObject.getLong("sellerId"));
+
         return product;
+    }
+
+    @Override
+    public JSONObject product2JsonObject(Product product) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("productId", product.getProductId());
+        jsonObject.put("productName", product.getProductName());
+        jsonObject.put("productPrice", product.getProductPrice());
+        jsonObject.put("productRemaining", product.getProductRemaining());
+        jsonObject.put("productSales", product.getProductSales());
+        jsonObject.put("productImage", product.getProductImage());
+        jsonObject.put("productDescription", product.getProductDescription());
+        jsonObject.put("productMark", product.getProductMark());
+        jsonObject.put("productSellerId", product.getSellerId());
+
+        SellerExample sellerExample = new SellerExample();
+        sellerExample.createCriteria().andSellerIdEqualTo(product.getSellerId());
+        List<Seller> sellerList = sellerMapper.selectByExample(sellerExample);
+        if(sellerList.size()!=0)
+        {
+            jsonObject.put("sellerName", sellerList.get(0).getSellerName());
+        }
+        return jsonObject;
+    }
+
+    @Override
+    public boolean addProduct(Product product) {
+        return productMapper.insertSelective(product) != 0;
     }
 }

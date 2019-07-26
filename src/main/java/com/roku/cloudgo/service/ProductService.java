@@ -9,4 +9,10 @@ public interface ProductService {
     Product getByProductID(Long productId);
 
     JSONObject findProducts(Integer number);
+
+    boolean addProduct(Product product);
+
+    Product jsonObject2Product(JSONObject jsonObject);
+
+    JSONObject product2JsonObject(Product product);
 }

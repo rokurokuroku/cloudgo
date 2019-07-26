@@ -16,7 +16,7 @@ public class VisitControllerImpl implements VisitController {
     @RequestMapping("/index")
     public String index(HttpServletRequest request)
     {
-        if(checkLogin(request))
+        if(sessionService.checkLogin(request.getSession()))
         {
             return "index";
         }
@@ -30,7 +30,7 @@ public class VisitControllerImpl implements VisitController {
     @RequestMapping({"/login", "/"})
     public String login(HttpServletRequest request)
     {
-        if(checkLogin(request))
+        if(sessionService.checkLogin(request.getSession()))
         {
             return "index";
         }
@@ -40,17 +40,16 @@ public class VisitControllerImpl implements VisitController {
         }
     }
 
-    private boolean checkLogin(HttpServletRequest request)
-    {
-        // 检查session确认是否登录
-        String tmp = (String)sessionService.getAttr(request.getSession(), "userName");
-        if(tmp==null)
+    @Override
+    @RequestMapping("/user")
+    public String user(HttpServletRequest request) {
+        if(sessionService.checkUserLogin(request.getSession()))
         {
-            return false;
+            return "user";
         }
         else
         {
-            return true;
+            return "redirect:/login";
         }
     }
 }
