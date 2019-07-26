@@ -123,4 +123,8 @@ public class UserControllerImpl implements UserController {
         return "redirect:/login";
     }
 
+    @Override
+    public JSONObject showUserInfo(Long userID) {
+        return null;
+    }
 }
