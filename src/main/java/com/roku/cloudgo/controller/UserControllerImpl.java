@@ -115,10 +115,6 @@ public class UserControllerImpl implements UserController {
         return userService.checkName(name);
     }
 
-    @Override
-    public JSONObject showUserInfo(Long userID) {
-        return null;
-    }
 
     @Override
     @RequestMapping("/toLogout")
