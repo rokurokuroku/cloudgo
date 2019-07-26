@@ -62,16 +62,26 @@
 <section>
     <div class="container">
         <form action="saveUserInformation">
+            <li>用户id:${u.userId}</li>
             <li>用户名：${u.userName}</li>
             <li>等级：${u.userLevel}</li>
-            <li>邮箱：<input type="text" name="userName">${u.userName}</li>
+            <li>邮箱：<input type="text" name="userName">${u.userEmail}</li>
             <li>电话：<input type="text" name="userTelephone">${u.userTelephone}</li>
-            <li>性别：<input type="radio" name="userGender" value="male">男<input type="radio" name="userGender" value="female">女</li>
-            <li>地址：<input type="text" name="address"></li>
-            <li>描述：<textarea rows="5" name="userDescription">${u.userDescription}(请更改你的描述)</textarea></li>
+            <li>性别：<input type="radio" name="userGender" value="0">男<input type="radio" name="userGender" value="1">女</li>
+            <li>地址：<input type="text" name="address">${u.adress}</li>
+            <li>描述：<textarea rows="5" name="userDescription">${u.userDescription}${u.userDescription}</textarea></li>
 
             <button type="submit">保存信息</button>
         </form>
+    </div>
+</section>
+
+<section>
+    <div id="finOrder" class="row">
+
+    </div>
+    <div class="container">
+        <a id="addOrder" class="btn btn-outline-success btn-sm">添加订单</a>
     </div>
 </section>
 
@@ -128,14 +138,33 @@ function loadProject() {
 
 <%--用户数据的更改--%>
 <script>
-    $(document).ready(function () {
-
-    })
 </script>
 
 <%--用户订单的显示--%>
 <script>
+    function loadOrder(){
+        $.ajax({
+            url:'findOrderData',
+            type:'get',
+            data:30,
+            dataType:'json',
+            success:function (orderData) {
+                var contentToRemove = document.querySelectorAll("#addOrderElement");
+                $(contentToRemove).remove();
+                for(i in orderData.data){
 
+                }
+            }
+        })
+    }
+
+    $("#addOrder").click(function () {
+        loadOrder();
+    })
+
+    $(document).ready(function () {
+        loadOrder();
+    })
 </script>
 
 <%--商家添加商品--%>

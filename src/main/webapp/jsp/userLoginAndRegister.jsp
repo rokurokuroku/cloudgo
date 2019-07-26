@@ -9,14 +9,14 @@
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../bootstrapvalidator-master/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../bootstrapvalidator-master/dist/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="../js/npm.js"></script>
+    <script type="text/javascript" src="../js/verify.js"></script>
 
 
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
     <link rel="stylesheet"  href="../css/signin.css">
     <link rel="stylesheet" href="../bootstrapvalidator-master/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet"href="../bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <%
-    %>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
