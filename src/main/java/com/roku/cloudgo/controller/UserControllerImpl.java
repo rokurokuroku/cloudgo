@@ -1,5 +1,6 @@
 package com.roku.cloudgo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.roku.cloudgo.pojo.User;
 import com.roku.cloudgo.service.SessionService;
 import com.roku.cloudgo.service.UserServiceImpl;
@@ -119,5 +120,10 @@ public class UserControllerImpl implements UserController {
     public String processLogout(HttpServletRequest request) {
         sessionService.logout(request.getSession());
         return "redirect:/login";
+    }
+
+    @Override
+    public JSONObject showUserInfo(Long userID) {
+        return null;
     }
 }
