@@ -1,6 +1,9 @@
 package com.roku.cloudgo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 public interface SellerController {
 
@@ -18,9 +21,16 @@ public interface SellerController {
     */
 
     @RequestMapping("/toSellerChange")
-    String processChange(Long userID, String userEmail, Long userTelephone, Character userGender, String address, String descriptions);
+    String processChange(Long sellerID, String sellerEmail, Long sellerTelephone, Character sellerGender, String address, String descriptions);
     /*
     修改用户信息
     成功返回"seller.jsp"，失败返回"seller.jsp"
     */
+
+    @RequestMapping("/toShowSellerInfo")
+    JSONObject showSellerInfo(Long sellerID);
+    /*返回商家信息：用户名、等级、电话、邮箱、性别、地址、商家描述*/
+
+    @RequestMapping("/toLogout")
+    String processLogout(HttpServletRequest request);
 }
