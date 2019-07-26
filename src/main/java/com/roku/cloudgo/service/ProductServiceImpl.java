@@ -4,8 +4,11 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.roku.cloudgo.DAO.JSONDAO.JsonDao;
 import com.roku.cloudgo.DAO.mapper.ProductMapper;
+import com.roku.cloudgo.DAO.mapper.SellerMapper;
 import com.roku.cloudgo.pojo.Product;
 import com.roku.cloudgo.pojo.ProductExample;
+import com.roku.cloudgo.pojo.Seller;
+import com.roku.cloudgo.pojo.SellerExample;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,6 +20,8 @@ public class ProductServiceImpl implements ProductService {
     private JsonDao jsonDao;
     @Resource
     private ProductMapper productMapper;
+    @Resource
+    private SellerMapper sellerMapper;
 
     private String fileName = "json/productData.json";
 
@@ -57,8 +62,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public JSONObject findProducts(Integer number) {
 //        return jsonDao.readJsonFile(this.fileName);
-        ProductExample example = new ProductExample();
-        List<Product> productList = productMapper.selectByExample(example);
+        ProductExample productExample = new ProductExample();
+        List<Product> productList = productMapper.selectByExample(productExample);
         if(number>productList.size())
         {
             number = productList.size();
@@ -71,7 +76,20 @@ public class ProductServiceImpl implements ProductService {
         }
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", jsonArray);
-        return jsonObject;
+        String jsonString = jsonObject.toJSONString();
+        JSONObject addonJsonObject = JSONObject.parseObject(jsonString);
+        JSONArray addonJsonArrary = addonJsonObject.getJSONArray("data");
+        for(int i=0; i<addonJsonArrary.size(); ++i)
+        {
+            SellerExample sellerExample = new SellerExample();
+            productExample.createCriteria().andSellerIdEqualTo(addonJsonArrary.getJSONObject(i).getLong("sellerId"));
+            List<Seller> sellerList = sellerMapper.selectByExample(sellerExample);
+            if(sellerList.size()!=0)
+            {
+                addonJsonArrary.getJSONObject(i).put("sellerName", sellerList.get(0).getSellerName());
+            }
+        }
+        return addonJsonObject;
     }
 
     private Product jsonObject2Product(JSONObject jsonObject)

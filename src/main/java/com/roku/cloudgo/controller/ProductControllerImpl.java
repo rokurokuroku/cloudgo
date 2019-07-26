@@ -15,7 +15,8 @@ public class ProductControllerImpl implements ProductController {
 
     @Override
     @RequestMapping("/addProduct")
-    public String addProduct(Long sellerId, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage){
+    public String addProduct(Long sellerId, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage) {
+        return null;
     }
 
     @Override
