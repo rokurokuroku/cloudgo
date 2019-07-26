@@ -157,7 +157,19 @@
                             "            <p>商品价格："+price+"</p>\n" +
                             "            <button href=\"toBuy\">购买</button>"+
                             "        </div>\n";
-                        $("#addDiv").append(t);
+                        var tt="<div class=\"col-md-4\">\n" +
+                            "                        <div class=\"responsive thumbnail\">\n" +
+                            "                            <a href=\"#\">\n" +
+                            "                                <img src=\"../images/"+image+".jpg\" alt=\"Forest\">\n" +
+                            "                            </a>\n" +
+                            "                            <div class=\"caption\">\n" +
+                            "                                <h4><a href=\"\">商品名称："+name+"</a></h4>\n" +
+                            "                                <p>商品价格："+price+"</p>\n" +
+                            "                                <p><a href=\"#\" class=\"btn btn-warning\"role=\"button\">购买</a> <a href=\"#\" class=\" btn btn-info\"role=\"button\">加入购物车</a> </p>\n" +
+                            "                            </div>\n" +
+                            "                        </div>\n" +
+                            "                    </div>";
+                        $("#addDiv").append(tt);
                     }
                 },
                 error:function () {
