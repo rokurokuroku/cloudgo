@@ -80,10 +80,39 @@
     <div id="finOrder" class="row">
 
     </div>
-    <div class="container">
-        <a id="addOrder" class="btn btn-outline-success btn-sm">添加订单</a>
-    </div>
+
 </section>
+
+<%--<h2>创建模态框（Modal）</h2>--%>
+<%--<!-- 按钮触发模态框 -->--%>
+<%--<button id="addOrder" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>--%>
+<%--<!-- 模态框（Modal） -->--%>
+<%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--%>
+<%--    <div class="modal-dialog">--%>
+<%--        <div class="modal-content">--%>
+<%--            <div class="modal-header">--%>
+<%--                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+<%--                <h4 class="modal-title" id="myModalLabel">商品信息</h4>--%>
+<%--            </div>--%>
+
+<%--            <div class="modal-body">--%>
+<%--                <img class="rounded-circle" alt="160x120" style="width: 140px; height: 140px;" src="'../images/'+${productData.data[i].productImage}+'.jpg'" data-holder-rendered="true">--%>
+<%--                商品名称：${productData.data[i].productName}--%>
+<%--                商品价格：${productData.data[i].productPrice}--%>
+<%--                卖方：${productData.data[i].sellerName}--%>
+<%--                商品描述：${productData.data[i].productDescription}--%>
+<%--                商品存货：${productData.data[i].productRemaining}--%>
+<%--                已售数量：${productData.data[i].productSales}--%>
+<%--            </div>--%>
+
+<%--            <div class="modal-footer">--%>
+<%--                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>--%>
+<%--                <button href="toBuy" type="button" class="btn btn-primary" href="toBuy">购买</button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
 
 <%--首页商品的刷新--%>
 <script>
@@ -100,12 +129,41 @@ function loadProject() {
                 var image=productData.data[i].productImage;
                 var name=productData.data[i].productName;
                 var price=productData.data[i].productPrice;
+                var sellername=productData.data[i].sellerName;
+                var description=productData.data[i].productDescription;
+                var remaining=productData.data[i].productRemaining;
+                var sales=productData.data[i].productSales;
                 var t= "        <div id=\"addElement\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
                     "            <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/"+image+".jpg\" data-holder-rendered=\"true\">\n" +
-                    "            <h4><a href=\"#\">商品名称："+name+"</a></h4>\n" +
+                    "            <h4><a id=\"detailProduct\">商品名称："+name+"</a></h4>\n" +
                     "            <p>商品价格："+price+"</p>\n" +
                     "            <button href=\"toBuy\">购买</button>"+
                     "        </div>\n";
+                var td="<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
+                    "    <div class=\"modal-dialog\">\n" +
+                    "        <div class=\"modal-content\">\n" +
+                    "            <div class=\"modal-header\">\n" +
+                    "                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
+                    "                <h4 class=\"modal-title\" id=\"myModalLabel\">商品信息</h4>\n" +
+                    "            </div>\n" +
+                    "\n" +
+                    "            <div class=\"modal-body\">\n" +
+                    "                <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"'../images/'+${productData.data[i].productImage}+'.jpg'\" data-holder-rendered=\"true\">\n" +
+                    "                商品名称："+image+"\n"+
+                    "                商品价格："+price+"\n"+
+                    "                卖方："+sellername+"\n"+
+                    "                商品描述："+description+"\n"+
+                    "                商品存货："+remaining+"\n"+
+                    "                已售数量："+sales+"\n"+
+                    "            </div>\n" +
+                    "\n" +
+                    "            <div class=\"modal-footer\">\n" +
+                    "                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button>\n" +
+                    "                <button href=\"toBuy\" type=\"button\" class=\"btn btn-primary\" href=\"toBuy\">购买</button>\n" +
+                    "            </div>\n" +
+                    "        </div>\n" +
+                    "    </div>\n" +
+                    "</div>";
                 $("#addDiv").append(t);
             }
         },
@@ -114,6 +172,21 @@ function loadProject() {
         }
     })
 }
+
+function showDetailProduct(){
+    $.ajax({
+        success:function (productData) {
+
+        },
+        error:function () {
+            alert("读取商品信息失败！");
+        }
+    })
+}
+
+    $("#detailProduct").click(function () {
+        showDetailProduct();
+    })
 
     $("#add").click(function () {
         loadProject();

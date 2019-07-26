@@ -116,6 +116,11 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
+    public JSONObject showUserInfo(Long userID) {
+        return null;
+    }
+
+    @Override
     @RequestMapping("/toLogout")
     public String processLogout(HttpServletRequest request) {
         sessionService.logout(request.getSession());

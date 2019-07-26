@@ -14,16 +14,18 @@ public class ProductControllerImpl implements ProductController {
     private ProductServiceImpl productService;
 
     @Override
-    public String progressSell(Long sellerId, Long productId, Float productPrice, Long productRemaining) {
-        return null;
+    @RequestMapping("/addProduct")
+    public String addProduct(Long sellerId, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage){
     }
 
     @Override
+    @RequestMapping("/toShowProduct")
     public JSONObject showProduct(Long productId) {
         return null;
     }
 
     @Override
+    @RequestMapping("/toShowProductInfo")
     public JSONObject showProductInfo(Long productId) {
         return null;
     }
