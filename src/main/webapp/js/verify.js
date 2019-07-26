@@ -7,7 +7,7 @@ $(document).ready(function() {
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-                username: {
+                userName: {
                     message: '用户名不正确',
                     validators: {
                         notEmpty: {},
@@ -19,7 +19,7 @@ $(document).ready(function() {
                             regexp: /^[a-zA-Z0-9_\.]+$/
                         },
                         remote: {
-                            url: 'remote.php',
+                            url: 'checkUserName',
                             message: '该用户名不可用'
                         },
                         different: {
@@ -28,38 +28,38 @@ $(document).ready(function() {
                         }
                     }
                 },
-                email: {
+                userEmail: {
                     validators: {
                         emailAddress: {}
                     }
                 },
-                password: {
+                userPassword: {
                     validators: {
                         notEmpty: {},
                         identical: {
-                            field: 'confirmPassword',
+                            field: 'reUserPassword',
                             message: '两次输入密码不一致'
                         },
                         different: {
-                            field: 'username',
+                            field: 'userName',
                             message: '密码和用户名不能相同'
                         }
                     }
                 },
-                confirmPassword: {
+                reUserPassword: {
                     validators: {
                         notEmpty: {},
                         identical: {
-                            field: 'password'
+                            field: 'userPassword'
                         },
                         different: {
-                            field: 'username',
+                            field: 'userName',
                             message: '用户名和密码不能相同'
                         }
                     }
                 },
 
-                phoneNumber: {
+                userTelephone: {
                     validators: {
                         notEmpty: {},
                         digits: {},

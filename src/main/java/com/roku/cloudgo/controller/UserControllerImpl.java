@@ -117,9 +117,12 @@ public class UserControllerImpl implements UserController {
     }
 
     @RequestMapping("/checkUserName")
-    @ResponseBody
-    public boolean checkUserName(String userName) {
-        return userService.checkUserName(userName);
+    @ResponseJSONP
+    public JSONObject checkUserName(String userName) {
+        boolean result = userService.checkUserName(userName);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("valid", result);
+        return jsonObject;
     }
 
 
