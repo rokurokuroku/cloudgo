@@ -15,4 +15,6 @@ public interface ProductService {
     Product jsonObject2Product(JSONObject jsonObject);
 
     JSONObject product2JsonObject(Product product);
+
+    boolean editProduct(Product product);
 }

@@ -140,4 +140,11 @@ public class ProductServiceImpl implements ProductService {
     public boolean addProduct(Product product) {
         return productMapper.insertSelective(product) != 0;
     }
+
+    @Override
+    public boolean editProduct(Product product) {
+        ProductExample example = new ProductExample();
+        example.createCriteria().andProductIdEqualTo(product.getProductId());
+        return productMapper.updateByExampleSelective(product, example)!=0;
+    }
 }

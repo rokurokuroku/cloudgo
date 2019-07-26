@@ -33,7 +33,7 @@ public interface ProductController {
 
     @RequestMapping("/toChangeProduct")
     @ResponseBody
-    boolean progressChange(HttpServletRequest request, Float productPrice, Long productRemaining, String productDescription, Long productImage);
+    boolean progressChange(HttpServletRequest request, Long productId, Float productPrice, Long productRemaining, String productDescription, Long productImage);
    /*
    修改商品的信息
    ？？？？？？？？？？？？？？返回值？？？？？？？？？？？？

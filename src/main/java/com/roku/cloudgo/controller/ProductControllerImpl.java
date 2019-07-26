@@ -57,11 +57,20 @@ public class ProductControllerImpl implements ProductController {
     @Override
     @RequestMapping("/toChangeProduct")
     @ResponseBody
-    public boolean progressChange(HttpServletRequest request, Float productPrice, Long productRemaining, String productDescription, Long productImage) {
+    public boolean progressChange(HttpServletRequest request, Long productId, Float productPrice, Long productRemaining, String productDescription, Long productImage) {
         boolean flag = false;
         if(sessionService.checkSellerLogin(request.getSession()))
         {
-
+            if(productService.getByProductID(productId).getSellerId() == sellerService.getSeller((String)sessionService.getAttr(request.getSession(), "sellerName")).getSellerId())
+            {
+                Product product = new Product();
+                product.setProductId(productId);
+                product.setProductPrice(productPrice);
+                product.setProductRemaining(productRemaining);
+                product.setProductDescription(productDescription);
+                product.setProductImage(productImage);
+                flag = productService.editProduct(product);
+            }
         }
         return flag;
     }
