@@ -8,7 +8,7 @@
       "sellerName": "just",
       "productDescription": "大大的苹果，又大又甜。。。",
       "productRemaining": "30",
-      "productsales": "10"
+      "productSales": "10"
     },
     {
       "productId": "004",
@@ -18,7 +18,7 @@
       "sellerName": "just",
       "productDescription": "大大的苹果，又大又甜。。。",
       "productRemaining": "30",
-      "productsales": "10"
+      "productSales": "10"
     },
     {
       "productId": "004",
@@ -28,7 +28,7 @@
       "sellerName": "just",
       "productDescription": "大大的苹果，又大又甜。。。",
       "productRemaining": "30",
-      "productsales": "10"
+      "productSales": "10"
     },
     {
       "productId": "004",
@@ -38,7 +38,7 @@
       "sellerName": "just",
       "productDescription": "大大的苹果，又大又甜。。。",
       "productRemaining": "30",
-      "productsales": "10"
+      "productSales": "10"
     },
     {
       "productId": "005",
@@ -48,7 +48,7 @@
       "sellerName": "just",
       "productDescription": "大大的苹果，又大又甜。。。",
       "productRemaining": "30",
-      "productsales": "10"
+      "productSales": "10"
     }
   ]
 }
