@@ -3,6 +3,7 @@ package com.roku.cloudgo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +32,8 @@ public interface ProductController {
      */
 
     @RequestMapping("/toChangeProduct")
-    String progressChange(Float productPrice, Long productRemaining, String productDescription, Long productImage);
+    @ResponseBody
+    boolean progressChange(HttpServletRequest request, Float productPrice, Long productRemaining, String productDescription, Long productImage);
    /*
    修改商品的信息
    ？？？？？？？？？？？？？？返回值？？？？？？？？？？？？

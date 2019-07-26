@@ -9,6 +9,7 @@ import com.roku.cloudgo.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -55,8 +56,14 @@ public class ProductControllerImpl implements ProductController {
 
     @Override
     @RequestMapping("/toChangeProduct")
-    public String progressChange(Float productPrice, Long productRemaining, String productDescription, Long productImage) {
-        return null;
+    @ResponseBody
+    public boolean progressChange(HttpServletRequest request, Float productPrice, Long productRemaining, String productDescription, Long productImage) {
+        boolean flag = false;
+        if(sessionService.checkSellerLogin(request.getSession()))
+        {
+
+        }
+        return flag;
     }
 
     @Override

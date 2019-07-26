@@ -33,5 +33,5 @@ public interface UserController {
     String processLogout(HttpServletRequest request);
 
     @RequestMapping("/checkUserName")
-    boolean checkUserName(String userName);
+    JSONObject checkUserName(String userName);
 }

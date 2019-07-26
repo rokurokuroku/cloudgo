@@ -93,11 +93,11 @@
             <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toRegister">
                 <h1 class="mb-4 font-weight-normal">sign up</h1>
 
-                <span id="msg" style="color: red;visibility: hidden;">用户名已经存在</span>
+<%--                <span id="msg" style="color: red;visibility: hidden;">用户名已经存在</span>--%>
                 <label for="inputUsername" class="sr-only">Username</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
-                    <input name="userName" type="text" id="inputUsername"  class=" form-control" placeholder="请输入用户名" maxlength="20" required autofocus onkeyup="checkUserName(this.value)" />
+                    <input name="userName" type="text" id="inputUsername"  class=" form-control" placeholder="请输入用户名" maxlength="20" required autofocus />
                 </div>
 
                 <label for="inputEmail" class="sr-only">Emailaddress</label>
@@ -147,23 +147,23 @@
         </div>
     </div>
 </div>
-<script>
-    function checkUserName(userName) {
-        $.post(
-            "/checkUserName?userName=" + userName,
-            function (data, status) {
-                if(data==false)
-                {
-                    $("#msg").css('visibility','')
-                }
-                else
-                {
-                    $("#msg").css('visibility','hidden');
-                }
-            }
-        )
-    }
-</script>
+<%--<script>--%>
+<%--    function checkUserName(userName) {--%>
+<%--        $.post(--%>
+<%--            "/checkUserName?userName=" + userName,--%>
+<%--            function (data, status) {--%>
+<%--                if(data==false)--%>
+<%--                {--%>
+<%--                    $("#msg").css('visibility','')--%>
+<%--                }--%>
+<%--                else--%>
+<%--                {--%>
+<%--                    $("#msg").css('visibility','hidden');--%>
+<%--                }--%>
+<%--            }--%>
+<%--        )--%>
+<%--    }--%>
+<%--</script>--%>
 
 </body>
 </html>
