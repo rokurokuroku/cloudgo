@@ -33,5 +33,5 @@ public interface ProductController {
    */
 
     @RequestMapping("/findProductData")
-    JSONObject getProducts(Integer data);
+    JSONObject getProducts(Integer number);
 }

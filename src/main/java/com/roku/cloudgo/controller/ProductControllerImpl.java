@@ -40,7 +40,7 @@ public class ProductControllerImpl implements ProductController {
     @Override
     @RequestMapping("/findProductData")
     @ResponseJSONP
-    public JSONObject getProducts(Integer data) {
-        return productService.findProducts(data);
+    public JSONObject getProducts(Integer number) {
+        return productService.findProducts(number);
     }
 }
