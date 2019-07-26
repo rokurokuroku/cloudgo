@@ -4,10 +4,12 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 public interface ProductController {
-    @RequestMapping("/toSell")
-    String progressSell(Long sellerId, Long productId, Float productPrice, Long productRemaining);
+    @RequestMapping("/addProduct")
+    String addProduct(Long sellerId, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage);
     /*
     创建一个新的商品
+    根据选择的分类class1,class2生成ID
+    图片对应的是保存在本地的ID，商家上传图片到本地
     */
 
     @RequestMapping("/toShowProduct")
