@@ -10,7 +10,7 @@
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../layui-v2.5.4/layui/layui.js"></script>
-    <link rel="stylesheet" href="../layui-v2.5.4/layui/css/layui.css">
+    <link rel="stylesheet"href="../layui-v2.5.4/layui/css/layui.css">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
                         <a href="#">帮助</a>
                     </li>
                     <li>
-                        <a href="toLogout">注销</a>
+                        <a href="#">消息</a>
                     </li>
 
                     <li class="dropdown">
@@ -135,32 +135,7 @@
     <div id="addDiv" class="row">
     </div>
 
-    <%--关于--%>
-    <footer class="text-center">
-        <div class="container">
-            <div class="footer_logo text-center navbar clearfix">
-                <i style="font-size: x-large;padding-bottom: 30px">
-                    ——CloudGo——
-                </i>
-                <div class="footer-bottom navbar ">
-                    <a href="#" style="padding-left: 30px">首页</a>
-                    <a href="#" style="padding-left: 30px">订阅</a>
-                    <a href="#" style="padding-left: 30px">建议</a>
-                    <a href="#" style="padding-left: 30px">联系我们</a>
-                </div>
-                <div class="footer-bottom">
-                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home"style="font-size: x-large"></span></a>
-                    <a href="#" style="padding-left:30px"><span class="layui-icon layui-icon-user"style="font-size: x-large"></span></a>
-                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat"style="font-size: x-large"></span></a>
-                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq"style="font-size: x-large"></span></a>
-                    <a href="#" style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo"style="font-size: x-large"></span></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-<%--首页商品的刷新--%>
+    <%--首页商品的刷新--%>
     <script>
         function loadProject() {
             $.ajax({
@@ -174,6 +149,12 @@
                         var image=productData.data[i].productImage;
                         var name=productData.data[i].productName;
                         var price=productData.data[i].productPrice;
+                        var t= "        <div id=\"addElement\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
+                            "            <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/"+image+".jpg\" data-holder-rendered=\"true\">\n" +
+                            "            <h4><a href=\"\">商品名称："+name+"</a></h4>\n" +
+                            "            <p>商品价格："+price+"</p>\n" +
+                            "            <button href=\"toBuy\">购买</button>"+
+                            "        </div>\n";
                         var tt="<div class=\"col-md-4\">\n" +
                             "                        <div class=\"responsive thumbnail\">\n" +
                             "                            <a href=\"#\">\n" +
@@ -203,6 +184,31 @@
         })
     </script>
 </div>
+
+<%--关于--%>
+<footer class="text-center">
+    <div class="container">
+        <div class="footer_logo text-center navbar clearfix">
+            <i style="font-size: x-large;padding-bottom: 30px">
+                ——CloudGo——
+            </i>
+            <div class="footer-bottom navbar ">
+                <a href="#" style="padding-left: 30px">首页</a>
+                <a href="#" style="padding-left: 30px">订阅</a>
+                <a href="#" style="padding-left: 30px">建议</a>
+                <a href="#" style="padding-left: 30px">联系我们</a>
+            </div>
+            <div class="footer-bottom">
+                <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo"style="font-size: x-large"></span></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 
 </body>
 </html>

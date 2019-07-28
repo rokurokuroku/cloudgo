@@ -1,13 +1,4 @@
 .title{
-    font-family:STXingkai;
-    color: #efebe0;
-    font-size: medium;
-    padding: 12px;
-}
-.fonts{
-    color: #efebe0;
-    font-family: STXingkai;
-    font-size: larger;
     color: black;
     padding: 12px;
 }
@@ -16,14 +7,10 @@
 }
 .font{
     color: #0f0f0f;
-    font-family: STXingkai;
-    font-size: larger;
 }
 .fontleft{
     margin: 10px;
     margin-top: 20px;
-    color: #efebe0;
-    font-family:STXingkai;
     color: black;
 }
 .center-block{

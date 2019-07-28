@@ -9,7 +9,7 @@
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
     <script type="text/javascript" src="../layui-v2.5.4/layui/layui.js"></script>
     <link rel="stylesheet" href="../layui-v2.5.4/layui/css/layui.css" media="all">
-<%--    <link rel="stylesheet" href="../css/order.css">--%>
+    <link rel="stylesheet" href="../css/order.css">
 
 </head>
 <body style="background-image: url(../images/login.jpg);background-size: cover;height: 100vh;">
@@ -29,7 +29,7 @@
     <!--左侧个人信息-->
     <div class="row col-xs-2 col-md-2" style="height: 100vh;background-color: #4a4f5b;opacity: 0.55;position: relative"></div>
     <div class="col-xs-2 col-md-2 center-block" style="position: absolute">
-        <img src="../images/img.jpg" alt="80x60" class="img-circle img-responsive center-block">
+        <img src="../images/10000.jpg" alt="80x60" class="img-circle img-responsive center-block">
         <table id="table1" class="table-responsive border-collapse" >
             <thead>
             <tr>
@@ -37,26 +37,26 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody id="findUserInform">
+            <tbody>
             <tr>
                 <td>用户ID：</td>
-                <td>读取失败</td>
+                <td>123</td>
             </tr>
             <tr>
-                <td>用户等级：</td>
-                <td>读取失败</td>
+                <td>个人等级：</td>
+                <td>123</td>
             </tr>
             <tr>
-                <td>用户名：</td>
-                <td>读取失败</td>
+                <td>个人余额：</td>
+                <td>123</td>
             </tr>
             <tr>
-                <td>用户余额：</td>
-                <td>读取失败</td>
+                <td>个人积分：</td>
+                <td>123</td>
             </tr>
             <tr>
-                <td>用户积分：</td>
-                <td>读取失败</td>
+                <td>个人描述：</td>
+                <td>123</td>
             </tr>
             </tbody>
         </table>
@@ -210,10 +210,8 @@
             }
         })
     }
-    // $("#addOrder").click(function () {
-    //     loadOrder();
-    // })
-    $(document).ready(function () {
+
+    $("#addOrder").click(function () {
         loadOrder();
     })
 </script>
@@ -222,7 +220,7 @@
 <script>
     function loadUserInform(){
         $.ajax({
-            url:'../json/userInform.json',
+            url:'../json/',
             type:'get',
             dataType:'json',
             success:function (userData) {
@@ -266,9 +264,10 @@
         })
     }
     $(document).ready(function () {
-        loadUserInform();
+        loadOrder();
     })
 </script>
+
 
 <script>
     layui.use('form', function(){
