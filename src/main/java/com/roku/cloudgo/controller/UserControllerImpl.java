@@ -3,6 +3,7 @@ package com.roku.cloudgo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
 import com.roku.cloudgo.pojo.User;
+import com.roku.cloudgo.service.BankService;
 import com.roku.cloudgo.service.SessionService;
 import com.roku.cloudgo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class UserControllerImpl implements UserController {
 
     @Autowired
     private SessionService sessionService;
+
+    @Autowired
+    private BankService bankService;
 
 
     @Override
@@ -140,7 +144,10 @@ public class UserControllerImpl implements UserController {
         if(sessionService.checkUserLogin(request.getSession()))
         {
             User user = userService.getUser((String)sessionService.getAttr(request.getSession(), "userName"));
-            return (JSONObject) JSONObject.toJSON(user);
+            JSONObject jsonObject =  (JSONObject) JSONObject.toJSON(user);
+            jsonObject.put("userBalance", bankService.getBankRecord(user.getUserId()).getUserBalance());
+            jsonObject.put("userScore", bankService.getBankRecord(user.getUserId()).getUserScore());
+            return jsonObject;
         }
         else
         {
