@@ -20,6 +20,10 @@
         background-color: #cdd0cf;
         border-color: #cdd0cf;
     }
+   .input-group{
+       padding-right: 26px;
+       padding-left: 26px;
+   }
 </style>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -61,7 +65,7 @@
     </div>
 </nav>
 
-<div class="container text-center" style="margin: auto;height:640px;background:url(../images/loginbg.jpg);width: 100%;background-size: cover">
+<div class="container text-center" style="margin: auto;height:640px;width: 100%;background-size: cover;background:url(../images/loginbg.jpg)">
 
     <!-- 登录 -->
     <div class="tab-content">
@@ -92,8 +96,8 @@
 
         <!--注册--->
         <div role="tabpanel" class="tab-pane" id="register">
-            <form  id="defaultForm" method="post" class="form-signin form-horizontal " style="transform: translate(10%,4%);">
-                <h1 class="mb-4 font-weight-normal">sign up</h1>
+            <form  id="defaultForm" method="post" class="form-signin form-horizontal " style="transform: translate(10%,5%);height: 510px;">
+                <h1 class="mb-4 font-weight-normal" style="margin-top: 10px">sign up</h1>
 
                 <label for="inputUsername" class="sr-only">Username</label>
                 <div class="input-group form-group">
@@ -143,7 +147,7 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">sign up</button>
+                <button class="btn btn-lg btn-primary btn-block text-center" type="submit">sign up</button>
             </form>
         </div>
     </div>
