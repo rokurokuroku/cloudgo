@@ -56,81 +56,80 @@
     </div>
 </nav>
 
-<div class="container text-center" style="margin: auto;height:640px;background:url(../images/login.jpg);width: 100%;background-size: cover">
+<div class="container text-center" style="margin: auto;height:640px;background:url(../images/loginbg.jpg);width: 100%;background-size: cover">
 
     <!-- Nav tabs -->
-
 
     <!-- 登录 -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active " id="login" style="position: center">
             <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%);" action="toLogin">
 
-                <h1 class="mb-4 font-weight-normal">sign in</h1>
+                <h1 class="mb-4 font-weight-normal">用户登录界面</h1>
 
-                <label for="Username" class="sr-only">Username</label>
+                <label for="Username" class="sr-only">用户名</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
                     <input name="userName" type="text" id="Username"  class=" form-control" placeholder="请输入用户名" maxlength="20" required autofocus>
                 </div>
 
-                <label for="Password" class="sr-only">Password</label>
+                <label for="Password" class="sr-only">登录密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
                     <input name="userPassword"  type="password" id="Password" class=" form-control" placeholder="请输入密码" maxlength="20" required autofocus>
                 </div>
                 <div class="checkbox mb-3" style="float: left">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me"> 记住我
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
             </form>
         </div>
 
         <!--注册--->
         <div role="tabpanel" class="tab-pane" id="register">
             <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toRegister">
-                <h1 class="mb-4 font-weight-normal">sign up</h1>
+                <h1 class="mb-4 font-weight-normal">用户登录界面</h1>
 
 <%--                <span id="msg" style="color: red;visibility: hidden;">用户名已经存在</span>--%>
-                <label for="inputUsername" class="sr-only">Username</label>
+                <label for="inputUsername" class="sr-only">用户名</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
                     <input name="userName" type="text" id="inputUsername"  class=" form-control" placeholder="请输入用户名" maxlength="20" required autofocus />
                 </div>
 
-                <label for="inputEmail" class="sr-only">Emailaddress</label>
+                <label for="inputEmail" class="sr-only">邮箱</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon" ><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size:large"></span></span>
                     <input  name="userEmail" type="email" id="inputEmail" class=" form-control" placeholder="请输入邮箱" required autofocus>
                 </div>
 
-                <label for="inputPhone" class="sr-only">PhoneNumber</label>
+                <label for="inputPhone" class="sr-only">电话</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true" style="font-size: large;"></span></span>
                     <input name="userTelephone"  type="text" id="inputPhone"  class=" form-control" placeholder="请输入手机号" required autofocus>
                 </div>
 
-                <label for="inputPassword" class="sr-only">Password</label>
+                <label for="inputPassword" class="sr-only">登陆密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
                     <input  name="userPassword" type="password" id="inputPassword" class=" form-control" placeholder="请输入登录密码" maxlength="20" required autofocus>
                 </div>
 
-                <label for="inputPassword" class="sr-only">Password</label>
+                <label for="inputPassword" class="sr-only">确认登录密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
                     <input  name="reUserPassword" type="password" id="inputcPassword"  class=" form-control" placeholder="请确认登录密码" maxlength="20" required autofocus>
                 </div>
 
-                <label for="inputPayPwd" class="sr-only">Password</label>
+                <label for="inputPayPwd" class="sr-only">支付密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
                     <input  name="paymentCode" type="password" id="inputPayPwd" class=" form-control" placeholder="请输入支付密码" maxlength="20" required autofocus>
                 </div>
 
-                <label for="inputCPayPwd" class="sr-only">Password</label>
+                <label for="inputCPayPwd" class="sr-only">确认支付密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"aria-hidden="true" style="font-size: large;"></span></span>
                     <input  name="rePaymentCode" type="password" id="inputCPayPwd"  class=" form-control" placeholder="请确认支付密码" maxlength="20" required autofocus>
@@ -139,10 +138,10 @@
 
                 <div class="checkbox mb-3" style="float: left">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me"> 记住我
                     </label>
                 </div>
-                <button id="signup" class="btn btn-lg btn-primary btn-block" type="submit">sign up</button>
+                <button id="signup" class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
             </form>
         </div>
     </div>

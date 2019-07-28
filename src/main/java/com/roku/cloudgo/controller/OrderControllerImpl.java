@@ -8,6 +8,7 @@ import com.roku.cloudgo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -28,12 +29,13 @@ public class OrderControllerImpl implements OrderController {
 
     @Override
     @RequestMapping("/toBuy")
+    @ResponseBody
     public boolean progressBuy(HttpServletRequest request,  Long productId, String address, Long buyNumber) {
         boolean flag = false;
         Long remainingNumber = productService.getByProductID(productId).getProductRemaining();
-        if(remainingNumber > buyNumber)
+        if(remainingNumber >= buyNumber)
         {
-            Product product = new Product();
+            Product product = productService.getByProductID(productId);
             product.setProductRemaining(remainingNumber - buyNumber);
             if(address!=null && !address.equals(""))
             {
@@ -46,8 +48,10 @@ public class OrderControllerImpl implements OrderController {
                 order.setTradingHour(new Date());
                 order.setShippingAddress(address);
                 order.setTransactionAmount(buyNumber*productService.getByProductID(productId).getProductPrice());
-                if(orderService.addOrder(order) && productService.editProduct(product))
+                if(orderService.addOrder(order) )
                 {
+                    product.setProductSales(product.getProductSales()+buyNumber);
+                    productService.editProduct(product);
                     flag = true;
                 }
             }
