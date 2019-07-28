@@ -11,6 +11,15 @@ public interface VisitController {
     @RequestMapping({"/login", "/"})
     String login(HttpServletRequest request);
 
+    @RequestMapping("/sellerIndex")
+    String sellerIndex(HttpServletRequest request);
+
+    @RequestMapping({"/sellerLogin", "/"})
+    String sellerLogin(HttpServletRequest request);
+
     @RequestMapping("/user")
     String user(HttpServletRequest request);
+
+    @RequestMapping("/seller")
+    String seller(HttpServletRequest request);
 }

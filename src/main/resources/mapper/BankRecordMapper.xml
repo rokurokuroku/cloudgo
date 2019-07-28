@@ -5,7 +5,7 @@
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="user_balance" property="userBalance" jdbcType="REAL" />
     <result column="user_score" property="userScore" jdbcType="BIGINT" />
-    <result column="payment_code" property="paymentCode" jdbcType="INTEGER" />
+    <result column="payment_code" property="paymentCode" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -92,7 +92,7 @@
     insert into BankRole (user_id, user_balance, user_score, 
       payment_code)
     values (#{userId,jdbcType=BIGINT}, #{userBalance,jdbcType=REAL}, #{userScore,jdbcType=BIGINT}, 
-      #{paymentCode,jdbcType=INTEGER})
+      #{paymentCode,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.roku.cloudgo.pojo.BankRecord" >
     insert into BankRole
@@ -121,7 +121,7 @@
         #{userScore,jdbcType=BIGINT},
       </if>
       <if test="paymentCode != null" >
-        #{paymentCode,jdbcType=INTEGER},
+        #{paymentCode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -144,7 +144,7 @@
         user_score = #{record.userScore,jdbcType=BIGINT},
       </if>
       <if test="record.paymentCode != null" >
-        payment_code = #{record.paymentCode,jdbcType=INTEGER},
+        payment_code = #{record.paymentCode,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -156,7 +156,7 @@
     set user_id = #{record.userId,jdbcType=BIGINT},
       user_balance = #{record.userBalance,jdbcType=REAL},
       user_score = #{record.userScore,jdbcType=BIGINT},
-      payment_code = #{record.paymentCode,jdbcType=INTEGER}
+      payment_code = #{record.paymentCode,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

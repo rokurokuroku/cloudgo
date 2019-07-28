@@ -11,7 +11,7 @@ public class Order {
 
     private Long productId;
 
-    private Integer productNumbers;
+    private Long productNumbers;
 
     private Date tradingHour;
 
@@ -51,11 +51,11 @@ public class Order {
         this.productId = productId;
     }
 
-    public Integer getProductNumbers() {
+    public Long getProductNumbers() {
         return productNumbers;
     }
 
-    public void setProductNumbers(Integer productNumbers) {
+    public void setProductNumbers(Long productNumbers) {
         this.productNumbers = productNumbers;
     }
 

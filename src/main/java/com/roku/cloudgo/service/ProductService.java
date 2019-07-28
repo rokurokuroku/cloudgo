@@ -3,8 +3,6 @@ package com.roku.cloudgo.service;
 import com.alibaba.fastjson.JSONObject;
 import com.roku.cloudgo.pojo.Product;
 
-import java.util.List;
-
 public interface ProductService {
     Product getByProductID(Long productId);
 

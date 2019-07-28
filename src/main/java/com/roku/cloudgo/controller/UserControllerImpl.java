@@ -129,7 +129,7 @@ public class UserControllerImpl implements UserController {
     @Override
     @RequestMapping("/toLogout")
     public String processLogout(HttpServletRequest request) {
-        sessionService.userLogout(request.getSession());
+        sessionService.logout(request.getSession());
         return "redirect:/login";
     }
 

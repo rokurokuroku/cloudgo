@@ -52,4 +52,17 @@ public class VisitControllerImpl implements VisitController {
             return "redirect:/login";
         }
     }
+
+    @Override
+    @RequestMapping("/seller")
+    public String seller(HttpServletRequest request) {
+        if(sessionService.checkSellerLogin(request.getSession()))
+        {
+            return "seller";
+        }
+        else
+        {
+            return "redirect:/login";
+        }
+    }
 }
