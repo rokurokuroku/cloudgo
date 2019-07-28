@@ -47,7 +47,7 @@
                         <a href="#">帮助</a>
                     </li>
                     <li>
-                        <a href="#">消息</a>
+                        <a href="toLogout">注销</a>
                     </li>
 
                     <li class="dropdown">
@@ -135,6 +135,30 @@
     <div id="addDiv" class="row">
     </div>
 
+    <%--关于--%>
+    <footer class="text-center">
+        <div class="container">
+            <div class="footer_logo text-center navbar clearfix">
+                <i style="font-size: x-large;padding-bottom: 30px">
+                    ——CloudGo——
+                </i>
+                <div class="footer-bottom navbar ">
+                    <a href="#" style="padding-left: 30px">首页</a>
+                    <a href="#" style="padding-left: 30px">订阅</a>
+                    <a href="#" style="padding-left: 30px">建议</a>
+                    <a href="#" style="padding-left: 30px">联系我们</a>
+                </div>
+                <div class="footer-bottom">
+                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home"style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user"style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat"style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq"style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo"style="font-size: x-large"></span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <%--首页商品的刷新--%>
     <script>
         function loadProject() {
@@ -185,29 +209,7 @@
     </script>
 </div>
 
-<%--关于--%>
-<footer class="text-center">
-    <div class="container">
-        <div class="footer_logo text-center navbar clearfix">
-            <i style="font-size: x-large;padding-bottom: 30px">
-                ——CloudGo——
-            </i>
-            <div class="footer-bottom navbar ">
-                <a href="#" style="padding-left: 30px">首页</a>
-                <a href="#" style="padding-left: 30px">订阅</a>
-                <a href="#" style="padding-left: 30px">建议</a>
-                <a href="#" style="padding-left: 30px">联系我们</a>
-            </div>
-            <div class="footer-bottom">
-                <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home"style="font-size: x-large"></span></a>
-                <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user"style="font-size: x-large"></span></a>
-                <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat"style="font-size: x-large"></span></a>
-                <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq"style="font-size: x-large"></span></a>
-                <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo"style="font-size: x-large"></span></a>
-            </div>
-        </div>
-    </div>
-</footer>
+
 
 
 </body>

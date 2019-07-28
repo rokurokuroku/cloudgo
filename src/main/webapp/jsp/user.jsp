@@ -37,27 +37,28 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="findUserInform">
             <tr>
                 <td>用户ID：</td>
-                <td>123</td>
+                <td>读取失败</td>
             </tr>
             <tr>
                 <td>个人等级：</td>
-                <td>123</td>
+                <td>读取失败</td>
+            </tr>
+            <tr>
+                <td>用户名：</td>
+                <td>读取失败</td>
             </tr>
             <tr>
                 <td>个人余额：</td>
-                <td>123</td>
+                <td>读取失败</td>
             </tr>
             <tr>
                 <td>个人积分：</td>
-                <td>123</td>
+                <td>读取失败</td>
             </tr>
-            <tr>
-                <td>个人描述：</td>
-                <td>123</td>
-            </tr>
+
             </tbody>
         </table>
     </div>
@@ -74,89 +75,52 @@
                 <div class="layui-tab-content">
                     <!--信息查询-->
                     <div class="layui-tab-item layui-show">
-                        <form class="layui-form" action="">
-                            <!--用户名-->
-                            <div class="layui-form-item">
-                                <label class="layui-form-label">用户名</label>
-                                <div class="layui-input-inline font">
-                                    <input type="text" name="userName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
+                        <form class="layui-form" action="toChange">
                             <!--电话-->
                             <div class="layui-form-item">
                                 <label class="layui-form-label">电话</label>
                                 <div class="layui-input-inline font">
-                                    <input type="text" name="userTelephone" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                    <input id="addTele" type="text" name="userTelephone" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <!--邮箱-->
                             <div class="layui-form-item">
                                 <label class="layui-form-label">邮箱</label>
                                 <div class="layui-input-inline font">
-                                    <input type="text" name="userEmail" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <!--密码-->
-                            <div class="layui-form-item">
-                                <label class="layui-form-label">密码</label>
-                                <div class="layui-input-inline font">
-                                    <input type="password" name="userPassword" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                    <input id="addEmail" type="text" name="userEmail" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">性别</label>
                                 <div class="layui-input-inline">
-                                    <input type="radio" name="userGender" value="男" title="男">
-                                    <input type="radio" name="userGender" value="女" title="女" checked>
+                                    <input id="male" type="radio" name="userGender" value="0" title="男">
+                                    <input id="female" type="radio" name="userGender" value="1" title="女">
                                 </div>
                             </div>
                             <!--收货地址-->
                             <div class="layui-form-item">
-                                <label class="layui-form-label">收货地址</label>
+                                <label class="layui-form-label">配送地址</label>
                                 <div class="layui-input-inline font">
-                                    <select name="quiz1">
-                                        <option value="无">请选择省</option>
-                                        <option value="四川省" selected="">四川省</option>
-                                        <option value="山东省">山东省</option>
-                                        <option value="浙江省">浙江省</option>
-                                        <option value="上海市">上海市</option>
-                                    </select>
-                                </div>
-                                <div class="layui-input-inline font">
-                                    <select name="quiz2">
-                                        <option value="无">请选择市</option>
-                                        <option value="成都">成都</option>
-                                        <option value="自贡">自贡</option>
-                                        <option value="攀枝花">攀枝花</option>
-                                        <option value="泸州">泸州</option>
-                                        <option value="德阳">德阳</option>
-                                        <option value="绵阳">绵阳</option>
-                                        <option value="广元">广元</option>
-                                    </select>
-                                </div>
-                                <div class="layui-input-inline font">
-                                    <select name="quiz3">
-                                        <option value="无">请选择县/区</option>
-                                        <option value="成华区">成华区</option>
-                                        <option value="武侯区">武侯区</option>
-                                        <option value="青羊区">青羊区</option>
-                                        <option value="锦江区">锦江区</option>
-                                    </select>
+                                    <input id="addAdd" type="text" name="shippingAddress" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <!--个人描述-->
                             <div class="layui-form-item layui-form-text">
                                 <label class="layui-form-label">个人描述</label>
                                 <div class="layui-input-block font">
-                                    <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                                    <textarea id="addDes" placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <div class="layui-input-block"style="float:right">
-                                    <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
+                                <div class="layui-input-block" style="float:right">
+                                    <button id="saveData" class="layui-btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
                                 </div>
                             </div>
                         </form>
+
+                        <div class="layui-input-block" style="float:right">
+                            <a class="layui-btn" id="flushData" href="user">刷新数据</a>
+                        </div>
                     </div>
                     <div class="layui-tab-item">
                             <table class="table table-hover">
@@ -183,7 +147,7 @@
 <script>
     function loadOrder(){
         $.ajax({
-            url:'../json/orderData.json',
+            url:'showOrders',
             type:'get',
             dataType:'json',
             success:function (orderData) {
@@ -194,7 +158,7 @@
                     var sellername=orderData.data[i].sellerName;
                     var productnumbers=orderData.data[i].productNumbers;
                     var tradinghour=orderData.data[i].tradingHour;
-                    var buyershippingaddress=orderData.data[i].buyerShippingAddress;
+                    var buyershippingaddress=orderData.data[i].shippingAddress;
                     var transactionAmount=orderData.data[i].transactionAmount;
                     var t= "          <td>"+productname+"</td>"+
                         "          <td>"+sellername+"</td>"+
@@ -210,53 +174,83 @@
             }
         })
     }
-
-    $("#addOrder").click(function () {
+    $(document).ready(function () {
         loadOrder();
+    })
+    $("#flushData").click(function () {
+        loadOrder();
+    })
+</script>
+
+<script>
+    function warningGender() {
+        var thisGenderRadio=$('input:radio[name="userGender"]:checked').val();
+        if(null==thisGenderRadio){
+            alert("请设置性别！");
+            return false;
+        }
+    }
+    $("#saveData").click(function () {
+        warningGender();
     })
 </script>
 
 <%--用户信息的显示--%>
 <script>
+    function checkRadio(mValue) {
+        var genderRadio = document.getElementsByName("userGender");
+        for(var i=0;i<genderRadio.length;i++){
+            if(mValue==genderRadio[i].value){
+                genderRadio[i].checked=true;
+            }else{
+                genderRadio[i].checked=false;
+            }
+        }
+    }
     function loadUserInform(){
         $.ajax({
-            url:'../json/',
+            url:'toShowUserInfo',
             type:'get',
             dataType:'json',
             success:function (userData) {
-                // var contentToRemove = document.querySelectorAll("#findUserInform");
-                // $(contentToRemove).remove();
-                var userid=userData.data.userId;
-                var userlevel=userData.data.userLevel;
-                var username=userData.data.userName;
-                var userbalance=userData.data.Balance;
-                var userscore=userData.data.userScore;
-                var usertelephone=userData.data.userTelephone;
-                var useremai=userData.data.userEmail;
-                var usergender=userData.data.userGender;
-                var shippingaddress=userData.data.shippingAddress;
-                var userdescription=userData.data.userDescription;
+                var contentToRemove = document.querySelectorAll("#findUserInform");
+                $(contentToRemove).remove();
+                var userid=userData.userId;
+                var userlevel=userData.userLevel;
+                var username=userData.userName;
+                var userbalance=userData.userBalance;
+                var userscore=userData.userScore;
+                var usertelephone=userData.userTelephone;
+                var useremail=userData.userEmail;
+                var usergender=userData.userGender;
+                var shippingaddress=userData.shippingAddress;
+                var userdescription=userData.userDescription;
                 var t= "<tr>\n" +
-                    "                <td>用户ID：</td>\n" +
-                    "                <td>"+userid+"</td>\n" +
-                    "            </tr>\n" +
-                    "            <tr>\n" +
-                    "                <td>用户等级：</td>\n" +
-                    "                <td>"+userlevel+"</td>\n" +
-                    "            </tr>\n" +
-                    "            <tr>\n" +
-                    "                <td>用户名：</td>\n" +
-                    "                <td>"+username+"</td>\n" +
-                    "            </tr>\n" +
-                    "            <tr>\n" +
-                    "                <td>用户余额：</td>\n" +
-                    "                <td>"+userbalance+"</td>\n" +
-                    "            </tr>\n" +
-                    "            <tr>\n" +
-                    "                <td>用户积分：</td>\n" +
-                    "                <td>"+userscore+"</td>\n" +
-                    "            </tr>";
-                $("#findUserInform").append("<tbody id=\"findUserInform\">"+t+"</tbody>");
+                        "                <td>用户ID：</td>\n" +
+                        "                <td>"+userid+"</td>\n" +
+                        "            </tr>\n" +
+                        "            <tr>\n" +
+                        "                <td>用户等级：</td>\n" +
+                        "                <td>"+userlevel+"</td>\n" +
+                        "            </tr>\n" +
+                        "            <tr>\n" +
+                        "                <td>用户名：</td>\n" +
+                        "                <td>"+username+"</td>\n" +
+                        "            </tr>\n" +
+                        "            <tr>\n" +
+                        "                <td>用户余额：</td>\n" +
+                        "                <td>"+userbalance+"</td>\n" +
+                        "            </tr>\n" +
+                        "            <tr>\n" +
+                        "                <td>用户积分：</td>\n" +
+                        "                <td>"+userscore+"</td>\n" +
+                        "            </tr>";
+                $("#table1").append("<tbody id=\"findUserInform\">"+t+"</tbody>");
+                $("#addTele").val(usertelephone);
+                $("#addEmail").val(useremail);
+                checkRadio(usergender);
+                $("#addAdd").val(shippingaddress);
+                $("#addDes").val(userdescription);
             },
             error:function () {
                 alert("读取用户信息失败！");
@@ -264,7 +258,10 @@
         })
     }
     $(document).ready(function () {
-        loadOrder();
+        loadUserInform();
+    })
+    $("#flushData").click(function () {
+        loadUserInform();
     })
 </script>
 

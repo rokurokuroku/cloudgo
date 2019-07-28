@@ -87,7 +87,7 @@
             <li>用户id:${u.userId}</li>
             <li>用户名：${u.userName}</li>
             <li>等级：${u.userLevel}</li>
-            <li>邮箱：<input type="text" name="userName">${u.userEmail}</li>
+            <li>邮箱：<input type="text" name="userName">lllll${u.userEmail}</li>
             <li>电话：<input type="text" name="userTelephone">${u.userTelephone}</li>
             <li>性别：<input type="radio" name="userGender" value="0">男<input type="radio" name="userGender" value="1">女</li>
             <li>地址：<input type="text" name="address">${u.adress}</li>
