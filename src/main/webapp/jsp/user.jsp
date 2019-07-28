@@ -214,6 +214,55 @@
     $("#addOrder").click(function () {
         loadOrder();
     })
+</script>
+
+<%--用户信息的显示--%>
+<script>
+    function loadUserInform(){
+        $.ajax({
+            url:'../json/',
+            type:'get',
+            dataType:'json',
+            success:function (userData) {
+                // var contentToRemove = document.querySelectorAll("#findUserInform");
+                // $(contentToRemove).remove();
+                var userid=userData.data.userId;
+                var userlevel=userData.data.userLevel;
+                var username=userData.data.userName;
+                var userbalance=userData.data.Balance;
+                var userscore=userData.data.userScore;
+                var usertelephone=userData.data.userTelephone;
+                var useremai=userData.data.userEmail;
+                var usergender=userData.data.userGender;
+                var shippingaddress=userData.data.shippingAddress;
+                var userdescription=userData.data.userDescription;
+                var t= "<tr>\n" +
+                    "                <td>用户ID：</td>\n" +
+                    "                <td>"+userid+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户等级：</td>\n" +
+                    "                <td>"+userlevel+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户名：</td>\n" +
+                    "                <td>"+username+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户余额：</td>\n" +
+                    "                <td>"+userbalance+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户积分：</td>\n" +
+                    "                <td>"+userscore+"</td>\n" +
+                    "            </tr>";
+                $("#findUserInform").append("<tbody id=\"findUserInform\">"+t+"</tbody>");
+            },
+            error:function () {
+                alert("读取用户信息失败！");
+            }
+        })
+    }
     $(document).ready(function () {
         loadOrder();
     })

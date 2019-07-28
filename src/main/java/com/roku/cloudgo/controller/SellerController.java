@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface SellerController {
 
     @RequestMapping("/toSellerLogin")
-    String processLogin(String sellerName, String sellerPassword);
+    String processLogin(HttpServletRequest request, String sellerName, String sellerPassword);
     //登录成功返回"index.jsp"，失败返回"/login"
 
     @RequestMapping("/toSellerRegister")
@@ -21,19 +21,19 @@ public interface SellerController {
     */
 
     @RequestMapping("/toSellerChange")
-    String processChange(Long sellerID, String sellerEmail, Long sellerTelephone, Character sellerGender, String address, String descriptions);
+    String processChange(HttpServletRequest request, String sellerEmail, Long sellerTelephone, Character sellerGender, String descriptions);
     /*
     修改用户信息
     成功返回"seller.jsp"，失败返回"seller.jsp"
     */
 
     @RequestMapping("/toShowSellerInfo")
-    JSONObject showSellerInfo(Long sellerID);
+    JSONObject showSellerInfo(HttpServletRequest request);
     /*返回商家信息：用户名、等级、电话、邮箱、性别、地址、商家描述*/
 
-    @RequestMapping("/toLogout")
+    @RequestMapping("/toSellerLogout")
     String processLogout(HttpServletRequest request);
 
     @RequestMapping("/checkSellerName")
-    JSONObject checkUserName(String userName);
+    JSONObject checkUserName(String sellerName);
 }

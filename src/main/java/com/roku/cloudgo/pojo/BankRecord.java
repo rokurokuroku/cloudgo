@@ -7,7 +7,7 @@ public class BankRecord {
 
     private Long userScore;
 
-    private Integer paymentCode;
+    private String paymentCode;
 
     public Long getUserId() {
         return userId;
@@ -33,11 +33,11 @@ public class BankRecord {
         this.userScore = userScore;
     }
 
-    public Integer getPaymentCode() {
+    public String getPaymentCode() {
         return paymentCode;
     }
 
-    public void setPaymentCode(Integer paymentCode) {
-        this.paymentCode = paymentCode;
+    public void setPaymentCode(String paymentCode) {
+        this.paymentCode = paymentCode == null ? null : paymentCode.trim();
     }
 }

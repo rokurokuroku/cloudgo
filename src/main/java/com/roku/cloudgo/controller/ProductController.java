@@ -4,12 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
 public interface ProductController {
     @RequestMapping("/addProduct")
-    boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage);
+    boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage, MultipartFile image);
     /*
     创建一个新的商品
     根据选择的分类class1,class2生成ID
@@ -41,4 +42,5 @@ public interface ProductController {
 
     @RequestMapping("/findProductData")
     JSONObject getProducts(Integer number);
+
 }

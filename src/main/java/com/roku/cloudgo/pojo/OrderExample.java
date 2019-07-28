@@ -382,52 +382,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersEqualTo(Integer value) {
+        public Criteria andProductNumbersEqualTo(Long value) {
             addCriterion("product_numbers =", value, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersNotEqualTo(Integer value) {
+        public Criteria andProductNumbersNotEqualTo(Long value) {
             addCriterion("product_numbers <>", value, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersGreaterThan(Integer value) {
+        public Criteria andProductNumbersGreaterThan(Long value) {
             addCriterion("product_numbers >", value, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersGreaterThanOrEqualTo(Integer value) {
+        public Criteria andProductNumbersGreaterThanOrEqualTo(Long value) {
             addCriterion("product_numbers >=", value, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersLessThan(Integer value) {
+        public Criteria andProductNumbersLessThan(Long value) {
             addCriterion("product_numbers <", value, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersLessThanOrEqualTo(Integer value) {
+        public Criteria andProductNumbersLessThanOrEqualTo(Long value) {
             addCriterion("product_numbers <=", value, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersIn(List<Integer> values) {
+        public Criteria andProductNumbersIn(List<Long> values) {
             addCriterion("product_numbers in", values, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersNotIn(List<Integer> values) {
+        public Criteria andProductNumbersNotIn(List<Long> values) {
             addCriterion("product_numbers not in", values, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersBetween(Integer value1, Integer value2) {
+        public Criteria andProductNumbersBetween(Long value1, Long value2) {
             addCriterion("product_numbers between", value1, value2, "productNumbers");
             return (Criteria) this;
         }
 
-        public Criteria andProductNumbersNotBetween(Integer value1, Integer value2) {
+        public Criteria andProductNumbersNotBetween(Long value1, Long value2) {
             addCriterion("product_numbers not between", value1, value2, "productNumbers");
             return (Criteria) this;
         }

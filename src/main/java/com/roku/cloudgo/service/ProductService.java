@@ -2,8 +2,7 @@ package com.roku.cloudgo.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.roku.cloudgo.pojo.Product;
-
-import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface ProductService {
     Product getByProductID(Long productId);
@@ -17,4 +16,6 @@ public interface ProductService {
     JSONObject product2JsonObject(Product product);
 
     boolean editProduct(Product product);
+
+    boolean saveImage(MultipartFile image, Long productImage);
 }

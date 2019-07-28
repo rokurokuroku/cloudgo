@@ -294,52 +294,62 @@ public class BankRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeEqualTo(Integer value) {
+        public Criteria andPaymentCodeEqualTo(String value) {
             addCriterion("payment_code =", value, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeNotEqualTo(Integer value) {
+        public Criteria andPaymentCodeNotEqualTo(String value) {
             addCriterion("payment_code <>", value, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeGreaterThan(Integer value) {
+        public Criteria andPaymentCodeGreaterThan(String value) {
             addCriterion("payment_code >", value, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPaymentCodeGreaterThanOrEqualTo(String value) {
             addCriterion("payment_code >=", value, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeLessThan(Integer value) {
+        public Criteria andPaymentCodeLessThan(String value) {
             addCriterion("payment_code <", value, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeLessThanOrEqualTo(Integer value) {
+        public Criteria andPaymentCodeLessThanOrEqualTo(String value) {
             addCriterion("payment_code <=", value, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeIn(List<Integer> values) {
+        public Criteria andPaymentCodeLike(String value) {
+            addCriterion("payment_code like", value, "paymentCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentCodeNotLike(String value) {
+            addCriterion("payment_code not like", value, "paymentCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentCodeIn(List<String> values) {
             addCriterion("payment_code in", values, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeNotIn(List<Integer> values) {
+        public Criteria andPaymentCodeNotIn(List<String> values) {
             addCriterion("payment_code not in", values, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeBetween(Integer value1, Integer value2) {
+        public Criteria andPaymentCodeBetween(String value1, String value2) {
             addCriterion("payment_code between", value1, value2, "paymentCode");
             return (Criteria) this;
         }
 
-        public Criteria andPaymentCodeNotBetween(Integer value1, Integer value2) {
+        public Criteria andPaymentCodeNotBetween(String value1, String value2) {
             addCriterion("payment_code not between", value1, value2, "paymentCode");
             return (Criteria) this;
         }

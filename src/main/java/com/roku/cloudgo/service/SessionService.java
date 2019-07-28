@@ -25,9 +25,15 @@ public class SessionService {
         session.setAttribute("userName", userName);
     }
 
-    public void userLogout(HttpSession session)
+    public void setLoginSeller(HttpSession session, String sellerName)
+    {
+        session.setAttribute("sellerName", sellerName);
+    }
+
+    public void logout(HttpSession session)
     {
         session.removeAttribute("userName");
+        session.removeAttribute("sellerName");
     }
 
     public boolean checkLogin(HttpSession session)

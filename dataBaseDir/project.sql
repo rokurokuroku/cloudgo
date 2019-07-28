@@ -24,7 +24,7 @@ create table BankRole
    user_id              bigint(12) not null,
    user_balance         float(15) not null default 0,
    user_score           bigint(15) not null default 0,
-   payment_code         integer(6) not null,
+   payment_code         varchar(6) not null,
    primary key (user_id)
 );
 
@@ -38,7 +38,7 @@ create table Orders
    seller_id            bigint(12) not null,
    product_id           bigint(30) not null,
    product_numbers      bigint(10) not null default 0,
-   trading_hour         date not null default '1900-1-1',
+   trading_hour         date not null,
    shipping_address     varchar(50) not null,
    transaction_amount   float(15) not null default 0,
    primary key (order_id)

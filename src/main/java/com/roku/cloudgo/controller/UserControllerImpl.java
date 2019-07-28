@@ -49,7 +49,7 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @RequestMapping("/toRegister")
-    public String processRegister(String userName, String userEmail, Long userTelephone, String userPassword, String reUserPassword, Integer paymentCode, Integer rePaymentCode) {
+    public String processRegister(String userName, String userEmail, Long userTelephone, String userPassword, String reUserPassword, String paymentCode, String rePaymentCode) {
         boolean flag = false;
 
         // 检查两次输入密码是否匹配
@@ -129,7 +129,7 @@ public class UserControllerImpl implements UserController {
     @Override
     @RequestMapping("/toLogout")
     public String processLogout(HttpServletRequest request) {
-        sessionService.userLogout(request.getSession());
+        sessionService.logout(request.getSession());
         return "redirect:/login";
     }
 
