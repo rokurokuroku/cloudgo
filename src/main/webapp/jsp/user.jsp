@@ -226,8 +226,8 @@
             type:'get',
             dataType:'json',
             success:function (userData) {
-                var contentToRemove = document.querySelectorAll("#findUserInform");
-                $(contentToRemove).remove();
+                // var contentToRemove = document.querySelectorAll("#findUserInform");
+                // $(contentToRemove).remove();
                 var userid=userData.data.userId;
                 var userlevel=userData.data.userLevel;
                 var username=userData.data.userName;
@@ -258,8 +258,7 @@
                     "                <td>用户积分：</td>\n" +
                     "                <td>"+userscore+"</td>\n" +
                     "            </tr>";
-                $("#findUserInform").append(t);
-                $("#findUserInform").append("222");
+                $("#findUserInform").append("<tbody id=\"findUserInform\">"+t+"</tbody>");
             },
             error:function () {
                 alert("读取用户信息失败！");
