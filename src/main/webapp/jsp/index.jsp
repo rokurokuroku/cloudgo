@@ -28,17 +28,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">首页</a>
+                <a class="navbar-brand" href="#">CloudGo</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">首页<span class="sr-only">(current)</span></a>
+                        <a href="index">首页<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="#">用户中心</a>
+                        <a href="user">用户中心</a>
                     </li>
                     <li>
                         <a href="#">关于我们</a>
@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <!-- Controls（左右控制区，href用于确定点击触发的那个轮播图）-->
+        <%--Controls（左右控制区，href用于确定点击触发的那个轮播图）--%>
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -134,8 +134,6 @@
 
     <div id="addDiv" class="row">
     </div>
-
-
 
     <%--首页商品的刷新--%>
     <script>
@@ -187,6 +185,29 @@
     </script>
 </div>
 
+<%--关于--%>
+<footer class="text-center">
+    <div class="container">
+        <div class="footer_logo text-center navbar clearfix">
+            <i style="font-size: x-large;padding-bottom: 30px">
+                ——CloudGo——
+            </i>
+            <div class="footer-bottom navbar ">
+                <a href="#" style="padding-left: 30px">首页</a>
+                <a href="#" style="padding-left: 30px">订阅</a>
+                <a href="#" style="padding-left: 30px">建议</a>
+                <a href="#" style="padding-left: 30px">联系我们</a>
+            </div>
+            <div class="footer-bottom">
+                <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq"style="font-size: x-large"></span></a>
+                <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo"style="font-size: x-large"></span></a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 </body>

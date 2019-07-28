@@ -21,9 +21,9 @@ drop table if exists example;
 /*==============================================================*/
 create table BankRole
 (
-   user_id              bigint(12) not null,
+   user_id              integer(12) not null,
    user_balance         float(15) not null default 0,
-   user_score           bigint(15) not null default 0,
+   user_score           integer(15) not null default 0,
    payment_code         integer(6) not null,
    primary key (user_id)
 );
@@ -33,11 +33,11 @@ create table BankRole
 /*==============================================================*/
 create table Orders
 (
-   order_id             bigint(30) not null auto_increment,
-   buyer_id             bigint(12) not null,
-   seller_id            bigint(12) not null,
-   product_id           bigint(30) not null,
-   product_numbers      integer(5) not null default 0,
+   order_id             integer(30) not null auto_increment,
+   buyer_id             integer(12) not null,
+   seller_id            integer(12) not null,
+   product_id           integer(30) not null,
+   product_numbers      integer(10) not null default 0,
    trading_hour         date not null default '1900-1-1',
    shipping_address     varchar(50) not null,
    transaction_amount   float(15) not null default 0,
@@ -50,15 +50,15 @@ auto_increment = 10000;
 /*==============================================================*/
 create table Users
 (
-   user_id              bigint(12) not null auto_increment,
+   user_id              integer(12) not null auto_increment,
    user_name            varchar(30) not null,
    user_password        varchar(16) not null,
-   user_telephone       bigint(11) not null,
-   user_email           varchar(30) not null default '无',
+   user_telephone       integer(11) not null,
+   user_email           varchar(30) not null default 'ÎÞ',
    user_level           integer(3) not null default 0,
    user_gender          char(1) not null default '0',
-   shipping_address     varchar(50) not null default '无',
-   user_description     varchar(200) not null default '无',
+   shipping_address     varchar(50) not null default 'ÎÞ',
+   user_description     varchar(200) not null default 'ÎÞ',
    primary key (user_id, user_name)
 )
 auto_increment = 10000;
@@ -68,14 +68,14 @@ auto_increment = 10000;
 /*==============================================================*/
 create table products
 (
-   product_id           bigint(30) not null,
-   seller_id            bigint(12) not null,
-   product_name         varchar(100) not null default '无',
+   product_id           integer(30) not null,
+   seller_id            integer(12) not null,
+   product_name         varchar(100) not null default 'ÎÞ',
    product_price        float(15) not null default 0.0,
-   product_remaining    bigint(10) not null default 0,
-   product_sales        bigint(10) not null default 0,
-   product_description  varchar(200) not null default '无',
-   product_image        bigint(20) not null default 0,
+   product_remaining    integer(10) not null default 0,
+   product_sales        integer(10) not null default 0,
+   product_description  varchar(200) not null default 'ÎÞ',
+   product_image        integer(20) not null default 0,
    product_mark         float(3) not null default 0,
    primary key (product_id)
 );
@@ -85,14 +85,14 @@ create table products
 /*==============================================================*/
 create table sellers
 (
-   seller_id            bigint(12) not null auto_increment,
+   seller_id            integer(12) not null auto_increment,
    seller_name          varchar(30) not null,
    seller_password      varchar(30) not null,
-   seller_telephone     bigint(11) not null,
-   seller_email         varchar(30) not null default '无',
+   seller_telephone     integer(11) not null,
+   seller_email         varchar(30) not null default 'ÎÞ',
    seller_level         integer(3) not null default 0,
    seller_gender        char(1) not null default '0',
-   seller_description   varchar(200) not null default '无',
+   seller_description   varchar(200) not null default 'ÎÞ',
    primary key (seller_id, seller_name)
 )
 auto_increment = 10000;
