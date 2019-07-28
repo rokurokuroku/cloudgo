@@ -82,4 +82,19 @@ public class SellerServiceImpl implements SellerService {
             return userList.get(0);
         }
     }
+
+    @Override
+    public Seller getSellerById(Long sellerId) {
+        SellerExample example = new SellerExample();
+        example.createCriteria().andSellerIdEqualTo(sellerId);
+        List<Seller> userList = sellerMapper.selectByExample(example);
+        if(userList.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return userList.get(0);
+        }
+    }
 }

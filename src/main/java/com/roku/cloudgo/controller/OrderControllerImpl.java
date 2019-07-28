@@ -23,6 +23,8 @@ public class OrderControllerImpl implements OrderController {
     private UserService userService;
     @Autowired
     private OrderServiceImpl orderService;
+    @Autowired
+    private SellerService sellerService;
 
     @Override
     @RequestMapping("/toBuy")
@@ -62,7 +64,12 @@ public class OrderControllerImpl implements OrderController {
         JSONArray jsonArray = new JSONArray();
         for(int i=0; i<orderList.size(); ++i)
         {
-            jsonArray.add(orderList.get(i));
+            JSONObject jsonOrder = (JSONObject) JSONObject.toJSON(orderList.get(i));
+            String sellerName = sellerService.getSellerById(orderList.get(i).getSellerId()).getSellerName();
+            jsonOrder.put("sellerName", sellerName);
+            String productName = productService.getByProductID(orderList.get(i).getProductId()).getProductName();
+            jsonOrder.put("productName", productName);
+            jsonArray.add(jsonOrder);
         }
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", jsonArray);

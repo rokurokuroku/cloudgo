@@ -8,4 +8,5 @@ public interface SellerService {
     boolean editSeller(Seller seller);
     boolean checkSellerName(String sellerName);
     Seller getSeller(String name);
+    Seller getSellerById(Long sellerId);
 }
