@@ -53,7 +53,7 @@ public class UserControllerImpl implements UserController {
         boolean flag = false;
 
         // 检查两次输入密码是否匹配
-        if(userPassword.equals(reUserPassword) && paymentCode == rePaymentCode)
+        if(userPassword.equals(reUserPassword) && paymentCode.equals(rePaymentCode))
         {
             // 添加数据
             boolean register = false;

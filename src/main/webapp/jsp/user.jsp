@@ -194,7 +194,7 @@
                     var sellername=orderData.data[i].sellerName;
                     var productnumbers=orderData.data[i].productNumbers;
                     var tradinghour=orderData.data[i].tradingHour;
-                    var buyershippingaddress=orderData.data[i].buyerShippingAddress;
+                    var buyershippingaddress=orderData.data[i].ShippingAddress;
                     var transactionAmount=orderData.data[i].transactionAmount;
                     var t= "          <td>"+productname+"</td>"+
                         "          <td>"+sellername+"</td>"+
