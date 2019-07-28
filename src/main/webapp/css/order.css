@@ -1,0 +1,38 @@
+.title{
+    font-family:STXingkai;
+    color: #efebe0;
+    font-size: medium;
+    padding: 12px;
+}
+.fonts{
+    color: #efebe0;
+    font-family: STXingkai;
+    font-size: larger;
+}
+.font{
+    color: #0f0f0f;
+    font-family: STXingkai;
+    font-size: larger;
+}
+.fontleft{
+    margin: 10px;
+    margin-top: 20px;
+    color: #efebe0;
+    font-family:STXingkai;
+}
+.center-block{
+    margin-left: -11px;
+}
+.layui-input-inline{
+    width: 260px !important;
+}
+.layui-input-block{
+    margin-left: 80px;
+}
+#table1{
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.layui-nav{
+    background-color:#6F89A2;
+}
