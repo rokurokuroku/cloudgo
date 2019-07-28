@@ -24,7 +24,7 @@ create table BankRole
    user_id              bigint(12) not null,
    user_balance         float(15) not null default 0,
    user_score           bigint(15) not null default 0,
-   payment_code         integer(6) not null,
+   payment_code         varchar(6) not null,
    primary key (user_id)
 );
 
