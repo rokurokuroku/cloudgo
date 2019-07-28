@@ -67,6 +67,7 @@ public class VisitControllerImpl implements VisitController {
     }
 
     @Override
+    @RequestMapping("/sellerIndex")
     public String sellerIndex(HttpServletRequest request) {
         if(sessionService.checkSellerLogin(request.getSession()))
         {
@@ -79,6 +80,7 @@ public class VisitControllerImpl implements VisitController {
     }
 
     @Override
+    @RequestMapping("/sellerLogin")
     public String sellerLogin(HttpServletRequest request) {
         if(sessionService.checkSellerLogin(request.getSession()))
         {
