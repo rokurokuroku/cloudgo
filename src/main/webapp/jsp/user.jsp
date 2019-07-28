@@ -9,7 +9,7 @@
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
     <script type="text/javascript" src="../layui-v2.5.4/layui/layui.js"></script>
     <link rel="stylesheet" href="../layui-v2.5.4/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="../css/order.css">
+<%--    <link rel="stylesheet" href="../css/order.css">--%>
 
 </head>
 <body style="background-image: url(../images/login.jpg);background-size: cover;height: 100vh;">
@@ -29,7 +29,7 @@
     <!--左侧个人信息-->
     <div class="row col-xs-2 col-md-2" style="height: 100vh;background-color: #4a4f5b;opacity: 0.55;position: relative"></div>
     <div class="col-xs-2 col-md-2 center-block" style="position: absolute">
-        <img src="../images/10000.jpg" alt="80x60" class="img-circle img-responsive center-block">
+        <img src="../images/img.jpg" alt="80x60" class="img-circle img-responsive center-block">
         <table id="table1" class="table-responsive border-collapse" >
             <thead>
             <tr>
@@ -37,26 +37,26 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="findUserInform">
             <tr>
                 <td>用户ID：</td>
-                <td>123</td>
+                <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人等级：</td>
-                <td>123</td>
+                <td>用户等级：</td>
+                <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人余额：</td>
-                <td>123</td>
+                <td>用户名：</td>
+                <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人积分：</td>
-                <td>123</td>
+                <td>用户余额：</td>
+                <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人描述：</td>
-                <td>123</td>
+                <td>用户积分：</td>
+                <td>读取失败</td>
             </tr>
             </tbody>
         </table>
@@ -210,15 +210,66 @@
             }
         })
     }
-
-    $("#addOrder").click(function () {
-        loadOrder();
-    })
+    // $("#addOrder").click(function () {
+    //     loadOrder();
+    // })
     $(document).ready(function () {
         loadOrder();
     })
 </script>
 
+<%--用户信息的显示--%>
+<script>
+    function loadUserInform(){
+        $.ajax({
+            url:'../json/userInform.json',
+            type:'get',
+            dataType:'json',
+            success:function (userData) {
+                var contentToRemove = document.querySelectorAll("#findUserInform");
+                $(contentToRemove).remove();
+                var userid=userData.data.userId;
+                var userlevel=userData.data.userLevel;
+                var username=userData.data.userName;
+                var userbalance=userData.data.Balance;
+                var userscore=userData.data.userScore;
+                var usertelephone=userData.data.userTelephone;
+                var useremai=userData.data.userEmail;
+                var usergender=userData.data.userGender;
+                var shippingaddress=userData.data.shippingAddress;
+                var userdescription=userData.data.userDescription;
+                var t= "<tr>\n" +
+                    "                <td>用户ID：</td>\n" +
+                    "                <td>"+userid+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户等级：</td>\n" +
+                    "                <td>"+userlevel+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户名：</td>\n" +
+                    "                <td>"+username+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户余额：</td>\n" +
+                    "                <td>"+userbalance+"</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>用户积分：</td>\n" +
+                    "                <td>"+userscore+"</td>\n" +
+                    "            </tr>";
+                $("#findUserInform").append(t);
+                $("#findUserInform").append("222");
+            },
+            error:function () {
+                alert("读取用户信息失败！");
+            }
+        })
+    }
+    $(document).ready(function () {
+        loadUserInform();
+    })
+</script>
 
 <script>
     layui.use('form', function(){
