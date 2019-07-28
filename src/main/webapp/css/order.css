@@ -8,6 +8,11 @@
     color: #efebe0;
     font-family: STXingkai;
     font-size: larger;
+    color: black;
+    padding: 12px;
+}
+.fonts{
+    color: black;
 }
 .font{
     color: #0f0f0f;
@@ -19,6 +24,7 @@
     margin-top: 20px;
     color: #efebe0;
     font-family:STXingkai;
+    color: black;
 }
 .center-block{
     margin-left: -11px;
