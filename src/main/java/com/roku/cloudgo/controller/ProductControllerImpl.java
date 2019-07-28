@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,7 +26,7 @@ public class ProductControllerImpl implements ProductController {
 
     @Override
     @RequestMapping("/addProduct")
-    public boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage) {
+    public boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage, MultipartFile image) {
         boolean flag = false;
         if(sessionService.checkSellerLogin(request.getSession()))
         {
@@ -42,6 +43,7 @@ public class ProductControllerImpl implements ProductController {
             if(addFlag)
             {
                 flag = true;
+                productService.saveImage(image, productImage);
             }
         }
         return flag;
@@ -80,5 +82,13 @@ public class ProductControllerImpl implements ProductController {
     @ResponseJSONP
     public JSONObject getProducts(Integer number) {
         return productService.findProducts(number);
+    }
+
+
+    @RequestMapping("/testUpload")
+    public String upload(MultipartFile image)
+    {
+        productService.saveImage(image, Long.parseLong("666666"));
+        return "index";
     }
 }

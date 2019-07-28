@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userRegister(User user, Integer paymentCode) {
+    public boolean userRegister(User user, String paymentCode) {
         boolean flag = false;
         int countUser = userMapper.insertSelective(user);
         if(countUser==0)

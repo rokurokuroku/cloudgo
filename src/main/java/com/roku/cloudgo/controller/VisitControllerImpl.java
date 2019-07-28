@@ -16,7 +16,7 @@ public class VisitControllerImpl implements VisitController {
     @RequestMapping("/index")
     public String index(HttpServletRequest request)
     {
-        if(sessionService.checkLogin(request.getSession()))
+        if(sessionService.checkUserLogin(request.getSession()))
         {
             return "index";
         }
@@ -30,7 +30,7 @@ public class VisitControllerImpl implements VisitController {
     @RequestMapping({"/login", "/"})
     public String login(HttpServletRequest request)
     {
-        if(sessionService.checkLogin(request.getSession()))
+        if(sessionService.checkUserLogin(request.getSession()))
         {
             return "index";
         }
@@ -62,7 +62,37 @@ public class VisitControllerImpl implements VisitController {
         }
         else
         {
-            return "redirect:/login";
+            return "redirect:/sellerLogin";
         }
+    }
+
+    @Override
+    public String sellerIndex(HttpServletRequest request) {
+        if(sessionService.checkSellerLogin(request.getSession()))
+        {
+            return "sellerIndex";
+        }
+        else
+        {
+            return "redirect:/sellerLogin";
+        }
+    }
+
+    @Override
+    public String sellerLogin(HttpServletRequest request) {
+        if(sessionService.checkSellerLogin(request.getSession()))
+        {
+            return "sellerIndex";
+        }
+        else
+        {
+            return "sellerLoginAndRegister";
+        }
+    }
+
+    @RequestMapping("/test")
+    public String testUpload()
+    {
+        return "imageUploadExample";
     }
 }

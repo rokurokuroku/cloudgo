@@ -14,7 +14,7 @@ public interface UserController {
     //登录成功返回"index.jsp"，失败返回"/login"
 
     @RequestMapping("/toRegister")
-    String processRegister(String userName, String userEmail, Long userTelephone, String userPassword, String reUserPassword, Integer paymentCode, Integer rePaymentCode);
+    String processRegister(String userName, String userEmail, Long userTelephone, String userPassword, String reUserPassword, String paymentCode, String rePaymentCode);
     /*数据库Users表生成一个新的对象
     自动生成user_id、user_level
     之后返回注册登录页面

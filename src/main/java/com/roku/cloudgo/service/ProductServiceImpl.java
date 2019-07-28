@@ -2,6 +2,7 @@ package com.roku.cloudgo.service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.roku.cloudgo.DAO.ImageDAO.ImageDao;
 import com.roku.cloudgo.DAO.JSONDAO.JsonDao;
 import com.roku.cloudgo.DAO.mapper.ProductMapper;
 import com.roku.cloudgo.DAO.mapper.SellerMapper;
@@ -10,6 +11,7 @@ import com.roku.cloudgo.pojo.ProductExample;
 import com.roku.cloudgo.pojo.Seller;
 import com.roku.cloudgo.pojo.SellerExample;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,6 +24,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductMapper productMapper;
     @Resource
     private SellerMapper sellerMapper;
+    @Resource
+    private ImageDao imageDao;
 
     private String fileName = "json/productData.json";
 
@@ -146,5 +150,13 @@ public class ProductServiceImpl implements ProductService {
         ProductExample example = new ProductExample();
         example.createCriteria().andProductIdEqualTo(product.getProductId());
         return productMapper.updateByExampleSelective(product, example)!=0;
+    }
+
+    @Override
+    public boolean saveImage(MultipartFile image, Long productImage) {
+        String imageName = image.getOriginalFilename();
+        String typeName = imageName.substring(imageName.indexOf('.'));
+        String fileName = productImage.toString() + "." + typeName;
+        return imageDao.saveImage(image, fileName);
     }
 }
