@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/detail.css">
-    <link rel="stylesheet" type="text/css" href="layui-v2.5.4/layui/css/layui.css">
-    <link rel="stylesheet"  href="css/bootstrap.min.css">
-    <script type="text/javascript" src="layui-v2.5.4/layui/layui.js"></script>
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/detail.css">
+    <link rel="stylesheet" type="text/css" href="../layui-v2.5.4/layui/css/layui.css">
+    <link rel="stylesheet"  href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../layui-v2.5.4/layui/layui.js"></script>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 </head>
@@ -17,6 +17,14 @@
     .footer{
         display: block;
         background-color: #f5f5f5;
+    }
+    .layui-form-item .layui-input-inline{
+        float: left;
+        width: 90px;
+        margin-top: 10px;
+    }
+    .layui-input-inline{
+        margin-top: 10px;
     }
 </style>
 <body>
@@ -75,7 +83,7 @@
         </div>
         <div class="product-intro layui-clear">
             <div class="preview-wrap">
-                <a href="javascript:;"><img src="img/sell2.jpg"></a>
+                <a href="javascript:;"><img src="../images/sell2.jpg"></a>
             </div>
             <div class="itemInfo-wrap">
                 <div class="itemInfo">
@@ -86,7 +94,38 @@
                     <div class="summary">
                         <p class="reference"><span>参考价</span> <del>￥280.00</del></p>
                         <p class="activity"><span>活动价</span><strong class="price"><i>￥</i>99.00</strong></p>
-                        <p class="address-box"><span>送至</span><strong class="address">四川成都成华区</strong></p>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">收货地址</label>
+                            <div class="layui-input-inline font">
+                                <select name="quiz1">
+                                    <option value="">请选择省</option>
+                                    <option value="浙江" selected="">四川省</option>
+                                    <option value="山东">山东省</option>
+                                    <option value="浙江">浙江省</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline font">
+                                <select name="quiz2">
+                                    <option value="">请选择市</option>
+                                    <option value="杭州">成都</option>
+                                    <option value="宁波">自贡</option>
+                                    <option value="温州">攀枝花</option>
+                                    <option value="温州">泸州</option>
+                                    <option value="温州">德阳</option>
+                                    <option value="温州">绵阳</option>
+                                    <option value="温州">广元</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline font">
+                                <select name="quiz3">
+                                    <option value="">请选择县/区</option>
+                                    <option value="西湖区">成华区</option>
+                                    <option value="余杭区">武侯区</option>
+                                    <option value="拱墅区">青羊区</option>
+                                    <option value="拱墅区">锦江区</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="choose-attrs">
                         <div class="color layui-clear"><span class="title">颜色</span> <div class="color-cont"><span class="btn">白色</span> <span class="btn active">黑色</span></div></div>
@@ -104,15 +143,15 @@
                 <h4>热销推荐</h4>
                 <div class="item-list">
                     <div class="item">
-                        <img src="img/sell3.jpg">
+                        <img src="../images/sell3.jpg">
                         <p><span>asdasada</span><span class="pric">￥99.00</span></p>
                     </div>
                     <div class="item">
-                        <img src="img/sell4.jpg">
+                        <img src="../images/sell4.jpg">
                         <p><span>asdfddsfsdf</span><span class="pric">￥99.00</span></p>
                     </div>
                     <div class="item">
-                        <img src="img/sell5.jpg">
+                        <img src="../images/sell5.jpg">
                         <p><span>afsdfdsfsdf</span><span class="pric">￥99.00</span></p>
                     </div>
                 </div>
@@ -120,7 +159,7 @@
             <div class="detail">
                 <h4>详情</h4>
                 <div class="item">
-                    <img src="img/sell2.jpg">
+                    <img src="../images/sell2.jpg">
                 </div>
                 <table>
                     <tbody>
