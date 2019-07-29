@@ -8,6 +8,7 @@ import com.roku.cloudgo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -30,36 +31,35 @@ public class OrderControllerImpl implements OrderController {
 
     @Override
     @RequestMapping("/toBuy")
+    @ResponseBody
     public boolean progressBuy(HttpServletRequest request,  Long productId, String address, Long buyNumber, String paymentCode) {
         boolean flag = false;
-        if(sessionService.checkUserLogin(request.getSession())) {
+        if (sessionService.checkUserLogin(request.getSession())) {
             Long remainingNumber = productService.getByProductID(productId).getProductRemaining();
             Long buyerId = userService.getUser((String) sessionService.getAttr(request.getSession(), "userName")).getUserId();
             String bankPaymentCode = bankService.getBankRecord(buyerId).getPaymentCode();
-            if (remainingNumber > buyNumber && paymentCode.equals(bankPaymentCode)) {
-                Product product = new Product();
+            if (remainingNumber >= buyNumber && paymentCode.equals(bankPaymentCode)) {
+                Product product = productService.getByProductID(productId);
                 product.setProductRemaining(remainingNumber - buyNumber);
                 if (address != null && !address.equals("")) {
                     productService.editProduct(product);
                     Order order = new Order();
                     order.setBuyerId(buyerId);
-                    order.setProductId(productId);
                     order.setProductNumbers(buyNumber);
                     order.setSellerId(productService.getByProductID(productId).getSellerId());
                     order.setTradingHour(new Date());
                     order.setShippingAddress(address);
                     order.setTransactionAmount(buyNumber * productService.getByProductID(productId).getProductPrice());
-                    if (orderService.addOrder(order) && productService.editProduct(product)) {
-                        flag = true;
+                    if (orderService.addOrder(order)) {
+                        product.setProductSales(product.getProductSales() + buyNumber);
+                        flag = productService.editProduct(product);
                     }
                 }
             }
         }
         return flag;
     }
-
-
-
+    
     @Override
     @RequestMapping("/showOrders")
     public JSONObject showOrders(HttpServletRequest request) {

@@ -14,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Override
     public boolean addOrder(Order order) {
-        return false;
+        return orderMapper.insertSelective(order)!=0;
     }
 
     @Override

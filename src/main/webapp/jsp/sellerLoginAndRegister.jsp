@@ -53,7 +53,7 @@
     </div>
 </nav>
 
-<div class="container text-center" style="margin: auto;height:640px;background:url(../images/login.jpg);width: 100%;background-size: cover">
+<div class="container text-center" style="margin: auto;height:640px;background:url(../images/loginbg.jpg);width: 100%;background-size: cover">
 
     <!-- Nav tabs -->
 

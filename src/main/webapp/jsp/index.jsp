@@ -97,19 +97,19 @@
         <!-- Wrapper for slides（轮播展示，item表示一个图片）-->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="../images/jhk-1563632055566.jpg" alt="...">
+                <img src="../images/rolling%20(1).jpg" alt="...">
                 <div class="carousel-caption">
                     ...
                 </div>
             </div>
             <div class="item">
-                <img src="../images/jhk-1563632055566.jpg" alt="...">
+                <img src="../images/rolling%20(2).jpg" alt="...">
                 <div class="carousel-caption">
                     ...
                 </div>
             </div>
             <div class="item">
-                <img src="../images/jhk-1563632055566.jpg" alt="...">
+                <img src="../images/rolling%20(1).jpg" alt="...">
                 <div class="carousel-caption">
                     ...
                 </div>
@@ -133,9 +133,12 @@
     </div>
 
     <div id="addDiv" class="row">
+
     </div>
 
-    <%--关于--%>
+
+
+<%--关于--%>
     <footer class="text-center">
         <div class="container">
             <div class="footer_logo text-center navbar clearfix">
@@ -149,11 +152,11 @@
                     <a href="#" style="padding-left: 30px">联系我们</a>
                 </div>
                 <div class="footer-bottom">
-                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home"style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user"style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat"style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq"style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo"style="font-size: x-large"></span></a>
+                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home" style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user" style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat" style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq" style="font-size: x-large"></span></a>
+                    <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo" style="font-size: x-large"></span></a>
                 </div>
             </div>
         </div>
@@ -170,16 +173,15 @@
                     var contentToRemove = document.querySelectorAll("#addElement");
                     $(contentToRemove).remove();
                     for(i in productData.data){
+                        var productid=productData.data[i].productId;
+                        var sellername=productData.data[i].sellerName;
+                        var description=productData.data[i].productDescription;
+                        var productremaining=productData.data[i].productRemaining;
+                        var productsales=productData.data[i].productSales;
                         var image=productData.data[i].productImage;
                         var name=productData.data[i].productName;
                         var price=productData.data[i].productPrice;
-                        var t= "        <div id=\"addElement\" class=\"col-lg-4 col-md-6 col-sm-12 text-center\">\n" +
-                            "            <img class=\"rounded-circle\" alt=\"160x120\" style=\"width: 140px; height: 140px;\" src=\"../images/"+image+".jpg\" data-holder-rendered=\"true\">\n" +
-                            "            <h4><a href=\"\">商品名称："+name+"</a></h4>\n" +
-                            "            <p>商品价格："+price+"</p>\n" +
-                            "            <button href=\"toBuy\">购买</button>"+
-                            "        </div>\n";
-                        var tt="<div class=\"col-md-4\">\n" +
+                        var t="<div class=\"col-md-4\">\n" +
                             "                        <div class=\"responsive thumbnail\">\n" +
                             "                            <a href=\"#\">\n" +
                             "                                <img src=\"../images/"+image+".jpg\" alt=\"Forest\">\n" +
@@ -187,10 +189,49 @@
                             "                            <div class=\"caption\">\n" +
                             "                                <h4><a href=\"\">商品名称："+name+"</a></h4>\n" +
                             "                                <p>商品价格："+price+"</p>\n" +
-                            "                                <p><a href=\"#\" class=\"btn btn-warning\"role=\"button\">购买</a> <a href=\"#\" class=\" btn btn-info\"role=\"button\">加入购物车</a> </p>\n" +
+                            "                                <p><a href=\"toBuy\" class=\"btn btn-warning\"role=\"button\">购买</a></p>\n" +
                             "                            </div>\n" +
                             "                        </div>\n" +
                             "                    </div>";
+
+                        var tt="<div class=\"col-md-4\">\n" +
+                            "            <div class=\"responsive thumbnail\">\n" +
+                            "                <img src=\"../images/10000.jpg\" alt=\"Forest\">\n" +
+                            "                <div class=\"caption\">\n" +
+                            "                    <h4>商品名称："+name+"</h4>\n" +
+                            "                    <p>商品价格："+price+"</p>\n" +
+                            "                </div>\n" +
+                            "                <button class=\"btn btn-warning\"  role=\"button\" data-toggle=\"modal\" data-target=\"#productModal"+i+"\">购买</button>\n" +
+                            "                <button class=\"btn btn-info\" role=\"button\" data-toggle=\"modal\" data-target=\"#productModal"+i+"\">查看商品详情</button>\n" +
+                            "                <div class=\"modal fade\" id=\"productModal"+i+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
+                            "                    <div class=\"modal-dialog\">\n" +
+                            "                        <div class=\"modal-content\">\n" +
+                            "                            <div class=\"modal-header\">\n" +
+                            "                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
+                            "                                <h4 class=\"modal-title\" id=\"myModalLabel\">商品详情</h4>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"modal-body\">\n" +
+                            "                                <p>商品名称："+name+"</p>\n" +
+                            "                                <p>商品价格："+price+"</p>\n" +
+                            "                                <p>商家姓名："+sellername+"</p>\n" +
+                            "                                <p>商品剩余量："+productremaining+"</p>\n" +
+                            "                                <p>商品已购买量："+productsales+"</p>\n" +
+                            "                                <p>商品详情："+description+"</p>\n" +
+                            "                                <form action=\"toBuy\" id=\"buyProduct\" method=\"post\">\n" +
+                            "                                    <input type=\"text\" name=\"productId\" value=\"\">\n" +
+                            "                                    <input type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\">\n" +
+                            "                                    <input type=\"text\" name=\"address\" placeholder=\"请输入送货地址\">\n" +
+                            "                                    <button class=\"btn btn-warning\" type=\"submit\">购买</button>\n" +
+                            "                                </form>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"modal-footer\">\n" +
+                            "                                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button>\n" +
+                            "                            </div>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>\n" +
+                            "        </div>";
                         $("#addDiv").append(tt);
                     }
                 },

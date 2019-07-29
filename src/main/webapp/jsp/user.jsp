@@ -43,7 +43,7 @@
                 <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人等级：</td>
+                <td>用户等级：</td>
                 <td>读取失败</td>
             </tr>
             <tr>
@@ -51,11 +51,11 @@
                 <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人余额：</td>
+                <td>用户余额：</td>
                 <td>读取失败</td>
             </tr>
             <tr>
-                <td>个人积分：</td>
+                <td>用户积分：</td>
                 <td>读取失败</td>
             </tr>
 
@@ -101,14 +101,14 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">配送地址</label>
                                 <div class="layui-input-inline font">
-                                    <input id="addAdd" type="text" name="shippingAddress" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                    <input id="addAdd" type="text" name="address" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <!--个人描述-->
                             <div class="layui-form-item layui-form-text">
                                 <label class="layui-form-label">个人描述</label>
                                 <div class="layui-input-block font">
-                                    <textarea id="addDes" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                    <textarea name="descriptions" id="addDes" placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
                             </div>
                             <div class="layui-form-item">
