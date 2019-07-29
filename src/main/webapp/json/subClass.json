@@ -1,0 +1,43 @@
+{
+  "status": 0,
+  "data": [
+    {
+      "mainClass": "衣服",
+      "subClass": [
+        {"name": "男装"},
+        {"name": "女装"},
+        {"name": "童装"},
+        {"name": "内衣"},
+        {"name": "其他"}
+        ]
+    },
+    {
+      "mainClass": "鞋靴",
+      "subClass": [
+        {"name": "流行女鞋"},
+        {"name": "高跟鞋"},
+        {"name": "运动鞋"},
+        {"name": "家电"},
+        {"name": "电视"},
+        {"name": "家电"},
+        {"name": "电视"}
+      ]
+    },
+    {
+      "mainClass": "家电",
+      "subClass": [{}]
+    },
+    {
+      "mainClass": "食品",
+      "subClass": [{}]
+    },
+    {
+      "mainClass": "洗护",
+      "subClass": [{}]
+    },
+    {
+      "mainClass": "其他",
+      "subClass": [{}]
+    }
+  ]
+}

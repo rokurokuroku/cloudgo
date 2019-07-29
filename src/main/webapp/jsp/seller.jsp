@@ -126,7 +126,7 @@
                     </div>
 
                     <div class="layui-tab-item">
-                        <form class="layui-form" action="addProduct">
+                        <form class="layui-form" action="addProduct" method="post" enctype="multipart/form-data">
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品名称</label>
                                 <div class="layui-input-inline font">
@@ -148,13 +148,22 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品主分类</label>
                                 <div class="layui-input-inline font">
-                                    <input id="addPMainClass" type="text" name="mainClass" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                    <select name="mainClass" id="mainClass">
+                                        <option value="11" selected="">衣服</option>
+                                        <option value="12">鞋靴</option>
+                                        <option value="13">家电</option>
+                                        <option value="14">食品</option>
+                                        <option value="15">洗护</option>
+                                        <option value="99">其他</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品子类</label>
                                 <div class="layui-input-inline font">
-                                    <input id="addPSubClass" type="text" name="subClass" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                    <select name="subClass" id="subClass">
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -164,26 +173,25 @@
                                 </div>
                             </div>
                             <div class="layui-form-item">
+                                <label class="layui-form-label">选择图片:</label>
+                                <input type="file" id="image" name="image" accept="image/*"/> <br>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <input type="submit" value="立刻上传">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
                                 <div class="layui-input-block" style="float:right">
                                     <button id="savePData" class="layui-btn" lay-submit="" lay-filter="demo1" type="submit">上架</button>
                                 </div>
                             </div>
                         </form>
-
-                        <form action="testUpload" class="layui-form" method="post" enctype="multipart/form-data">
-                            <div class="layui-form-item">
-                                <label class="layui-form-label">选择图片:</label>
-                                <input type="file" id="image" name="image" accept="image/*"  required  lay-verify="required"/> <br>
-                                <div class="layui-form-item">
-                                    <div class="layui-input-block" style="float:right">
-                                        <input type="submit" value="立刻上传">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                     <div class="layui-tab-item">
-                        <form class="layui-form" action="toChangeProduct"></form>
+                        <form class="layui-form" action="toChangeProduct" method="post">
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -263,7 +271,7 @@
             success:function (sellerData) {
                 var contentToRemove = document.querySelectorAll("#findSellerInform");
                 $(contentToRemove).remove();
-                var sellerid=sellerData.sellerId;
+                var sellerid=sellerData.buyerId;
                 var sellerlevel=sellerData.sellerLevel;
                 var sellername=sellerData.sellerName;
                 var sellertelephone=sellerData.sellerTelephone;
@@ -301,6 +309,13 @@
     })
 </script>
 
+<script>
+    $("mainClass").click(function () {
+        $.ajax({
+
+        })
+    })
+</script>
 
 <script>
     layui.use('form', function(){
