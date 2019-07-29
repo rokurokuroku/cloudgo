@@ -6,6 +6,7 @@ import com.roku.cloudgo.DAO.ImageDAO.ImageDao;
 import com.roku.cloudgo.DAO.JSONDAO.JsonDao;
 import com.roku.cloudgo.DAO.mapper.ProductMapper;
 import com.roku.cloudgo.DAO.mapper.SellerMapper;
+import com.roku.cloudgo.lib.ProductClass;
 import com.roku.cloudgo.pojo.Product;
 import com.roku.cloudgo.pojo.ProductExample;
 import com.roku.cloudgo.pojo.Seller;
@@ -15,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.List;
+
+import com.roku.cloudgo.lib.ProductClass;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -76,7 +79,9 @@ public class ProductServiceImpl implements ProductService {
         JSONArray jsonArray = new JSONArray();
         for(int i=0; i<subList.size(); ++i)
         {
-            jsonArray.add(product2JsonObject(subList.get(i)));
+            JSONObject tmpJsonObject = product2JsonObject(subList.get(i));
+
+            jsonArray.add(tmpJsonObject);
         }
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", jsonArray);
@@ -131,6 +136,11 @@ public class ProductServiceImpl implements ProductService {
 //        jsonObject.put("productMark", product.getProductMark());
 //        jsonObject.put("productSellerId", product.getSellerId());
         JSONObject jsonObject = (JSONObject) JSONObject.toJSON(product);
+        String classId = product.getProductId().toString().substring(0, 4);
+        String subClass = ProductClass.valueOf(Integer.parseInt(classId.substring(0, 4))).name();
+        String mainClass = ProductClass.valueOf(Integer.parseInt(classId.substring(0, 2)+"00")).name();
+        jsonObject.put("mainClass", mainClass);
+        jsonObject.put("subClass", subClass);
 
         SellerExample sellerExample = new SellerExample();
         sellerExample.createCriteria().andSellerIdEqualTo(product.getSellerId());
