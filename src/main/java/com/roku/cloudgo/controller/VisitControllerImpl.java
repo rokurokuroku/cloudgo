@@ -97,4 +97,11 @@ public class VisitControllerImpl implements VisitController {
     {
         return "imageUploadExample";
     }
+
+//    @Override
+//    @RequestMapping("/error")
+//    public String error()
+//    {
+//        return "error";
+//    }
 }

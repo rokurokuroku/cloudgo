@@ -6,10 +6,12 @@ import com.roku.cloudgo.pojo.Seller;
 import com.roku.cloudgo.service.SellerService;
 import com.roku.cloudgo.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Controller
 public class SellerControllerImpl implements SellerController {
     @Autowired
     private SessionService sessionService;
@@ -110,6 +112,7 @@ public class SellerControllerImpl implements SellerController {
     }
 
     @Override
+    @RequestMapping("/toShowSellerInfo")
     public JSONObject showSellerInfo(HttpServletRequest request) {
         if(sessionService.checkUserLogin(request.getSession()))
         {
@@ -123,10 +126,10 @@ public class SellerControllerImpl implements SellerController {
     }
 
     @Override
-    @RequestMapping("/toLogout")
+    @RequestMapping("/toSellerLogout")
     public String processLogout(HttpServletRequest request) {
         sessionService.logout(request.getSession());
-        return "redirect:/login";
+        return "redirect:/sellerLogin";
     }
 
     @Override

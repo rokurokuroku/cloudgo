@@ -22,4 +22,7 @@ public interface VisitController {
 
     @RequestMapping("/seller")
     String seller(HttpServletRequest request);
+
+//    @RequestMapping("error")
+//    String error();
 }
