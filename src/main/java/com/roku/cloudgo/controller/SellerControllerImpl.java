@@ -79,7 +79,7 @@ public class SellerControllerImpl implements SellerController {
         }
         else
         {
-            return "redirect:/login";
+            return "redirect:/sellerLogin";
         }
     }
 
@@ -104,11 +104,11 @@ public class SellerControllerImpl implements SellerController {
 
         if(flag)
         {
-            return "redirect:/user";
+            return "redirect:/seller";
         }
         else
         {
-            return "redirect:/user";
+            return "redirect:/seller";
         }
     }
 

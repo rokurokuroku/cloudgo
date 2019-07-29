@@ -1,4 +1,4 @@
-<%@ page import="com.roku.cloudgo.service.UserServiceImpl" %>
+<%@ page import="com.roku.cloudgo.service.SellerServiceImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -45,7 +45,7 @@
                         <a href="#">帮助</a>
                     </li>
                     <li>
-                        <a href="toLogout">注销</a>
+                        <a href="toSellerLogout">注销</a>
                     </li>
 
                     <li class="dropdown">
