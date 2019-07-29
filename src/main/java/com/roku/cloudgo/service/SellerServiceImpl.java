@@ -1,8 +1,6 @@
 package com.roku.cloudgo.service;
 
-import com.roku.cloudgo.DAO.mapper.BankRecordMapper;
 import com.roku.cloudgo.DAO.mapper.SellerMapper;
-import com.roku.cloudgo.pojo.BankRecord;
 import com.roku.cloudgo.pojo.Seller;
 import com.roku.cloudgo.pojo.SellerExample;
 import org.springframework.stereotype.Service;
@@ -14,8 +12,6 @@ import java.util.List;
 public class SellerServiceImpl implements SellerService {
     @Resource
     private SellerMapper sellerMapper;
-    @Resource
-    private BankRecordMapper bankRecordMapper;
     @Override
     public boolean checkPassword(String sellerName, String passwd) {
         SellerExample example = new SellerExample();
@@ -36,19 +32,7 @@ public class SellerServiceImpl implements SellerService {
             SellerExample example = new SellerExample();
             example.createCriteria().andSellerNameEqualTo(seller.getSellerName());
             Long userId = sellerMapper.selectByExample(example).get(0).getSellerId();
-
-            BankRecord bankRecord = new BankRecord();
-            bankRecord.setUserId(userId);
-            bankRecord.setPaymentCode("000000");
-            int countBank = bankRecordMapper.insertSelective(bankRecord);
-            if(countBank==0)
-            {
-                flag = false;
-            }
-            else
-            {
-                flag = true;
-            }
+            flag = true;
         }
 
         return flag;

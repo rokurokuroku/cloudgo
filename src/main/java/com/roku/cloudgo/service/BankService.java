@@ -26,4 +26,10 @@ public class BankService {
             return null;
         }
     }
+    public boolean editBankRecord(BankRecord bankRecord)
+    {
+        BankRecordExample example = new BankRecordExample();
+        example.createCriteria().andUserIdEqualTo(bankRecord.getUserId());
+        return bankRecordMapper.updateByExampleSelective(bankRecord, example)!=0;
+    }
 }

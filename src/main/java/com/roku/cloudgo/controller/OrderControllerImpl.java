@@ -2,8 +2,10 @@ package com.roku.cloudgo.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.roku.cloudgo.pojo.BankRecord;
 import com.roku.cloudgo.pojo.Order;
 import com.roku.cloudgo.pojo.Product;
+import com.roku.cloudgo.pojo.User;
 import com.roku.cloudgo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +23,11 @@ public class OrderControllerImpl implements OrderController {
     @Autowired
     private ProductServiceImpl productService;
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
     @Autowired
     private OrderServiceImpl orderService;
     @Autowired
-    private SellerService sellerService;
+    private SellerServiceImpl sellerService;
     @Autowired
     private BankService bankService;
 
@@ -36,8 +38,10 @@ public class OrderControllerImpl implements OrderController {
         boolean flag = false;
         if (sessionService.checkUserLogin(request.getSession())) {
             Long remainingNumber = productService.getByProductID(productId).getProductRemaining();
-            Long buyerId = userService.getUser((String) sessionService.getAttr(request.getSession(), "userName")).getUserId();
-            String bankPaymentCode = bankService.getBankRecord(buyerId).getPaymentCode();
+            User buyer = userService.getUser((String) sessionService.getAttr(request.getSession(), "userName"));
+            Long buyerId = buyer.getUserId();
+            BankRecord bankRecord = bankService.getBankRecord(buyerId);
+            String bankPaymentCode = bankRecord.getPaymentCode();
             if (remainingNumber >= buyNumber && paymentCode.equals(bankPaymentCode)) {
                 Product product = productService.getByProductID(productId);
                 product.setProductRemaining(remainingNumber - buyNumber);
@@ -46,13 +50,17 @@ public class OrderControllerImpl implements OrderController {
                     Order order = new Order();
                     order.setBuyerId(buyerId);
                     order.setProductNumbers(buyNumber);
+                    order.setProductId(productId);
                     order.setSellerId(productService.getByProductID(productId).getSellerId());
                     order.setTradingHour(new Date());
                     order.setShippingAddress(address);
-                    order.setTransactionAmount(buyNumber * productService.getByProductID(productId).getProductPrice());
+                    float transactionAmount = buyNumber * productService.getByProductID(productId).getProductPrice();
+                    order.setTransactionAmount(transactionAmount);
                     if (orderService.addOrder(order)) {
                         product.setProductSales(product.getProductSales() + buyNumber);
                         flag = productService.editProduct(product);
+                        bankRecord.setUserBalance(bankRecord.getUserBalance()- transactionAmount);
+                        flag = bankService.editBankRecord(bankRecord);
                     }
                 }
             }
