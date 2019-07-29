@@ -10,7 +10,7 @@
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../layui-v2.5.4/layui/layui.js"></script>
-    <link rel="stylesheet"href="../layui-v2.5.4/layui/css/layui.css">
+    <link rel="stylesheet" href="../layui-v2.5.4/layui/css/layui.css">
 </head>
 <body>
 
@@ -239,8 +239,6 @@
         })
     </script>
 </div>
-
-
 
 
 </body>
