@@ -2,6 +2,7 @@ package com.roku.cloudgo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
+import com.roku.cloudgo.lib.ProductClass;
 import com.roku.cloudgo.pojo.Product;
 import com.roku.cloudgo.service.ProductServiceImpl;
 import com.roku.cloudgo.service.SellerServiceImpl;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Random;
 
 
 @Controller
@@ -31,6 +33,12 @@ public class ProductControllerImpl implements ProductController {
         if(sessionService.checkSellerLogin(request.getSession()))
         {
             Product product = new Product();
+            String subClassId = String.valueOf(ProductClass.valueOf(subClass).getIndex());
+            Long id = Long.parseLong("0");
+            Random r = new Random();
+            do {
+                id = r.nextLong() * (1000000000);
+            }while(productService.getByProductID(id)!=null);
             Long productId = Long.parseLong("");
             product.setProductId(productId);
             product.setProductName(productName);
