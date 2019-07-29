@@ -38,7 +38,7 @@ create table Orders
    seller_id            bigint(12) not null,
    product_id           bigint(30) not null,
    product_numbers      bigint(10) not null default 0,
-   trading_hour         date not null,
+   trading_hour         timestamp(6) not null,
    shipping_address     varchar(50) not null,
    transaction_amount   float(15) not null default 0,
    primary key (order_id)
