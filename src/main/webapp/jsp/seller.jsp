@@ -61,6 +61,8 @@
                 <ul class="layui-tab-title">
                     <li class="layui-this">信息查询</li>
                     <li>已售订单</li>
+                    <li>添加商品</li>
+                    <li>修改商品信息</li>
                 </ul>
                 <!--标签页内容-->
                 <div class="layui-tab-content">
@@ -106,6 +108,7 @@
                             <a class="layui-btn" id="flushSData" href="seller">刷新数据</a>
                         </div>
                     </div>
+
                     <div class="layui-tab-item">
                         <table class="table table-hover">
                             <thead><tr>
@@ -121,6 +124,67 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="layui-tab-item">
+                        <form class="layui-form" action="addProduct">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">商品名称</label>
+                                <div class="layui-input-inline font">
+                                    <input id="addPName" type="text" name="productName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">商品定价</label>
+                                <div class="layui-input-inline font">
+                                    <input id="addPPrice" type="text" name="productPrice" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">商品数量</label>
+                                <div class="layui-input-inline font">
+                                    <input id="addPRemaining" type="text" name="productRemaining" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">商品主分类</label>
+                                <div class="layui-input-inline font">
+                                    <input id="addPMainClass" type="text" name="mainClass" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">商品子类</label>
+                                <div class="layui-input-inline font">
+                                    <input id="addPSubClass" type="text" name="subClass" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">商品描述</label>
+                                <div class="layui-input-block font">
+                                    <textarea id="addPDescription" name="productDescription" required placeholder="请输入内容" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block" style="float:right">
+                                    <button id="savePData" class="layui-btn" lay-submit="" lay-filter="demo1" type="submit">上架</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form action="testUpload" class="layui-form" method="post" enctype="multipart/form-data">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">选择图片:</label>
+                                <input type="file" id="image" name="image" accept="image/*"  required  lay-verify="required"/> <br>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block" style="float:right">
+                                        <input type="submit" value="立刻上传">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="layui-tab-item">
+                        <form class="layui-form" action="toChangeProduct"></form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,7 +195,7 @@
 <script>
     function loadSOrder(){
         $.ajax({
-            url:'showOrders',
+            url:'showSellerOrders',
             type:'get',
             dataType:'json',
             success:function (orderData) {
@@ -179,7 +243,7 @@
     })
 </script>
 
-<%--用户信息的显示--%>
+<%--卖家信息的显示--%>
 <script>
     function checkRadio(mValue) {
         var genderRadio = document.getElementsByName("sellerGender");
@@ -225,7 +289,7 @@
                 $("#addSDes").val(sellerdescription);
             },
             error:function () {
-                alert("读取用户信息失败！");
+                alert("读取卖家信息失败！");
             }
         })
     }
