@@ -187,7 +187,6 @@
                             "                    <h4>商品名称："+name+"</h4>\n" +
                             "                    <p>商品价格："+price+"</p>\n" +
                             "                </div>\n" +
-                            "                <button class=\"btn btn-warning\"  role=\"button\" data-toggle=\"modal\" data-target=\"#productModal"+i+"\">购买</button>\n" +
                             "                <button class=\"btn btn-info\" role=\"button\" data-toggle=\"modal\" data-target=\"#productModal"+i+"\">查看商品详情</button>\n" +
                             "                <div class=\"modal fade\" id=\"productModal"+i+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
                             "                    <div class=\"modal-dialog\">\n" +

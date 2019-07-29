@@ -15,9 +15,9 @@
 
     <div class="starter-template">
         <h1>ERROR!</h1>
-        <p class="lead">很遗憾！出现此界面，有可能：<br>1.你存在非法访问的行为！<br>2.系统繁忙！<br>请返回登录界面重新尝试！</p>
+        <p class="lead">很遗憾！出现此界面，有可能：<br>1.你存在非法访问的行为！<br>2.系统繁忙！<br>请返回登录界面或主界面再重新尝试！</p>
         <label>
-            <a class="btn btn-outline-success btn-sm" href="login">前往登录界面</a>
+            <a class="btn btn-outline-success btn-sm" href="login">前往登录或主界面</a>
         </label>
     </div>
 </main>
