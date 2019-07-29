@@ -181,6 +181,7 @@
                         var image=productData.data[i].productImage;
                         var name=productData.data[i].productName;
                         var price=productData.data[i].productPrice;
+                        // var a="onclick=\"return checkRemain(productremaining,$('#buyNumber').val())\"";
 
                         var t="<div class=\"col-md-4\" id=\"addElement\">\n" +
                             "            <div class=\"responsive thumbnail\">\n" +
@@ -207,7 +208,7 @@
                             "                                <p>商品详情："+description+"</p>\n" +
                             "                                <form action=\"toBuy\" id=\"buyProduct\" method=\"post\">\n" +
                             "                                    <li><input type=\"hidden\" name=\"productId\" value=\""+productid+"\"></li>\n" +
-                            "                                    <li><input type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\"  required></li>\n" +
+                            "                                    <li><input id=\"buyNumber\" type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\"  required></li>\n" +
                             "                                    <li><input type=\"password\" name=\"paymentCode\" placeholder=\"请输入支付密码\"  required></li>\n" +
                             "                                    <li><input type=\"text\" name=\"address\" placeholder=\"请输入送货地址\"  required>\n" +
                             "                                    <button class=\"btn btn-warning\" type=\"submit\">购买</button></li>\n" +
@@ -228,6 +229,16 @@
                     alert("读取商品信息失败！");
                 }
             })
+        }
+
+        function checkRemain(productRemaining,buyNumber){
+            var x=productRemaining-buyNumber;
+            if(x<=0){
+                alert("请输入小于等于存货的数量");
+                return false;
+            }else{
+                return true;
+            }
         }
 
         $("#add").click(function () {
