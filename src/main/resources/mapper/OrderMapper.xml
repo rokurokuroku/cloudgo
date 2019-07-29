@@ -7,7 +7,7 @@
     <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
     <result column="product_numbers" property="productNumbers" jdbcType="BIGINT" />
-    <result column="trading_hour" property="tradingHour" jdbcType="DATE" />
+    <result column="trading_hour" property="tradingHour" jdbcType="TIMESTAMP" />
     <result column="shipping_address" property="shippingAddress" jdbcType="VARCHAR" />
     <result column="transaction_amount" property="transactionAmount" jdbcType="REAL" />
   </resultMap>
@@ -98,7 +98,7 @@
       product_id, product_numbers, trading_hour, 
       shipping_address, transaction_amount)
     values (#{orderId,jdbcType=BIGINT}, #{buyerId,jdbcType=BIGINT}, #{sellerId,jdbcType=BIGINT}, 
-      #{productId,jdbcType=BIGINT}, #{productNumbers,jdbcType=BIGINT}, #{tradingHour,jdbcType=DATE}, 
+      #{productId,jdbcType=BIGINT}, #{productNumbers,jdbcType=BIGINT}, #{tradingHour,jdbcType=TIMESTAMP}, 
       #{shippingAddress,jdbcType=VARCHAR}, #{transactionAmount,jdbcType=REAL})
   </insert>
   <insert id="insertSelective" parameterType="com.roku.cloudgo.pojo.Order" >
@@ -146,7 +146,7 @@
         #{productNumbers,jdbcType=BIGINT},
       </if>
       <if test="tradingHour != null" >
-        #{tradingHour,jdbcType=DATE},
+        #{tradingHour,jdbcType=TIMESTAMP},
       </if>
       <if test="shippingAddress != null" >
         #{shippingAddress,jdbcType=VARCHAR},
@@ -181,7 +181,7 @@
         product_numbers = #{record.productNumbers,jdbcType=BIGINT},
       </if>
       <if test="record.tradingHour != null" >
-        trading_hour = #{record.tradingHour,jdbcType=DATE},
+        trading_hour = #{record.tradingHour,jdbcType=TIMESTAMP},
       </if>
       <if test="record.shippingAddress != null" >
         shipping_address = #{record.shippingAddress,jdbcType=VARCHAR},
@@ -201,7 +201,7 @@
       seller_id = #{record.sellerId,jdbcType=BIGINT},
       product_id = #{record.productId,jdbcType=BIGINT},
       product_numbers = #{record.productNumbers,jdbcType=BIGINT},
-      trading_hour = #{record.tradingHour,jdbcType=DATE},
+      trading_hour = #{record.tradingHour,jdbcType=TIMESTAMP},
       shipping_address = #{record.shippingAddress,jdbcType=VARCHAR},
       transaction_amount = #{record.transactionAmount,jdbcType=REAL}
     <if test="_parameter != null" >

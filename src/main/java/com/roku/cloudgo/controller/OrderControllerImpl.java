@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +54,6 @@ public class OrderControllerImpl implements OrderController {
                     order.setProductNumbers(buyNumber);
                     order.setProductId(productId);
                     order.setSellerId(productService.getByProductID(productId).getSellerId());
-                    order.setTradingHour(new Date());
                     order.setShippingAddress(address);
                     float transactionAmount = buyNumber * productService.getByProductID(productId).getProductPrice();
                     order.setTransactionAmount(transactionAmount);

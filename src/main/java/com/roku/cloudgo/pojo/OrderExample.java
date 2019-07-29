@@ -2,7 +2,6 @@ package com.roku.cloudgo.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class OrderExample {
@@ -104,32 +103,6 @@ public class OrderExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andOrderIdIsNull() {
@@ -443,52 +416,52 @@ public class OrderExample {
         }
 
         public Criteria andTradingHourEqualTo(Date value) {
-            addCriterionForJDBCDate("trading_hour =", value, "tradingHour");
+            addCriterion("trading_hour =", value, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourNotEqualTo(Date value) {
-            addCriterionForJDBCDate("trading_hour <>", value, "tradingHour");
+            addCriterion("trading_hour <>", value, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourGreaterThan(Date value) {
-            addCriterionForJDBCDate("trading_hour >", value, "tradingHour");
+            addCriterion("trading_hour >", value, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("trading_hour >=", value, "tradingHour");
+            addCriterion("trading_hour >=", value, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourLessThan(Date value) {
-            addCriterionForJDBCDate("trading_hour <", value, "tradingHour");
+            addCriterion("trading_hour <", value, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("trading_hour <=", value, "tradingHour");
+            addCriterion("trading_hour <=", value, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourIn(List<Date> values) {
-            addCriterionForJDBCDate("trading_hour in", values, "tradingHour");
+            addCriterion("trading_hour in", values, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourNotIn(List<Date> values) {
-            addCriterionForJDBCDate("trading_hour not in", values, "tradingHour");
+            addCriterion("trading_hour not in", values, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("trading_hour between", value1, value2, "tradingHour");
+            addCriterion("trading_hour between", value1, value2, "tradingHour");
             return (Criteria) this;
         }
 
         public Criteria andTradingHourNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("trading_hour not between", value1, value2, "tradingHour");
+            addCriterion("trading_hour not between", value1, value2, "tradingHour");
             return (Criteria) this;
         }
 
