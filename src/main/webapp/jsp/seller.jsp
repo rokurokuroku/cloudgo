@@ -199,7 +199,7 @@
     </div>
 </div>
 
-<%--用户订单的显示--%>
+<%--卖家订单的显示--%>
 <script>
     function loadSOrder(){
         $.ajax({
@@ -211,7 +211,7 @@
                 $(contentToRemove).remove();
                 for(i in orderData.data){
                     var productname=orderData.data[i].productName;
-                    var username=orderData.data[i].userName;
+                    var username=orderData.data[i].buyerName;
                     var productnumbers=orderData.data[i].productNumbers;
                     var tradinghour=orderData.data[i].tradingHour;
                     var buyershippingaddress=orderData.data[i].shippingAddress;
@@ -271,7 +271,7 @@
             success:function (sellerData) {
                 var contentToRemove = document.querySelectorAll("#findSellerInform");
                 $(contentToRemove).remove();
-                var sellerid=sellerData.buyerId;
+                var sellerid=sellerData.sellerId;
                 var sellerlevel=sellerData.sellerLevel;
                 var sellername=sellerData.sellerName;
                 var sellertelephone=sellerData.sellerTelephone;

@@ -204,6 +204,7 @@
                             "                                <p>商品详情："+description+"</p>\n" +
                             "                            </div>\n" +
                             "                            <div class=\"modal-footer\">\n" +
+                            "                                <a class=\"btn btn-outline-success btn-sm\" href=\"sellerIndex\">刷新商品数据</a>\n"+
                             "                                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button>\n" +
                             "                            </div>\n" +
                             "                        </div>\n" +

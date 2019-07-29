@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Title</title>
-    <meta name="viewport" content="width=device=width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
     <link rel="stylesheet"  href="../css/signin.css">
     <link rel="stylesheet" href="../layui-v2.5.4/layui/css/layui.css">
@@ -174,6 +173,7 @@
                     $(contentToRemove).remove();
                     for(i in productData.data){
                         var productid=productData.data[i].productId;
+                        //console.log(productid);
                         var sellername=productData.data[i].sellerName;
                         var description=productData.data[i].productDescription;
                         var productremaining=productData.data[i].productRemaining;
@@ -181,7 +181,34 @@
                         var image=productData.data[i].productImage;
                         var name=productData.data[i].productName;
                         var price=productData.data[i].productPrice;
-                        // var a="onclick=\"return checkRemain(productremaining,$('#buyNumber').val())\"";
+                        var a="<script>\n" +
+                            "        function warningBuy"+i+"(){\n" +
+                            "            var productid=$(\"#productid"+i+"\").val();\n" +
+                            "            var buynumber=$(\"#buynumber"+i+"\").val();\n" +
+                            "            var paymentcode=$(\"#paymentcode"+i+"\").val();\n" +
+                            "            var address=$(\"#address"+i+"\").val();\n" +
+                            "            var d={\"productId\":productid,\"buyNumber\":buynumber,\"paymentCode\":paymentcode,\"address\":address};\n" +
+                            "            var jsnStr=JSON.stringify(d);\n" +
+                            "            $.ajax({\n" +
+                            "                url:\"toBuy\",\n" +
+                            "                data:d,\n" +
+                            "                type:\"post\",\n" +
+                            "                dataType:\"json\",\n" +
+                            "                async:false,\n" +
+                            "                contentType: \"application/x-www-form-urlencoded\",\n" +
+                            "                success:function (flag) {\n" +
+                            "                    if(true==flag){\n" +
+                            "                        alert(\"购买成功!请返回页面重新刷新。\");\n" +
+                            "                    }else{\n" +
+                            "                        alert(\"购买失败!失败的原因有以下几种:1.支付密码错误，2.购买数量超过库存，3.系统繁忙。\");\n" +
+                            "                    }\n" +
+                            "                }\n" +
+                            "            })\n" +
+                            "        }\n" +
+                            "        $(\"#buyPro"+i+"\").click(function () {\n" +
+                            "            warningBuy"+i+"();\n" +
+                            "        })\n" +
+                            "    <\/script>";
 
                         var t="<div class=\"col-md-4\" id=\"addElement\">\n" +
                             "            <div class=\"responsive thumbnail\">\n" +
@@ -206,21 +233,23 @@
                             "                                <p>商品剩余量："+productremaining+"</p>\n" +
                             "                                <p>商品已购买量："+productsales+"</p>\n" +
                             "                                <p>商品详情："+description+"</p>\n" +
-                            "                                <form action=\"toBuy\" id=\"buyProduct\" method=\"post\">\n" +
-                            "                                    <li><input type=\"hidden\" name=\"productId\" value=\""+productid+"\"></li>\n" +
-                            "                                    <li><input id=\"buyNumber\" type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\"  required></li>\n" +
-                            "                                    <li><input type=\"password\" name=\"paymentCode\" placeholder=\"请输入支付密码\"  required></li>\n" +
-                            "                                    <li><input type=\"text\" name=\"address\" placeholder=\"请输入送货地址\"  required>\n" +
-                            "                                    <button class=\"btn btn-warning\" type=\"submit\">购买</button></li>\n" +
-                            "                                </form>\n" +
+                            //"                                 <form action=\"toBuy\" id=\"buyProduct"+i+"\" method=\"post\">\n" +
+                            "                                    <li><input id=\"productid"+i+"\" type=\"hidden\" name=\"productId\" value=\""+productid+"\"></li>\n" +
+                            "                                    <li><input id=\"buynumber"+i+"\" type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\"  required></li>\n" +
+                            "                                    <li><input id=\"paymentcode"+i+"\" type=\"password\" name=\"paymentCode\" placeholder=\"请输入支付密码\"  required></li>\n" +
+                            "                                    <li><input id=\"address"+i+"\" type=\"text\" name=\"address\" placeholder=\"请输入送货地址\" required>\n" +
+                            "                                    <button id=\"buyPro"+i+"\" class=\"btn btn-warning\" type=\"button\">购买</button></li>\n" +
+                            //"                                </form>\n" +
                             "                            </div>\n" +
                             "                            <div class=\"modal-footer\">\n" +
+                            "                                <a class=\"btn btn-outline-success btn-sm\" href=\"index\">刷新商品数据</a>\n"+
                             "                                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button>\n" +
                             "                            </div>\n" +
                             "                        </div>\n" +
                             "                    </div>\n" +
                             "                </div>\n" +
                             "            </div>\n" +
+                                a+
                             "        </div>";
                         $("#addDiv").append(t);
                     }
@@ -231,16 +260,6 @@
             })
         }
 
-        function checkRemain(productRemaining,buyNumber){
-            var x=productRemaining-buyNumber;
-            if(x<=0){
-                alert("请输入小于等于存货的数量");
-                return false;
-            }else{
-                return true;
-            }
-        }
-
         $("#add").click(function () {
             loadProject();
         })
@@ -249,6 +268,7 @@
             loadProject();
         })
     </script>
+
 </div>
 
 
