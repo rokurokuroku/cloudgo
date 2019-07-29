@@ -84,13 +84,17 @@
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                <label>
+                    <a class="btn btn-outline-success btn-sm" href="sellerLogin">前往店家登录界面</a>
+                </label>
             </form>
+
         </div>
 
         <!--注册--->
         <div role="tabpanel" class="tab-pane" id="register">
             <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toRegister">
-                <h1 class="mb-4 font-weight-normal">用户登录界面</h1>
+                <h1 class="mb-4 font-weight-normal">用户注册界面</h1>
 
 <%--                <span id="msg" style="color: red;visibility: hidden;">用户名已经存在</span>--%>
                 <label for="inputUsername" class="sr-only">用户名</label>

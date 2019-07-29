@@ -127,10 +127,10 @@
                                 <thead><tr>
                                     <th>商品名称</th>
                                     <th>卖家</th>
-                                    <th>商品剩余数量</th>
+                                    <th>商品交易数量</th>
                                     <th>商品交易时间</th>
                                     <th>配送地址</th>
-                                    <th>交易数量</th>
+                                    <th>交易金额</th>
                                 </tr></thead>
                                 <tbody id="findOrder">
 
