@@ -61,71 +61,74 @@
     <!-- 登录 -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active " id="login" style="position: center">
-            <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%);" action="toLogin">
+            <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%);" action="toSellerLogin">
 
-                <h1 class="mb-4 font-weight-normal">店家登录</h1>
+                <h1 class="mb-4 font-weight-normal">店家登录界面</h1>
 
-                <label for="Username" class="sr-only">商店名</label>
+                <label for="sellerName" class="sr-only">商店名</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
-                    <input name="sellerName" type="text" id="Username"  class=" form-control" placeholder="请输入商店名" maxlength="20" required autofocus>
+                    <input name="sellerName" type="text" id="sellerName" class=" form-control" placeholder="请输入商店名" maxlength="20" required autofocus>
                 </div>
 
-                <label for="Password" class="sr-only">Password</label>
+                <label for="sellerPassword" class="sr-only">密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
-                    <input name="sellerPassword"  type="password" id="Password" class=" form-control" placeholder="请输入密码" maxlength="20" required autofocus>
+                    <input name="sellerPassword" id="sellerPassword"  type="password" class=" form-control" placeholder="请输入密码" maxlength="20" required autofocus>
                 </div>
                 <div class="checkbox mb-3" style="float: left">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me"> 记住我
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <div class="container right"></div><button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                <label>
+                    <a class="btn btn-outline-success btn-sm" href="login">前往用户登录界面</a>
+                </label>
             </form>
         </div>
 
         <!--注册--->
         <div role="tabpanel" class="tab-pane" id="register">
-            <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toRegister">
-                <h1 class="mb-4 font-weight-normal">店家注册</h1>
+            <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toSellerRegister">
+                <h1 class="mb-4 font-weight-normal">店家注册界面</h1>
 
-                <label for="inputUsername" class="sr-only">商店名</label>
+                <label for="inputSellerName" class="sr-only">商店名</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
-                    <input name="sellerName" type="text" id="inputUsername"  class=" form-control" placeholder="请输入商店名" maxlength="20" required autofocus>
+                    <input name="sellerName" type="text" id="inputSellerName"  class=" form-control" placeholder="请输入商店名" maxlength="20" required autofocus>
                 </div>
 
-                <label for="inputEmail" class="sr-only">Emailaddress</label>
+                <label for="inputSellerEmail" class="sr-only">邮箱</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon" ><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size:large"></span></span>
-                    <input  name="sellerEmail" type="email" id="inputEmail" class=" form-control" placeholder="请输入你的邮箱" required autofocus>
+                    <input  name="sellerEmail" type="email" id="inputSellerEmail" class=" form-control" placeholder="请输入你的邮箱" required autofocus>
                 </div>
 
-                <label for="inputPhone" class="sr-only">PhoneNumber</label>
+                <label for="inputSellerTele" class="sr-only">电话</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true" style="font-size: large;"></span></span>
-                    <input name="sellerTelephone"  type="text" id="inputPhone"  class=" form-control" placeholder="请输入手机号" required autofocus>
+                    <input name="sellerTelephone"  type="text" id="inputSellerTele"  class=" form-control" placeholder="请输入手机号" required autofocus>
                 </div>
 
-                <label for="inputPassword" class="sr-only">Password</label>
+                <label for="inputSellerPassword" class="sr-only">登录密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
-                    <input  name="sellerPassword" type="password" id="inputPassword" class=" form-control" placeholder="请输入登录密码" maxlength="20" required autofocus>
+                    <input  name="sellerPassword" type="password" id="inputSellerPassword" class=" form-control" placeholder="请输入登录密码" maxlength="20" required autofocus>
                 </div>
 
-                <label for="inputPassword" class="sr-only">Password</label>
+                <label for="reinputSellerPassword" class="sr-only">确认登录密码</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true" style="font-size: large;"></span></span>
-                    <input  name="reSellerPassword" type="password" id="inputcPassword"  class=" form-control" placeholder="请确认登录密码" maxlength="20" required autofocus>
+                    <input  name="reSellerPassword" type="password" id="reinputSellerPassword"  class=" form-control" placeholder="请确认登录密码" maxlength="20" required autofocus>
                 </div>
 
                 <div class="checkbox mb-3" style="float: left">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me"> 记住我
                     </label>
                 </div>
-                <button id="signup" class="btn btn-lg btn-primary btn-block" type="submit">sign up</button>
+                <button id="signup" class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
             </form>
         </div>
     </div>

@@ -129,7 +129,7 @@
 
 
     <div class="container">
-        <a id="add" class="btn btn-outline-success btn-sm">刷新</a>
+        <a id="add" class="btn btn-outline-success btn-sm">点我刷新商品数据</a>
     </div>
 
     <div id="addDiv" class="row">
@@ -153,10 +153,10 @@
                 </div>
                 <div class="footer-bottom">
                     <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-home" style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left:30px"><span class="layui-icon layui-icon-user" style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat" style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq" style="font-size: x-large"></span></a>
-                    <a href="#"style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo" style="font-size: x-large"></span></a>
+                    <a href="#" style="padding-left:30px"><span class="layui-icon layui-icon-user" style="font-size: x-large"></span></a>
+                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-login-wechat" style="font-size: x-large"></span></a>
+                    <a href="#" style="padding-left: 30px"><span class="layui-icon layui-icon-login-qq" style="font-size: x-large"></span></a>
+                    <a href="#" style="padding-left: 20px"><span class="layui-icon layui-icon-login-weibo" style="font-size: x-large"></span></a>
                 </div>
             </div>
         </div>
@@ -181,20 +181,8 @@
                         var image=productData.data[i].productImage;
                         var name=productData.data[i].productName;
                         var price=productData.data[i].productPrice;
-                        var t="<div class=\"col-md-4\">\n" +
-                            "                        <div class=\"responsive thumbnail\">\n" +
-                            "                            <a href=\"#\">\n" +
-                            "                                <img src=\"../images/"+image+".jpg\" alt=\"Forest\">\n" +
-                            "                            </a>\n" +
-                            "                            <div class=\"caption\">\n" +
-                            "                                <h4><a href=\"\">商品名称："+name+"</a></h4>\n" +
-                            "                                <p>商品价格："+price+"</p>\n" +
-                            "                                <p><a href=\"toBuy\" class=\"btn btn-warning\"role=\"button\">购买</a></p>\n" +
-                            "                            </div>\n" +
-                            "                        </div>\n" +
-                            "                    </div>";
 
-                        var tt="<div class=\"col-md-4\">\n" +
+                        var t="<div class=\"col-md-4\" id=\"addElement\">\n" +
                             "            <div class=\"responsive thumbnail\">\n" +
                             "                <img src=\"../images/10000.jpg\" alt=\"Forest\">\n" +
                             "                <div class=\"caption\">\n" +
@@ -218,10 +206,11 @@
                             "                                <p>商品已购买量："+productsales+"</p>\n" +
                             "                                <p>商品详情："+description+"</p>\n" +
                             "                                <form action=\"toBuy\" id=\"buyProduct\" method=\"post\">\n" +
-                            "                                    <input type=\"text\" name=\"productId\" value=\"\">\n" +
-                            "                                    <input type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\">\n" +
-                            "                                    <input type=\"text\" name=\"address\" placeholder=\"请输入送货地址\">\n" +
-                            "                                    <button class=\"btn btn-warning\" type=\"submit\">购买</button>\n" +
+                            "                                    <li><input type=\"hidden\" name=\"productId\" value=\""+productid+"\"></li>\n" +
+                            "                                    <li><input type=\"text\" name=\"buyNumber\" placeholder=\"请输入购买数量\"  required></li>\n" +
+                            "                                    <li><input type=\"password\" name=\"paymentCode\" placeholder=\"请输入支付密码\"  required></li>\n" +
+                            "                                    <li><input type=\"text\" name=\"address\" placeholder=\"请输入送货地址\"  required>\n" +
+                            "                                    <button class=\"btn btn-warning\" type=\"submit\">购买</button></li>\n" +
                             "                                </form>\n" +
                             "                            </div>\n" +
                             "                            <div class=\"modal-footer\">\n" +
@@ -232,7 +221,7 @@
                             "                </div>\n" +
                             "            </div>\n" +
                             "        </div>";
-                        $("#addDiv").append(tt);
+                        $("#addDiv").append(t);
                     }
                 },
                 error:function () {
@@ -244,6 +233,7 @@
         $("#add").click(function () {
             loadProject();
         })
+
         $(document).ready(function () {
             loadProject();
         })
