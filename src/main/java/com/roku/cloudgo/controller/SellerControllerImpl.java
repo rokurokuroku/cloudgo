@@ -114,11 +114,12 @@ public class SellerControllerImpl implements SellerController {
 
     @Override
     @RequestMapping("/toShowSellerInfo")
+    @ResponseJSONP
     public JSONObject showSellerInfo(HttpServletRequest request) {
-        if(sessionService.checkUserLogin(request.getSession()))
+        if(sessionService.checkSellerLogin(request.getSession()))
         {
-            Seller user = sellerService.getSeller((String)sessionService.getAttr(request.getSession(), "sellerName"));
-            return (JSONObject) JSONObject.toJSON(user);
+            Seller seller = sellerService.getSeller((String)sessionService.getAttr(request.getSession(), "sellerName"));
+            return (JSONObject) JSONObject.toJSON(seller);
         }
         else
         {
