@@ -8,4 +8,5 @@ public interface UserService {
     boolean editUser(User user);
     boolean checkUserName(String userName);
     User getUser(String name);
+    User getUserById(Long userId);
 }

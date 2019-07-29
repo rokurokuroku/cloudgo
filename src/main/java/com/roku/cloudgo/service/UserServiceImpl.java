@@ -84,4 +84,19 @@ public class UserServiceImpl implements UserService {
             return userList.get(0);
         }
     }
+
+    @Override
+    public User getUserById(Long userId) {
+        UserExample example = new UserExample();
+        example.createCriteria().andUserIdEqualTo(userId);
+        List<User> userList = userMapper.selectByExample(example);
+        if(userList.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return userList.get(0);
+        }
+    }
 }

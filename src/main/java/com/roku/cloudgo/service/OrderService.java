@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrderService {
     boolean addOrder(Order order);
     List<Order> getUserOrders(Long userId);
+    List<Order> getSellerOrders(Long sellerId);
 }

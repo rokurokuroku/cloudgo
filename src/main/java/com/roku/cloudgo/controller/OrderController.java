@@ -28,4 +28,8 @@ public interface OrderController {
     @ResponseJSONP
     JSONObject showOrders(HttpServletRequest request);
     /*读取用户的所有订单数据并返回*/
+
+    @RequestMapping("/showSellerOrders")
+    @ResponseJSONP
+    JSONObject showSellerOrders(HttpServletRequest request);
 }

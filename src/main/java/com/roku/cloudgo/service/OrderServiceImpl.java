@@ -23,4 +23,11 @@ public class OrderServiceImpl implements OrderService {
         example.createCriteria().andBuyerIdEqualTo(userId);
         return orderMapper.selectByExample(example);
     }
+
+    @Override
+    public List<Order> getSellerOrders(Long sellerId) {
+        OrderExample example = new OrderExample();
+        example.createCriteria().andSellerIdEqualTo(sellerId);
+        return orderMapper.selectByExample(example);
+    }
 }

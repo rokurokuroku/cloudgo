@@ -36,4 +36,5 @@ public interface SellerController {
 
     @RequestMapping("/checkSellerName")
     JSONObject checkSellerName(String sellerName);
+
 }

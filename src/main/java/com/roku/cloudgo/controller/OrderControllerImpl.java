@@ -89,4 +89,25 @@ public class OrderControllerImpl implements OrderController {
         jsonObject.put("data", jsonArray);
         return jsonObject;
     }
+
+    @Override
+    @RequestMapping("/showSellerOrders")
+    public JSONObject showSellerOrders(HttpServletRequest request) {
+        List<Order> orderList = orderService.getSellerOrders(sellerService.getSeller((String)sessionService.getAttr(request.getSession(), "sellerName")).getSellerId());
+        JSONArray jsonArray = new JSONArray();
+        for(int i=0; i<orderList.size(); ++i)
+        {
+            JSONObject jsonOrder = (JSONObject) JSONObject.toJSON(orderList.get(i));
+            String buyerName = userService.getUserById(orderList.get(i).getSellerId()).getUserName();
+            jsonOrder.put("buyerName", buyerName);
+            String productName = productService.getByProductID(orderList.get(i).getProductId()).getProductName();
+            jsonOrder.put("productName", productName);
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            jsonOrder.put("tradingHour", fmt.format(jsonOrder.getSqlDate("tradingHour")));
+            jsonArray.add(jsonOrder);
+        }
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data", jsonArray);
+        return jsonObject;
+    }
 }
