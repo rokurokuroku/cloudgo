@@ -28,7 +28,7 @@ public class ProductControllerImpl implements ProductController {
 
     @Override
     @RequestMapping("/addProduct")
-    public boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, String mainClass, String subClass, String productDescription, Long productImage, MultipartFile image) {
+    public boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, String mainClass, String subClass, String productDescription, MultipartFile image) {
         boolean flag = false;
         if(sessionService.checkSellerLogin(request.getSession()))
         {
@@ -41,6 +41,7 @@ public class ProductControllerImpl implements ProductController {
                 id = Long.parseLong(subClassId+id.toString());
             }while(productService.getByProductID(id)!=null);
             Long productId = id;
+            Long productImage = id;
             product.setProductId(productId);
             product.setProductName(productName);
             product.setProductPrice(productPrice);
@@ -68,7 +69,7 @@ public class ProductControllerImpl implements ProductController {
     @Override
     @RequestMapping("/toChangeProduct")
     @ResponseBody
-    public boolean progressChange(HttpServletRequest request, Long productId, Float productPrice, Long productRemaining, String productDescription, Long productImage) {
+    public boolean progressChange(HttpServletRequest request, Long productId, Float productPrice, Long productRemaining, String productDescription, MultipartFile image) {
         boolean flag = false;
         if(sessionService.checkSellerLogin(request.getSession()))
         {
@@ -79,8 +80,12 @@ public class ProductControllerImpl implements ProductController {
                 product.setProductPrice(productPrice);
                 product.setProductRemaining(productRemaining);
                 product.setProductDescription(productDescription);
-                product.setProductImage(productImage);
+                product.setProductImage(productId);
                 flag = productService.editProduct(product);
+                if(flag)
+                {
+                    productService.saveImage(image, productId);
+                }
             }
         }
         return flag;

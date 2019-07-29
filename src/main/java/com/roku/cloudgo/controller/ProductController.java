@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ProductController {
     @RequestMapping("/addProduct")
-    boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, String mainClass, String subClass, String productDescription, Long productImage, MultipartFile image);
+    boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, String mainClass, String subClass, String productDescription, MultipartFile image);
     /*
     创建一个新的商品
     根据选择的分类class1,class2生成ID
@@ -34,7 +34,7 @@ public interface ProductController {
 
     @RequestMapping("/toChangeProduct")
     @ResponseBody
-    boolean progressChange(HttpServletRequest request, Long productId, Float productPrice, Long productRemaining, String productDescription, Long productImage);
+    boolean progressChange(HttpServletRequest request, Long productId, Float productPrice, Long productRemaining, String productDescription, MultipartFile image);
    /*
    修改商品的信息
    ？？？？？？？？？？？？？？返回值？？？？？？？？？？？？
