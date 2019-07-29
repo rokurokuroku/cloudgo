@@ -35,5 +35,5 @@ public interface SellerController {
     String processLogout(HttpServletRequest request);
 
     @RequestMapping("/checkSellerName")
-    JSONObject checkUserName(String sellerName);
+    JSONObject checkSellerName(String sellerName);
 }

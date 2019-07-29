@@ -120,6 +120,7 @@ public class UserControllerImpl implements UserController {
         }
     }
 
+    @Override
     @RequestMapping("/checkUserName")
     @ResponseJSONP
     public JSONObject checkUserName(String userName) {

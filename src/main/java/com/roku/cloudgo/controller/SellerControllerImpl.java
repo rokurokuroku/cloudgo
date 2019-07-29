@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
 import com.roku.cloudgo.pojo.Seller;
 import com.roku.cloudgo.service.SellerService;
+import com.roku.cloudgo.service.SellerServiceImpl;
 import com.roku.cloudgo.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ public class SellerControllerImpl implements SellerController {
     @Autowired
     private SessionService sessionService;
     @Autowired
-    private SellerService sellerService;
+    private SellerServiceImpl sellerService;
 
     @Override
     @RequestMapping("/toSellerLogin")
@@ -135,7 +136,7 @@ public class SellerControllerImpl implements SellerController {
     @Override
     @RequestMapping("/checkSellerName")
     @ResponseJSONP
-    public JSONObject checkUserName(String sellerName) {
+    public JSONObject checkSellerName(String sellerName) {
         boolean result = sellerService.checkSellerName(sellerName);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("valid", result);

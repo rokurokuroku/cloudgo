@@ -17,6 +17,16 @@
     <link rel="stylesheet"  href="../css/signin.css">
     <link rel="stylesheet" href="../bootstrapvalidator-master/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet"href="../bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+
+    <style>
+        .form-horizontal
+        {
+            border-radius: 5px;
+            padding: 30px;
+            height: max-content;
+            box-shadow: 10px 10px 5px #888888;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -95,8 +105,6 @@
         <div role="tabpanel" class="tab-pane" id="register">
             <form  id="defaultForm" method="post" class="form-signin form-horizontal" style="transform: translate(10%,4%);" action="toRegister">
                 <h1 class="mb-4 font-weight-normal">用户注册界面</h1>
-
-<%--                <span id="msg" style="color: red;visibility: hidden;">用户名已经存在</span>--%>
                 <label for="inputUsername" class="sr-only">用户名</label>
                 <div class="input-group form-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
@@ -150,23 +158,6 @@
         </div>
     </div>
 </div>
-<%--<script>--%>
-<%--    function checkUserName(userName) {--%>
-<%--        $.post(--%>
-<%--            "/checkUserName?userName=" + userName,--%>
-<%--            function (data, status) {--%>
-<%--                if(data==false)--%>
-<%--                {--%>
-<%--                    $("#msg").css('visibility','')--%>
-<%--                }--%>
-<%--                else--%>
-<%--                {--%>
-<%--                    $("#msg").css('visibility','hidden');--%>
-<%--                }--%>
-<%--            }--%>
-<%--        )--%>
-<%--    }--%>
-<%--</script>--%>
 
 </body>
 </html>

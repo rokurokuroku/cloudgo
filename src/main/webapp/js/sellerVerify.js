@@ -1,13 +1,13 @@
 $(document).ready(function() {
         $('#defaultForm').bootstrapValidator({
-            message: 'This value is not valid',
+            message: '无效输入',
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-                userName: {
+                sellerName: {
                     message: '用户名不正确',
                     validators: {
                         notEmpty: {},
@@ -19,47 +19,47 @@ $(document).ready(function() {
                             regexp: /^[a-zA-Z0-9_\.]+$/
                         },
                         remote: {
-                            url: 'checkUserName',
+                            url: 'checkSellerName',
                             message: '该用户名已存在'
                         },
                         different: {
-                            field: 'userPassword',
+                            field: 'sellerPassword',
                             message: '密码和用户名不能相同'
                         }
                     }
                 },
-                userEmail: {
+                sellerEmail: {
                     validators: {
                         emailAddress: {}
                     }
                 },
-                userPassword: {
+                sellerPassword: {
                     validators: {
                         notEmpty: {},
                         identical: {
-                            field: 'reUserPassword',
+                            field: 'reSellerPassword',
                             message: '两次输入密码不一致'
                         },
                         different: {
-                            field: 'userName',
+                            field: 'sellerName',
                             message: '密码和用户名不能相同'
                         }
                     }
                 },
-                reUserPassword: {
+                reSellerPassword: {
                     validators: {
                         notEmpty: {},
                         identical: {
-                            field: 'userPassword'
+                            field: 'sellerPassword'
                         },
                         different: {
-                            field: 'userName',
+                            field: 'sellerName',
                             message: '用户名和密码不能相同'
                         }
                     }
                 },
 
-                userTelephone: {
+                sellerTelephone: {
                     validators: {
                         notEmpty: {},
                         digits: {},
