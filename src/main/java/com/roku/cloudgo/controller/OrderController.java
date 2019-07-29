@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface OrderController {
 
     @RequestMapping("/toBuy")
-    boolean progressBuy(HttpServletRequest request, Long productId, String address, Long buyNumber);
+    boolean progressBuy(HttpServletRequest request, Long productId, String address, Long buyNumber, String paymentCode);
     /*
     购买商品
     检测存货是否充足：检测productRemaining（存货）是否大于buyNumber（订单的购买数量）

@@ -103,32 +103,34 @@ public class ProductServiceImpl implements ProductService {
         {
             return null;
         }
-        Product product = new Product();
-        product.setProductId(jsonObject.getLong("productId"));
-        product.setProductName(jsonObject.getString("productName"));
-        product.setProductPrice(jsonObject.getFloat("productPrice"));
-        product.setProductRemaining(jsonObject.getLong("productRemaining"));
-        product.setProductSales(jsonObject.getLong("productSales"));
-        product.setProductImage(jsonObject.getLong("productImage"));
-        product.setProductDescription(jsonObject.getString("productDescription"));
-        product.setProductMark(jsonObject.getFloat("productMark"));
-        product.setSellerId(jsonObject.getLong("sellerId"));
+//        Product product = new Product();
+//        product.setProductId(jsonObject.getLong("productId"));
+//        product.setProductName(jsonObject.getString("productName"));
+//        product.setProductPrice(jsonObject.getFloat("productPrice"));
+//        product.setProductRemaining(jsonObject.getLong("productRemaining"));
+//        product.setProductSales(jsonObject.getLong("productSales"));
+//        product.setProductImage(jsonObject.getLong("productImage"));
+//        product.setProductDescription(jsonObject.getString("productDescription"));
+//        product.setProductMark(jsonObject.getFloat("productMark"));
+//        product.setSellerId(jsonObject.getLong("sellerId"));
+        Product product = jsonObject.toJavaObject(Product.class);
 
         return product;
     }
 
     @Override
     public JSONObject product2JsonObject(Product product) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("productId", product.getProductId());
-        jsonObject.put("productName", product.getProductName());
-        jsonObject.put("productPrice", product.getProductPrice());
-        jsonObject.put("productRemaining", product.getProductRemaining());
-        jsonObject.put("productSales", product.getProductSales());
-        jsonObject.put("productImage", product.getProductImage());
-        jsonObject.put("productDescription", product.getProductDescription());
-        jsonObject.put("productMark", product.getProductMark());
-        jsonObject.put("productSellerId", product.getSellerId());
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("productId", product.getProductId());
+//        jsonObject.put("productName", product.getProductName());
+//        jsonObject.put("productPrice", product.getProductPrice());
+//        jsonObject.put("productRemaining", product.getProductRemaining());
+//        jsonObject.put("productSales", product.getProductSales());
+//        jsonObject.put("productImage", product.getProductImage());
+//        jsonObject.put("productDescription", product.getProductDescription());
+//        jsonObject.put("productMark", product.getProductMark());
+//        jsonObject.put("productSellerId", product.getSellerId());
+        JSONObject jsonObject = (JSONObject) JSONObject.toJSON(product);
 
         SellerExample sellerExample = new SellerExample();
         sellerExample.createCriteria().andSellerIdEqualTo(product.getSellerId());

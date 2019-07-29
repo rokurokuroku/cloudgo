@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ProductController {
     @RequestMapping("/addProduct")
-    boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, Integer class1, Integer class2, String productDescription, Long productImage, MultipartFile image);
+    boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, String mainClass, String subClass, String productDescription, Long productImage, MultipartFile image);
     /*
     创建一个新的商品
     根据选择的分类class1,class2生成ID

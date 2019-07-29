@@ -25,30 +25,33 @@ public class OrderControllerImpl implements OrderController {
     private OrderServiceImpl orderService;
     @Autowired
     private SellerService sellerService;
+    @Autowired
+    private BankService bankService;
 
     @Override
     @RequestMapping("/toBuy")
-    public boolean progressBuy(HttpServletRequest request,  Long productId, String address, Long buyNumber) {
+    public boolean progressBuy(HttpServletRequest request,  Long productId, String address, Long buyNumber, String paymentCode) {
         boolean flag = false;
-        Long remainingNumber = productService.getByProductID(productId).getProductRemaining();
-        if(remainingNumber > buyNumber)
-        {
-            Product product = new Product();
-            product.setProductRemaining(remainingNumber - buyNumber);
-            if(address!=null && !address.equals(""))
-            {
-                productService.editProduct(product);
-                Order order = new Order();
-                order.setBuyerId(userService.getUser((String)sessionService.getAttr(request.getSession(), "userName")).getUserId());
-                order.setProductId(productId);
-                order.setProductNumbers(buyNumber);
-                order.setSellerId(productService.getByProductID(productId).getSellerId());
-                order.setTradingHour(new Date());
-                order.setShippingAddress(address);
-                order.setTransactionAmount(buyNumber*productService.getByProductID(productId).getProductPrice());
-                if(orderService.addOrder(order) && productService.editProduct(product))
-                {
-                    flag = true;
+        if(sessionService.checkUserLogin(request.getSession())) {
+            Long remainingNumber = productService.getByProductID(productId).getProductRemaining();
+            Long buyerId = userService.getUser((String) sessionService.getAttr(request.getSession(), "userName")).getUserId();
+            String bankPaymentCode = bankService.getBankRecord(buyerId).getPaymentCode();
+            if (remainingNumber > buyNumber && paymentCode.equals(bankPaymentCode)) {
+                Product product = new Product();
+                product.setProductRemaining(remainingNumber - buyNumber);
+                if (address != null && !address.equals("")) {
+                    productService.editProduct(product);
+                    Order order = new Order();
+                    order.setBuyerId(buyerId);
+                    order.setProductId(productId);
+                    order.setProductNumbers(buyNumber);
+                    order.setSellerId(productService.getByProductID(productId).getSellerId());
+                    order.setTradingHour(new Date());
+                    order.setShippingAddress(address);
+                    order.setTransactionAmount(buyNumber * productService.getByProductID(productId).getProductPrice());
+                    if (orderService.addOrder(order) && productService.editProduct(product)) {
+                        flag = true;
+                    }
                 }
             }
         }
