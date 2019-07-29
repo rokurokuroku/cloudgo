@@ -98,7 +98,7 @@ public class OrderControllerImpl implements OrderController {
         for(int i=0; i<orderList.size(); ++i)
         {
             JSONObject jsonOrder = (JSONObject) JSONObject.toJSON(orderList.get(i));
-            String buyerName = userService.getUserById(orderList.get(i).getSellerId()).getUserName();
+            String buyerName = userService.getUserById(orderList.get(i).getBuyerId()).getUserName();
             jsonOrder.put("buyerName", buyerName);
             String productName = productService.getByProductID(orderList.get(i).getProductId()).getProductName();
             jsonOrder.put("productName", productName);
