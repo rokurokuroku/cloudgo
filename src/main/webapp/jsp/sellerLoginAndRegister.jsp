@@ -1,3 +1,4 @@
+<%@ page import="com.roku.cloudgo.controller.SellerControllerImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,12 +11,24 @@
     <script type="text/javascript" src="../bootstrapvalidator-master/dist/js/bootstrapValidator.js"></script>
     <script type="text/javascript" src="../js/npm.js"></script>
     <script type="text/javascript" src="../js/verify.js"></script>
+    <script type="text/javascript" src="../js/sellerNpm.js"></script>
+    <script type="text/javascript" src="../js/sellerVerify.js"></script>
 
 
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
     <link rel="stylesheet"  href="../css/signin.css">
     <link rel="stylesheet" href="../bootstrapvalidator-master/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet"href="../bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+
+    <style>
+        .form-horizontal
+        {
+            border-radius: 5px;
+            padding: 30px;
+            height: max-content;
+            box-shadow: 10px 10px 5px #888888;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -63,12 +76,12 @@
     <!-- 登录 -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active " id="login" style="position: center">
-            <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%);" action="toSellerLogin">
+            <form  id="defaultForm1" method="post" class="form-signin form-horizontal " style="transform: translate(10%,20%); border-radius: 5px;" action="toSellerLogin">
 
                 <h1 class="mb-4 font-weight-normal">店家登录界面</h1>
 
                 <label for="sellerName" class="sr-only">商店名</label>
-                <div class="input-group form-group">
+                <div class="input-group form-group" >
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: large;" style="float:left"></span></span>
                     <input name="sellerName" type="text" id="sellerName" class=" form-control" placeholder="请输入商店名" maxlength="20" required autofocus>
                 </div>

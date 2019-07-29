@@ -20,10 +20,10 @@ $(document).ready(function() {
                         },
                         remote: {
                             url: 'checkUserName',
-                            message: '该用户名不可用'
+                            message: '该用户名已存在'
                         },
                         different: {
-                            field: 'password',
+                            field: 'userPassword',
                             message: '密码和用户名不能相同'
                         }
                     }

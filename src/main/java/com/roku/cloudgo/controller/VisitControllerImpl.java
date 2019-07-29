@@ -4,6 +4,7 @@ import com.roku.cloudgo.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -100,8 +101,11 @@ public class VisitControllerImpl implements VisitController {
 
 //    @Override
 //    @RequestMapping("/error")
-//    public String error()
+//    public ModelAndView error(Exception e)
 //    {
-//        return "error";
+//        ModelAndView m = new ModelAndView();
+//        m.addObject("errorMsg", e.getMessage());
+//        m.setViewName("error");
+//        return m;
 //    }
 }

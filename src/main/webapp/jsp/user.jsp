@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="../css/order.css">
 
 </head>
-<body style="background-image: url(../images/login.jpg);background-size: cover;height: 100vh;">
+<%--<body style="background-image: url(../images/login.jpg);background-size: cover;height: 100vh;">--%>
+<body style="background-color:#ECEFF1;height: 100vh;">
 
 <!--导航-->
 <div class="fonts">
-    <ul class="layui-nav" lay-filter="" style="font-size: x-large">
+    <ul class="layui-nav" lay-filter="" style="font-size: x-large;background-color:#393D49;">
         <li class="layui-nav-item"> <a href="index">CloudGo</a></li>
         <li class="layui-nav-item"><a href="index">首页</a></li>
         <li class="layui-nav-item layui-this"><a href="user">个人中心</a></li>
@@ -27,10 +28,11 @@
 
 <div class="container-fluid fonts">
     <!--左侧个人信息-->
-    <div class="row col-xs-2 col-md-2" style="height: 100vh;background-color: #4a4f5b;opacity: 0.55;position: relative"></div>
+<%--    <div class="row col-xs-2 col-md-2" style="height: 100vh;background-color: #4a4f5b;opacity: 0.55;position: relative"></div>--%>
+    <div class="row col-xs-2 col-md-2" style="height: 100vh;background-color: #090D09;opacity: 0.55;position: relative"></div>
     <div class="col-xs-2 col-md-2 center-block" style="position: absolute">
         <img src="../images/10000.jpg" alt="80x60" class="img-circle img-responsive center-block">
-        <table id="table1" class="table-responsive border-collapse" >
+        <table id="table1" class="table-responsive border-collapse" style="color:#ECEFF1;">
             <thead>
             <tr>
                 <th></th>
@@ -99,14 +101,14 @@
                             </div>
                             <!--收货地址-->
                             <div class="layui-form-item">
-                                <label class="layui-form-label">配送地址</label>
+                                <label class="layui-form-label">地址</label>
                                 <div class="layui-input-inline font">
                                     <input id="addAdd" type="text" name="address" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <!--个人描述-->
                             <div class="layui-form-item layui-form-text">
-                                <label class="layui-form-label">个人描述</label>
+                                <label class="layui-form-label">简介</label>
                                 <div class="layui-input-block font">
                                     <textarea name="descriptions" id="addDes" placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
