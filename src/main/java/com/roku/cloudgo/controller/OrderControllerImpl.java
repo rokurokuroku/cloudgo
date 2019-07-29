@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -80,6 +81,8 @@ public class OrderControllerImpl implements OrderController {
             jsonOrder.put("sellerName", sellerName);
             String productName = productService.getByProductID(orderList.get(i).getProductId()).getProductName();
             jsonOrder.put("productName", productName);
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            jsonOrder.put("tradingHour", fmt.format(jsonOrder.getSqlDate("tradingHour")));
             jsonArray.add(jsonOrder);
         }
         JSONObject jsonObject = new JSONObject();
