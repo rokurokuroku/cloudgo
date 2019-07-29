@@ -8,7 +8,7 @@
         {"name": "女装"},
         {"name": "童装"},
         {"name": "内衣"},
-        {"name": "其他"}
+        {"name": "其他衣服"}
         ]
     },
     {
@@ -17,27 +17,44 @@
         {"name": "流行女鞋"},
         {"name": "高跟鞋"},
         {"name": "运动鞋"},
-        {"name": "家电"},
-        {"name": "电视"},
-        {"name": "家电"},
-        {"name": "电视"}
+        {"name": "增高鞋"},
+        {"name": "拖鞋"},
+        {"name": "其他鞋靴"}
       ]
     },
     {
       "mainClass": "家电",
-      "subClass": [{}]
+      "subClass": [
+        {"name": "电视"},
+        {"name": "空调"},
+        {"name": "洗衣机"},
+        {"name": "冰箱"},
+        {"name": "厨房电器"},
+        {"name": "其他家电"}
+      ]
     },
     {
       "mainClass": "食品",
-      "subClass": [{}]
+      "subClass": [
+        {"name": "生鲜"},
+        {"name": "饮品"},
+        {"name": "零食"},
+        {"name": "其他食品"}
+      ]
     },
     {
       "mainClass": "洗护",
-      "subClass": [{}]
+      "subClass": [
+        {"name": "洗发水"},
+        {"name": "牙膏"},
+        {"name": "肥皂"},
+        {"name": "洗衣液"},
+        {"name": "其他洗护用品"}
+      ]
     },
     {
-      "mainClass": "其他",
-      "subClass": [{}]
+      "mainClass": "其他商品",
+      "subClass": [{"name": "其他"}]
     }
   ]
 }
