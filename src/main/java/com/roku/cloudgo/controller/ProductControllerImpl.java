@@ -105,4 +105,18 @@ public class ProductControllerImpl implements ProductController {
         productService.saveImage(image, Long.parseLong("666666"));
         return "index";
     }
+
+    @Override
+    @RequestMapping("/findSellerProducts")
+    @ResponseJSONP
+    public JSONObject getSellerProducts(HttpServletRequest request) {
+        if(sessionService.checkSellerLogin(request.getSession()))
+        {
+            return productService.findSellerProducts(sellerService.getSeller((String)sessionService.getAttr(request.getSession(), "sellerName")).getSellerId());
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

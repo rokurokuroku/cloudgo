@@ -169,4 +169,19 @@ public class ProductServiceImpl implements ProductService {
         String fileName = productImage.toString() + "." + typeName;
         return imageDao.saveImage(image, fileName);
     }
+
+    @Override
+    public JSONObject findSellerProducts(Long sellerId) {
+        ProductExample example = new ProductExample();
+        example.createCriteria().andSellerIdEqualTo(sellerId);
+        List<Product> productList = productMapper.selectByExample(example);
+        JSONObject jsonObject = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < productList.size(); ++i)
+        {
+            jsonArray.add(product2JsonObject(productList.get(i)));
+        }
+        jsonObject.put("data", jsonArray);
+        return jsonObject;
+    }
 }

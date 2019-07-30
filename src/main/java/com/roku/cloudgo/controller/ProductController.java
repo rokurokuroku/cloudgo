@@ -43,4 +43,7 @@ public interface ProductController {
     @RequestMapping("/findProductData")
     JSONObject getProducts(Integer number);
 
+    @RequestMapping("/findSellerProducts")
+    JSONObject getSellerProducts(HttpServletRequest request);
+
 }

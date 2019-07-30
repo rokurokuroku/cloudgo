@@ -18,4 +18,6 @@ public interface ProductService {
     boolean editProduct(Product product);
 
     boolean saveImage(MultipartFile image, Long productImage);
+
+    JSONObject findSellerProducts(Long sellerId);
 }
