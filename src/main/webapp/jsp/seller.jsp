@@ -13,6 +13,7 @@
 </head>
 <body style="background-color:#ECEFF1;height: 100vh;">
 <!--导航-->
+
 <div class="fonts">
     <ul class="layui-nav" lay-filter="" style="font-size: x-large;background-color:#393D49;">
         <li class="layui-nav-item"> <a href="sellerIndex">CloudGo</a></li>
@@ -94,7 +95,7 @@
                             <div class="layui-form-item layui-form-text">
                                 <label class="layui-form-label">简介</label>
                                 <div class="layui-input-block font">
-                                    <textarea name="sellerDescriptions" id="addSDes" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                    <textarea name="descriptions" id="addSDes" placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -147,22 +148,15 @@
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品主分类</label>
-                                <div class="layui-input-inline font">
-                                    <select name="mainClass" id="mainClass">
-                                        <option value="11" selected="">衣服</option>
-                                        <option value="12">鞋靴</option>
-                                        <option value="13">家电</option>
-                                        <option value="14">食品</option>
-                                        <option value="15">洗护</option>
-                                        <option value="99">其他</option>
+                                <div class="layui-input-inline font" id="Class1">
+                                    <select name="mainClass" id="mainClass" lay-filter="mainClass">
                                     </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品子类</label>
-                                <div class="layui-input-inline font">
-                                    <select name="subClass" id="subClass">
-
+                                <div class="layui-input-inline font" id="Class2" >
+                                    <select name="subClass" id="subClass" lay-filter="subClass">
                                     </select>
                                 </div>
                             </div>
@@ -172,14 +166,10 @@
                                     <textarea id="addPDescription" name="productDescription" required placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
                             </div>
+
                             <div class="layui-form-item">
                                 <label class="layui-form-label">选择图片:</label>
-                                <input type="file" id="image" name="image" accept="image/*"/> <br>
-                                <div class="layui-form-item">
-                                    <div class="layui-input-block">
-                                        <input type="submit" value="立刻上传">
-                                    </div>
-                                </div>
+                                <input type="file" id="image" name="image" /> <br>
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-input-block" style="float:right">
@@ -188,6 +178,7 @@
                             </div>
                         </form>
                     </div>
+
                     <div class="layui-tab-item">
                         <form class="layui-form" action="toChangeProduct" method="post">
 
@@ -251,6 +242,7 @@
     })
 </script>
 
+
 <%--卖家信息的显示--%>
 <script>
     function checkRadio(mValue) {
@@ -309,24 +301,47 @@
     })
 </script>
 
-<script>
-    $("mainClass").click(function () {
-        $.ajax({
-
-        })
-    })
-</script>
 
 <script>
     layui.use('form', function(){
         var form = layui.form;
-
         //监听提交
         form.on('submit(formDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
             return false;
         });
+        
+        var $=layui.jquery;
+        
+        $.get("../json/subClass.json",function (data) {
+            var a;
+            for(var i=0;i<data.length;i++){
+                a=data[i].mainClass;
+                $("#mainClass").append("<option>"+a+"</option>\n");
+            }
+            form.render('select');
+        })
+        
+        form.on('select(mainClass)',function (data) {
+            $("select[name=subClass]").empty();
+            form.render('select');
+            var b;
+            $.get("../json/subClass.json",function (d) {
+                for(var j=0;j<d.length;j++){
+                    if(d[j].mainClass==data.value){
+                        for(var k=0;k<d[k].subClass.length;k++){
+                            b=d[j].subClass;
+                            $("select[name=subClass]").append("<option>"+b[k].name+"</option>\n");
+                        }
+                        break;
+                    }
+                }
+                form.render('select');
+            })
+        })
     });
+
+
     layui.use(['layer', 'form'], function() {
         var layer = layui.layer
             , form = layui.form;
@@ -335,6 +350,7 @@
     layui.use('element', function(){
         var element = layui.element;
     });
+
 </script>
 
 </body>

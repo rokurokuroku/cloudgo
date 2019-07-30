@@ -1,6 +1,4 @@
-{
-  "status": 0,
-  "data": [
+[
     {
       "mainClass": "衣服",
       "subClass": [
@@ -56,5 +54,4 @@
       "mainClass": "其他商品",
       "subClass": [{"name": "其他"}]
     }
-  ]
-}
+]

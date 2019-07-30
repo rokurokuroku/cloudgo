@@ -28,6 +28,7 @@ public class ProductControllerImpl implements ProductController {
 
     @Override
     @RequestMapping("/addProduct")
+    @ResponseBody
     public boolean addProduct(HttpServletRequest request, String productName, Float productPrice, Long productRemaining, String mainClass, String subClass, String productDescription, MultipartFile image) {
         boolean flag = false;
         if(sessionService.checkSellerLogin(request.getSession()))
