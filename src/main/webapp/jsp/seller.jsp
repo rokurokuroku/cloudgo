@@ -414,41 +414,39 @@
 
 <%--卖家商品展示--%>
 <script>
-    // function loadSProduct(){
-    //     $.ajax({
-    //         url:'',
-    //         type:'get',
-    //         dataType:'json',
-    //         success:function (orderData) {
-    //             var contentToRemove = document.querySelectorAll("#addSOrderElement");
-    //             $(contentToRemove).remove();
-    //             for(i in orderData.data){
-    //                 var productname=orderData.data[i].productName;
-    //                 var username=orderData.data[i].buyerName;
-    //                 var productnumbers=orderData.data[i].productNumbers;
-    //                 var tradinghour=orderData.data[i].tradingHour;
-    //                 var buyershippingaddress=orderData.data[i].shippingAddress;
-    //                 var transactionAmount=orderData.data[i].transactionAmount;
-    //                 var t= "          <td>"+productname+"</td>"+
-    //                     "          <td>"+username+"</td>"+
-    //                     "          <td>"+productnumbers+"</td>"+
-    //                     "          <td>"+tradinghour+"</td>"+
-    //                     "          <td>"+buyershippingaddress+"</td>"+
-    //                     "          <td>"+transactionAmount+"</td>";
-    //                 $("#").append("<tr id=\"addSOrderElement\">"+t+"</tr>");
-    //             }
-    //         },
-    //         error:function () {
-    //             alert("读取商品失败！");
-    //         }
-    //     })
-    // }
-    // $(document).ready(function () {
-    //     loadSProduct();
-    // })
-    // $("#flushSData").click(function () {
-    //     loadSProduct();
-    // })
+    function loadSProduct(){
+        $.ajax({
+            url:'findSellerProducts',
+            type:'get',
+            dataType:'json',
+            success:function (proData) {
+                var contentToRemove = document.querySelectorAll("#addSProElement");
+                $(contentToRemove).remove();
+                for(i in proData.data){
+                    var product_name=proData.data[i].productName;
+                    var product_price=proData.data[i].productPrice;
+                    var product_remaining=proData.data[i].productRemaining;
+                    var product_sales=proData.data[i].productSales;
+                    var product_description=proData.data[i].productDescription;
+                    var t= "          <td>"+product_name+"</td>"+
+                        "          <td>"+product_price+"</td>"+
+                        "          <td>"+product_remaining+"</td>"+
+                        "          <td>"+product_sales+"</td>"+
+                        "          <td>"+product_description+"</td>";
+                    $("#findSProduct").append("<tr id=\"addSProElement\">"+t+"</tr>");
+                }
+            },
+            error:function () {
+                alert("读取商品失败！");
+            }
+        })
+    }
+    $(document).ready(function () {
+        loadSProduct();
+    })
+    $("#flushSData").click(function () {
+        loadSProduct();
+    })
 </script>
 
 </body>

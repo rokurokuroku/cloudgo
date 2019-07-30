@@ -72,6 +72,7 @@
                 <ul class="layui-tab-title">
                     <li class="layui-this">信息查询</li>
                     <li>个人订单</li>
+                    <li>充值界面</li>
                 </ul>
                 <!--标签页内容-->
                 <div class="layui-tab-content">
@@ -138,6 +139,11 @@
 
                                 </tbody>
                             </table>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="starter-template">
+                            <p class="lead">开发者正在开发中,给我们点时间吧！ :( :( :(</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -266,7 +272,6 @@
         loadUserInform();
     })
 </script>
-
 
 <script>
     layui.use('form', function(){
