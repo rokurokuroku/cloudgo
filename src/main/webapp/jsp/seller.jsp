@@ -13,6 +13,7 @@
 </head>
 <body style="background-color:#ECEFF1;height: 100vh;">
 <!--导航-->
+
 <div class="fonts">
     <ul class="layui-nav" lay-filter="" style="font-size: x-large;background-color:#393D49;">
         <li class="layui-nav-item"> <a href="sellerIndex">CloudGo</a></li>
@@ -94,7 +95,7 @@
                             <div class="layui-form-item layui-form-text">
                                 <label class="layui-form-label">简介</label>
                                 <div class="layui-input-block font">
-                                    <textarea name="sellerDescriptions" id="addSDes" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                    <textarea name="descriptions" id="addSDes" placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -147,21 +148,21 @@
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品主分类</label>
-                                <div class="layui-input-inline font">
-                                    <select name="mainClass" id="mainClass">
-                                        <option value="11" selected="">衣服</option>
-                                        <option value="12">鞋靴</option>
-                                        <option value="13">家电</option>
-                                        <option value="14">食品</option>
-                                        <option value="15">洗护</option>
-                                        <option value="99">其他</option>
+                                <div class="layui-input-inline font" id="Class1">
+                                    <select name="mainClass" id="mainClass" lay-filter="mainClass">
+<%--                                        <option selected>衣服</option>--%>
+<%--                                        <option>鞋靴</option>--%>
+<%--                                        <option>家电</option>--%>
+<%--                                        <option>食品</option>--%>
+<%--                                        <option>洗护</option>--%>
+<%--                                        <option>其他商品</option>--%>
                                     </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品子类</label>
-                                <div class="layui-input-inline font">
-                                    <select name="subClass" id="subClass">
+                                <div class="layui-input-inline font" id="Class2" >
+                                    <select name="subClass" id="subClass" lay-filter="subClass">
 
                                     </select>
                                 </div>
@@ -172,14 +173,18 @@
                                     <textarea id="addPDescription" name="productDescription" required placeholder="请输入内容" class="layui-textarea"></textarea>
                                 </div>
                             </div>
+
+<%--                            <div class="layui-upload">--%>
+<%--                                <button type="button" class="layui-btn" id="test1" accept="image/*">上传图片</button>--%>
+<%--                                <div class="layui-upload-list">--%>
+<%--                                    <img class="layui-upload-img" id="demo1">--%>
+<%--                                    <p id="demoText"></p>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+
                             <div class="layui-form-item">
                                 <label class="layui-form-label">选择图片:</label>
-                                <input type="file" id="image" name="image" accept="image/*"/> <br>
-                                <div class="layui-form-item">
-                                    <div class="layui-input-block">
-                                        <input type="submit" value="立刻上传">
-                                    </div>
-                                </div>
+                                <input type="file" id="image" name="image" /> <br>
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-input-block" style="float:right">
@@ -251,6 +256,76 @@
     })
 </script>
 
+<script>
+    function mainClass(){
+            $.ajax({
+                url:"../json/subClass.json",
+                type:"get",
+                dataType:"json",
+                success:function (data) {
+                    var html1;
+                    var contentToRemove = document.querySelectorAll("#mainClass");
+                    $(contentToRemove).remove();
+                    var a1="<select name=\"mainClass\" id=\"mainClass\" lay-filter=\"mainClass\">";
+                    var a2="</select>";
+                    for(var i=0;i<data.length;i++){
+                        html1+="<option>"+data[i].mainClass+"</option>";
+                    }
+                    $("#Class1").append(a1+html1+a2);
+                    var html2;
+                    var b1="<select name=\"subClass\" id=\"subClass\" lay-filter=\"subClass\">";
+                    var b2="</select>";
+                    var contentToRemove1 = document.querySelectorAll("#subClass");
+                    $(contentToRemove1).remove();
+                    for(var k=0;k<data.length;k++){
+                        if($("#mainClass").val()==data[k].mainClass){
+                            var subC=data[k].subClass;
+                            for(var j=0;j<subC.length;j++){
+                                html2+="<option>"+subC[j].name+"</option>";
+                            }
+                            $("#Class2").append(b1+html2+b2);
+
+                        }
+                    }
+                }
+            })
+    }
+    function subClass(){
+            $.ajax({
+                url:"../json/subClass.json",
+                type:"get",
+                dataType:"json",
+                success:function (data) {
+                    var html2;
+                    var b1="<select name=\"subClass\" id=\"subClass\">";
+                    var b2="</select>";
+                    console.log(b2);
+                    var contentToRemove1 = document.querySelectorAll("#subClass");
+                    $(contentToRemove1).remove();
+                    for(var k=0;k<data.length;k++){
+                        if($("#mainClass").val()==data[k].mainClass){
+                            var subC=data[k].subClass;
+                            for(var j=0;j<subC.length;j++){
+                                html2+="<option>"+subC[j].name+"</option>";
+                            }
+                            $("#Class2").append(b1+html2+b2);
+                        }
+                    }
+                }
+            })
+    }
+    $(document).ready(function () {
+        mainClass();
+    })
+    $("#mainClass").change(function () {
+        subClass();
+    })
+</script>
+
+<script>
+
+</script>
+
 <%--卖家信息的显示--%>
 <script>
     function checkRadio(mValue) {
@@ -309,24 +384,49 @@
     })
 </script>
 
-<script>
-    $("mainClass").click(function () {
-        $.ajax({
-
-        })
-    })
-</script>
 
 <script>
     layui.use('form', function(){
         var form = layui.form;
-
         //监听提交
         form.on('submit(formDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
             return false;
         });
     });
+
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            ,url: '/addProduct/'
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+            }
+            ,done: function(res){
+                //如果上传失败
+                if(res.code > 0){
+                    return layer.msg('上传失败');
+                }
+                //上传成功
+            }
+            ,error: function(){
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });
+            }
+        });
+    });
+
     layui.use(['layer', 'form'], function() {
         var layer = layui.layer
             , form = layui.form;
@@ -335,6 +435,7 @@
     layui.use('element', function(){
         var element = layui.element;
     });
+
 </script>
 
 </body>
