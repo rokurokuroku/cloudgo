@@ -35,8 +35,8 @@
       "mainClass": "食品",
       "subClass": [
         {"name": "生鲜"},
-        {"name": "饮品"},
         {"name": "零食"},
+        {"name": "饮品"},
         {"name": "其他食品"}
       ]
     },

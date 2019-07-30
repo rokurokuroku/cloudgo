@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <link rel="stylesheet"  href="../css/bootstrap.min.css">
     <script type="text/javascript" src="../layui-v2.5.4/layui/layui.js"></script>
+    <script src="../js/jquery.form.js"></script>
     <link rel="stylesheet" href="../layui-v2.5.4/layui/css/layui.css" media="all">
 
 </head>
@@ -63,7 +64,7 @@
                     <li class="layui-this">信息查询</li>
                     <li>已售订单</li>
                     <li>添加商品</li>
-                    <li>修改商品信息</li>
+                    <li>卖家商品信息</li>
                 </ul>
                 <!--标签页内容-->
                 <div class="layui-tab-content">
@@ -127,7 +128,9 @@
                     </div>
 
                     <div class="layui-tab-item">
-                        <form class="layui-form" action="addProduct" method="post" enctype="multipart/form-data">
+<%--                        <form class="layui-form" action="addProduct" method="post" enctype="multipart/form-data">--%>
+
+                        <form class="layui-form">
                             <div class="layui-form-item">
                                 <label class="layui-form-label">商品名称</label>
                                 <div class="layui-input-inline font">
@@ -173,16 +176,25 @@
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-input-block" style="float:right">
-                                    <button id="savePData" class="layui-btn" lay-submit="" lay-filter="demo1" type="submit">上架</button>
+                                    <button id="savePData" class="layui-btn" lay-submit="" lay-filter="demo1" type="button">上架</button>
                                 </div>
                             </div>
                         </form>
                     </div>
 
                     <div class="layui-tab-item">
-                        <form class="layui-form" action="toChangeProduct" method="post">
+                        <table class="table table-hover">
+                            <thead><tr>
+                                <th>商品名称</th>
+                                <th>商品价格</th>
+                                <th>商品剩余量</th>
+                                <th>商品已购买量</th>
+                                <th>商品详情</th>
+                            </tr></thead>
+                            <tbody id="findSProduct">
 
-                        </form>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -242,7 +254,6 @@
     })
 </script>
 
-
 <%--卖家信息的显示--%>
 <script>
     function checkRadio(mValue) {
@@ -301,7 +312,7 @@
     })
 </script>
 
-
+<%--laiyu FORM--%>
 <script>
     layui.use('form', function(){
         var form = layui.form;
@@ -329,7 +340,7 @@
             $.get("../json/subClass.json",function (d) {
                 for(var j=0;j<d.length;j++){
                     if(d[j].mainClass==data.value){
-                        for(var k=0;k<d[k].subClass.length;k++){
+                        for(var k=0;k<d[j].subClass.length;k++){
                             b=d[j].subClass;
                             $("select[name=subClass]").append("<option>"+b[k].name+"</option>\n");
                         }
@@ -351,6 +362,93 @@
         var element = layui.element;
     });
 
+</script>
+
+<%--ajax表单提交--%>
+<script>
+    function submitPro(){
+        var productName=$("#addPName").val();
+        var productPrice=$("#addPPrice").val();
+        var productRemaining=$("#addPRemaining").val();
+        var mainClass=$("#mainClass").val();
+        var subClass=$("#subClass").val();
+        var productDescription=$("#addPDescription").val();
+        var imgFile = document.getElementById('image').files[0];
+        console.log(imgFile);
+        // if(typeof(imgFile)=="undefined"){
+        //     toastr.error("请选择需要导入的搜索词文件。");
+        //     return;
+        // }
+
+        var formData=new FormData();
+        formData.append("productName",productName);
+        formData.append("productPrice",productPrice);
+        formData.append("productRemaining",productRemaining);
+        formData.append("mainClass",mainClass);
+        formData.append("subClass",subClass);
+        formData.append("productDescription",productDescription);
+        formData.append("image",imgFile);
+
+        $.ajax({
+            url:"addProduct",
+            data:formData,
+            type:"post",
+            processData: false,
+            contentType: false,
+            success:function (result) {
+                if(true==result){
+                    alert("添加成功!请返回页面重新刷新。");
+                }else{
+                    alert("添加失败!失败的原因有以下几种:1.错误访问，2.系统繁忙，3.填入信息错误。");
+                }
+            },
+            error:function () {
+                alert("添加失败！");
+            }
+        })
+    }
+    $("#savePData").click(function () {
+        submitPro();
+    })
+</script>
+
+<%--卖家商品展示--%>
+<script>
+    // function loadSProduct(){
+    //     $.ajax({
+    //         url:'',
+    //         type:'get',
+    //         dataType:'json',
+    //         success:function (orderData) {
+    //             var contentToRemove = document.querySelectorAll("#addSOrderElement");
+    //             $(contentToRemove).remove();
+    //             for(i in orderData.data){
+    //                 var productname=orderData.data[i].productName;
+    //                 var username=orderData.data[i].buyerName;
+    //                 var productnumbers=orderData.data[i].productNumbers;
+    //                 var tradinghour=orderData.data[i].tradingHour;
+    //                 var buyershippingaddress=orderData.data[i].shippingAddress;
+    //                 var transactionAmount=orderData.data[i].transactionAmount;
+    //                 var t= "          <td>"+productname+"</td>"+
+    //                     "          <td>"+username+"</td>"+
+    //                     "          <td>"+productnumbers+"</td>"+
+    //                     "          <td>"+tradinghour+"</td>"+
+    //                     "          <td>"+buyershippingaddress+"</td>"+
+    //                     "          <td>"+transactionAmount+"</td>";
+    //                 $("#").append("<tr id=\"addSOrderElement\">"+t+"</tr>");
+    //             }
+    //         },
+    //         error:function () {
+    //             alert("读取商品失败！");
+    //         }
+    //     })
+    // }
+    // $(document).ready(function () {
+    //     loadSProduct();
+    // })
+    // $("#flushSData").click(function () {
+    //     loadSProduct();
+    // })
 </script>
 
 </body>
