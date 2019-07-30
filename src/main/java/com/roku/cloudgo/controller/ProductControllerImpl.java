@@ -37,7 +37,7 @@ public class ProductControllerImpl implements ProductController {
             Long id = Long.parseLong("0");
             Random r = new Random();
             do {
-                id = r.nextLong() * (1000000000);
+                id = 0 + (((long) (r.nextDouble() * (1000000000))));
                 id = Long.parseLong(subClassId+id.toString());
             }while(productService.getByProductID(id)!=null);
             Long productId = id;
