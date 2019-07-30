@@ -21,7 +21,7 @@ public interface SellerController {
     */
 
     @RequestMapping("/toSellerChange")
-    String processChange(HttpServletRequest request, String sellerEmail, Long sellerTelephone, Character sellerGender, String descriptions);
+    String processChange(HttpServletRequest request, String sellerEmail, Long sellerTelephone, String sellerGender, String descriptions);
     /*
     修改用户信息
     成功返回"seller.jsp"，失败返回"seller.jsp"

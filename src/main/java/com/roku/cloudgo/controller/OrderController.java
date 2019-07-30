@@ -2,7 +2,6 @@ package com.roku.cloudgo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
-import com.roku.cloudgo.pojo.Order;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;

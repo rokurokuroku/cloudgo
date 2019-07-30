@@ -3,7 +3,6 @@ package com.roku.cloudgo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
 import com.roku.cloudgo.pojo.Seller;
-import com.roku.cloudgo.service.SellerService;
 import com.roku.cloudgo.service.SellerServiceImpl;
 import com.roku.cloudgo.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,17 +84,17 @@ public class SellerControllerImpl implements SellerController {
 
     @Override
     @RequestMapping("/toSellerChange")
-    public String processChange(HttpServletRequest request, String sellerEmail, Long sellerTelephone, Character sellerGender, String descriptions) {
+    public String processChange(HttpServletRequest request, String sellerEmail, Long sellerTelephone, String sellerGender, String descriptions) {
         boolean flag = false;
-        if(sessionService.checkUserLogin(request.getSession())) {
-            Seller user = new Seller();
-            user.setSellerName((String)sessionService.getAttr(request.getSession(), "sellerName"));
-            user.setSellerEmail(sellerEmail);
-            user.setSellerTelephone(sellerTelephone);
-            user.setSellerGender(sellerEmail);
-            user.setSellerDescription(descriptions);
+        if(sessionService.checkSellerLogin(request.getSession())) {
+            Seller seller = new Seller();
+            seller.setSellerName((String)sessionService.getAttr(request.getSession(), "sellerName"));
+            seller.setSellerEmail(sellerEmail);
+            seller.setSellerTelephone(sellerTelephone);
+            seller.setSellerGender(sellerGender);
+            seller.setSellerDescription(descriptions);
 
-            flag = sellerService.editSeller(user);
+            flag = sellerService.editSeller(seller);
         }
         else
         {

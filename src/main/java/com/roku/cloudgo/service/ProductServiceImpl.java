@@ -17,8 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.List;
 
-import com.roku.cloudgo.lib.ProductClass;
-
 @Service
 public class ProductServiceImpl implements ProductService {
     @Resource
