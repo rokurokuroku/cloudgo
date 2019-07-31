@@ -212,7 +212,7 @@
 
                         var t="<div class=\"col-md-4\" id=\"addElement\">\n" +
                             "            <div class=\"responsive thumbnail\">\n" +
-                            "                <img src=\"../images/10000.jpg\" alt=\"Forest\">\n" +
+                            "                <img src=\"../images/"+image+"..jpg\" onerror=\"this.src='../images/10000.jpg'\" alt=\"Forest\">\n" +
                             "                <div class=\"caption\">\n" +
                             "                    <h4>商品名称："+name+"</h4>\n" +
                             "                    <p>商品价格："+price+"</p>\n" +
